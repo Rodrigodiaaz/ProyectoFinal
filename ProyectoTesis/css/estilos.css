@@ -1,0 +1,70 @@
+header{
+	background: #8B0000;
+}
+
+p{
+    color: black;
+}
+
+
+
+#services{
+	background: #8B0000;
+	color: white;
+
+}
+
+.TarjetaP {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    max-width: 300px;
+    margin: auto;
+    text-align: center;
+}
+
+.TarjetaPubli {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    max-width: 300px;
+    text-align: left;
+}
+
+.badge {
+    background-color: White;
+    color: #8B0000 !important;
+    max-width: 300px;
+}
+
+.ButtonMP {
+    background-color: #8B0000 !important;
+    color: white !important;
+    border:none;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.EmblemaP {
+    background-color: #8B0000 !important;
+    color: white !important;
+    text-align: center;
+    border:none;
+}
+.EmblemaP2 {
+    background-color: #8B0000 !important;
+    color: white !important;
+    text-align: left;
+    border:none;
+}
+
+.NotifiPer {
+    background-color: #8B0000 !important;
+    color: white !important;
+    border: none;
+}
+.Textomen {
+    text-align: center;
+}
+
+div {
+
+    padding: 5px;
+}
+nav{
+    color: white !important;
+}
