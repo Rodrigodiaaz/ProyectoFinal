@@ -7,11 +7,17 @@ p{
 }
 
 
+#services {
+    background: #8B0000;
+    color: white;
+}
 
-#services{
-	background: #8B0000;
-	color: white;
+.contenedorcomentarios {
+    background-color: rgba(0, 0, 0, 0.2);
+}
 
+#contenedorcomentarios {
+    background-color: rgba(0, 0, 0, 0.2);
 }
 
 .TarjetaP {
@@ -58,11 +64,11 @@ p{
     border: none;
 }
 .Textomen {
+
     text-align: center;
 }
 
 div {
-
     padding: 5px;
 }
 nav{

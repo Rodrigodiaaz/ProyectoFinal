@@ -14,7 +14,7 @@
     <title>RSTSP</title>
     <link href='/vendor/bootstrap/css/bootstrap.min.css' rel='stylesheet'>
     <link href='/css/scrolling-nav.css' rel='stylesheet'>
-    <link href='../css/estilos.css' rel='stylesheet' />
+    <link href='/css/estilos.css' rel='stylesheet' />
     <link rel='stylesheet' type='text/css' href='../css/w3.css'>
 
 
@@ -75,7 +75,7 @@
                         <h5>Perfil</h5>
                         <br />
                         <div class='TarjetaP '>
-                            <img src='../media/perfil.png' alt='Pablo' style='width: 100%' class='rounded-top'>
+                            <img src='../media/images.png' alt='Pablo' style='width: 100%' class='rounded-top'>
                             <br />
                             <br />
                             <p><%
@@ -135,7 +135,7 @@
                         </div>
 
                         <!-- Comentarios -->
-                        <div class='mx-auto w3-card w3-round w3-white'>
+                        <div class="mx-auto w3-card w3-round " id='contenedorcomentarios' >
                             <div class='EmblemaP'><h1 >Comentarios</h1></div>
                             <br />
                             <br />
