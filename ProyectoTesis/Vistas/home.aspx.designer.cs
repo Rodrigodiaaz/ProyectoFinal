@@ -22,22 +22,22 @@ namespace ProyectoTesis.Vistas {
         protected global::System.Web.UI.WebControls.Label lblNombre;
         
         /// <summary>
-        /// Control txtContenidoPublicacion.
+        /// Control txtPublicacion.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTextArea txtContenidoPublicacion;
+        protected global::System.Web.UI.HtmlControls.HtmlTextArea txtPublicacion;
         
         /// <summary>
-        /// Control lblInforArchivo.
+        /// Control lblMensaje.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblInforArchivo;
+        protected global::System.Web.UI.WebControls.Label lblMensaje;
         
         /// <summary>
         /// Control btnPublicar.

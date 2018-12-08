@@ -21,6 +21,7 @@ namespace ProyectoTesis.Vistas
             }
             else
             {
+                lblMensaje.Text = (string)Session["mensajeUsuario"];
                 Usuario u = (Usuario)Session["logeado"];
                 lblNombre.Text = u.Nombre;
             }
@@ -35,7 +36,8 @@ namespace ProyectoTesis.Vistas
 
             ControladorPublicacion cp = new ControladorPublicacion();
             
-            if (Archivo.Value != "" && txtContenidoPublicacion.Value.Equals(""))
+            
+            if (Archivo.Value != "" && txtPublicacion.Value.Equals(""))
             {
                 nombreArchivo = Archivo.PostedFile.FileName;
                 nombreArchivo = Path.GetFileName(nombreArchivo);
@@ -49,23 +51,25 @@ namespace ProyectoTesis.Vistas
 
                 if (File.Exists(strFilePath))
                 {
-                    lblInforArchivo.Text = nombreArchivo + " ya existe!";
+                    lblMensaje.Text = nombreArchivo + " ya existe!";
                 }
                 else
                 {
                     Archivo.PostedFile.SaveAs(strFilePath);
-                    lblInforArchivo.Text = nombreArchivo + " se subio con exito.";
+                    lblMensaje.Text = nombreArchivo + " se subio con exito.";
                 }
 
             }
             else
             {
-                if (!txtContenidoPublicacion.Value.Equals("") && Archivo.Value == "")
+                if (!txtPublicacion.Value.Equals("") && Archivo.Value == "")
                 {
-                    string mensaje = cp.realizarActializacion(u.Id.ToString(), u.Id.ToString(), txtContenidoPublicacion.Value, DateTime.Now.ToString());
+                    string mensaje = cp.realizarActializacion(u.Id.ToString(), u.Id.ToString(), txtPublicacion.Value, DateTime.Now.ToString());
                     if (mensaje.Equals("Actualizacion realizada con exito"))
                     {
-                        lblMensaje.Text = mensaje;
+                        Session["mensajeUsuario"] = mensaje;
+                        Response.Redirect(Request.Url.AbsoluteUri);
+                        
                     }
                     else
                     {
@@ -78,7 +82,7 @@ namespace ProyectoTesis.Vistas
        
         protected void subirarchivo(object sender, EventArgs e)
         {
-            lblInforArchivo.Text = Archivo.PostedFile.FileName;
+            lblMensaje.Text = Archivo.PostedFile.FileName;
         }
     }
 }

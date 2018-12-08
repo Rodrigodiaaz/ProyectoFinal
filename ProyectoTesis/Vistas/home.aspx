@@ -119,11 +119,11 @@
       <span class="w3-right w3-opacity">16 min</span>
       
       <h4>Rodrigo Diaz</h4>
-      <textarea id="txtContenidoPublicacion" class="form-control" rows="3" required runat="server"  placeholder="Que vas a publicar hoy!"></textarea>
+       <textarea id="txtPublicacion" class="form-control"  runat="server" rows="3" placeholder="Que vas a publicar hoy!"></textarea>
       <br />
-      <asp:Label ID="lblInforArchivo" runat="server" Text=""></asp:Label>
+          <asp:Label ID="lblMensaje" runat="server" Text=""></asp:Label>
       <br />
-      <input id='btnPublicar' type='button' value='Publicar' runat="server" onserverclick="PublicarActualizacion" class='btn btn-dark col-lg-1' />
+      <input id='btnPublicar' type='button' value='Publicar' runat="server"  onserverclick="PublicarActualizacion" class='btn btn-dark col-lg-1' />
       <input id='Archivo' class="btn btn-dark col-lg-1" runat="server" type='file' onserverclick="subirarchivo" name='image_post'/>
       <br />
       <br />
@@ -196,7 +196,7 @@
                                             }
                                             else
                                             {
-                                                Response.Write("<input id='Comentar1' type='button' value='Comentar' runat='server' class='ButtonMP' data-toggle='collapse' href='#ComentarP" + i + "' role='button' aria-expanded='false' aria-controls='ComentarP' onclick='ComentarPublicacion' />");
+                                                Response.Write("<input id='Comentar1' type='button' value='Comentar' runat='server' class='btn btn-dark col-lg-2' data-toggle='collapse' href='#ComentarP" + i + "' role='button' aria-expanded='false' aria-controls='ComentarP' onclick='ComentarPublicacion' />");
                                                 Response.Write("<div class='collapse alert-warning' id='ComentarP" + i + "'>");
                                                 Response.Write("<div class='card card-body'>");
                                                 List<Comentario> listaComentariosPorPublicacion = cm.listaComentarios(Publicaciones.Idpublicacion);
@@ -226,10 +226,11 @@
                                                 }
                                                 else
                                                 {
-                                                    Response.Write("<p>No hay comentarios en la publicacion</p>" + listaComentariosPorPublicacion.Count);
+                                                    Response.Write("<p>No hay comentarios en la publicacion, Comentale algo!</p>" );
                                                 }
                                             }
-                %><input id='txtTextoComentario<% Response.Write(i); %>' type='text' />&nbsp <input type="button" value="responder" onclick="enviaComentario(<%Response.Write(listaPublicaciones[i].Idpublicacion + ", " + i + ", " + u.Id);%>)" class="ButtonMP" /> 
+
+                %> <textarea id="txtTextoComentario<% Response.Write(i); %>" rows="3"></textarea>&nbsp <br /><input type="button" value="responder" onclick="enviaComentario(<%Response.Write(listaPublicaciones[i].Idpublicacion + ", " + i + ", " + u.Id);%>)" class="btn btn-dark " /> 
                 <%
                                 Response.Write("</div>");
                                 Response.Write("</div>");
