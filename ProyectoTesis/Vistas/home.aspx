@@ -16,7 +16,19 @@
     <link href='/css/scrolling-nav.css' rel='stylesheet'>
     <link href='/css/estilos.css' rel='stylesheet' />
     <link rel='stylesheet' type='text/css' href='../css/w3.css'>
-
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <style>
+    .sidenav {
+        background-color: #f1f1f1;
+    }
+    #mainNav{
+      background:  #8B0000;
+    }
+    #MainFooter{
+        background:  #8B0000;
+    }
+    </style>
 
 </head>
 
@@ -25,7 +37,7 @@
   
 
         <!-- Navigation -->
-        <nav class='navbar navbar-expand-lg navbar-dark bg-dark fixed-top' id='mainNav'>
+        <nav class='navbar navbar-expand-lg fixed-top' id='mainNav'>
             <div class='container'>
                 <a class='navbar-brand js-scroll-trigger' href='#page-top'>Quality Essentials</a>
                 <button class='navbar-toggler' type='button' data-toggle='collapse' data-target='#navbarResponsive' aria-controls='navbarResponsive' aria-expanded='false' aria-label='Toggle navigation'>
@@ -40,107 +52,90 @@
                     <input class='form-control ml-5 lg-5 mr-5 lg-5 mt-lg-3 mb-lg-3' type='search' placeholder='Busqueda' aria-label='Search'>
 
 
-                    <ul class='navbar-nav ml-auto'>
-
-                        <li class='nav-item'>
-                            <a class='nav-link js-scroll-trigger text-white' href='MenuForo.aspx'>Foros</a>
-                        </li>
-
-
-                        <li class='nav-item'>
-                            <a class='nav-link js-scroll-trigger text-white' href='MenuTesis.aspx'>Tesis</a>
-                        </li>
-
-
-                        <li class='nav-item'>
-                            <a class='nav-link js-scroll-trigger text-white' href='MenuVideo.aspx'>Videos</a>
-
-                        </li>
-
-
-                    </ul>
                 </div>
             </div>
         </nav>
 
-
-        <!-- Centro Pagina -->
-        <section >
-            <div class='container GG' >
-                <div class='row'>
-
-
-                    <!-- Perfil -->
-                    <div class='col-lg-3 mx-auto jumbotron'>
-                        <h5>Perfil</h5>
-                        <br />
-                        <div class='TarjetaP '>
-                            <img src='../media/images.png' alt='Pablo' style='width: 100%' class='rounded-top'>
-                            <br />
+<header>
+ <div class="container-fluid">
+  <div class="row content">
+    <div class="col-lg-3 sidenav w3-card">
+      <blockquote class="blockquote">
+        <p class="mb-0">Perfil de Usuario</p>
+        <br />
+        <footer class=""> <img class="rounded img-fluid" width="50px" height="50px" src="../img/menu.jpg">Menu Usuario </footer>
+        </blockquote>
+      <ul class="list-group">
+        <li class="list-group-item"><img src='../media/images.png' alt='Pablo' style='width: 100px' height:'100px'  class='rounded-top'><br />
                             <br />
                             <p><%
                                     Usuario u = (Usuario)Session["logeado"];
                                    Response.Write(u.Nombre);
                                    
-                                   %></p>
+                                   %></p></li>
+        <li class="list-group-item"><p>Ingenieria en informatica.</p></li>
+        <li class="list-group-item"><p>Inacap Maipu</p></li>
+        <li class="list-group-item"></li>
+      </ul>
+      <br />
+      <blockquote class="blockquote">
+        <p class="mb-0">Otras opciones</p>
+        </blockquote>
+      <ul class="list-group">
+        <li class="list-group-item"><a href="ModificarUsu.aspx">Modificar Perfil</a></li>
+        <li class="list-group-item"><a href="MenuTesis.aspx">Menu Tesis</a></li>
+        <li class="list-group-item"><a href="Menuforo.aspx">Menu Foro</a></li>
+        <li class="list-group-item"><a href="">Menu Conferencia</a></li>
+      </ul>
+      <br>
 
-                            <p class='title'>Ingenieria en informatica. </p>
-                            <p>Inacap Maipu</p>
-                            <p>
-                                <input id='Button2' type='button' value='Modificar Perfil' class='ButtonMP' />
-                                <br />
-                           </p>
-                                <button id='Notificacion' type='button' value='Comentar' class='ButtonMP' data-toggle='collapse' href='#Notify' role='button' aria-expanded='false' aria-controls='Notify' >Notificaciones<span class='badge'>10</span></button>
-                                     
+    <br />
+
+      <blockquote class="blockquote">
+        <p class="mb-0">Listado</p>
+        </blockquote>
+      <ul class="list-group">
+        <li class="list-group-item"><p data-toggle="collapse" href="#Notify" role="button" aria-expanded="false" aria-controls="Notify" ><img class="rounded img-fluid" width="30px" height="30px" src="../img/notificacion.jpg">Notificaciones</p> 
                                     <div class='collapse' id='Notify'>
                                       <div class='card card-body'>
                                         <a href='MenuTesis.aspx'>Nueva tesis</a>
                                       </div>
-                                    </div>
-
-                        </div>
-                    </div>
-                   
-                    <!-- Menu -->
-                    <div class='col-lg-7 mx-auto w3-card w3-round w3-white'>
-
-
-                        <div>
-                            <div class='EmblemaP'><h1 >Publicaciones</h1></div>
-                            <h5 class='EmblemaP2'>Bienvenido <asp:Label ID="lblNombre" runat="server" Text="Label"></asp:Label></h5>
-                            <br />
-                            <br />
-                            
-                            <div>
-                                <div class=''>
-                                    <div>
-                                        <div>
-                                            <div class='textomen w3-padding-large'>
-                                                <asp:Label ID="lblMensaje" runat="server" Text=""></asp:Label> <br />
-                                            <input id='txtContenidoPublicacion' type='text' placeholder='Que vas a publicar Hoy!' runat="server" class='TextoMenu' />
-                                                    <br />
-                                                <asp:Label ID="lblInforArchivo" runat="server" Text=""></asp:Label>
-                                                    <br />
-                                            </div>
-                                            <input id='btnPublicar' type='button' value='Publicar' runat="server" onserverclick="PublicarActualizacion" class='ButtonMP' />
-                                            <input id='Archivo' runat="server" type='file' onserverclick="subirarchivo" name='image_post'/>
-                                           
-                                                    <br />
-                                                    <br />
-                                                    <br />
                                         </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                                        </li>
+        
+      </ul>
+      <br>
+    </div>
+      
+      
 
-                        <!-- Comentarios -->
-                        <div class="mx-auto w3-card w3-round " id='contenedorcomentarios' >
-                            <div class='EmblemaP'><h1 >Comentarios</h1></div>
-                            <br />
-                            <br />
-                            <br />
-                            <!-- de aca -->
+    <div class="col-lg-9 w3-card">
+      <div class="text-center"><h2>Publicaciones</h2></div>
+      <h5 class="EmblemaP2">&nbsp;&nbsp;&nbsp;&nbsp;</h5>
+      <br />
+      
+      <div class="w3-card w3-padding">
+      <h4><img class="rounded img-fluid" width="50px" height="50px" src="../img/welcome.jpg">Bienvenido<asp:Label ID="lblNombre" runat="server" Text="Label"></asp:Label> </h4>
+      <span class="w3-right w3-opacity">16 min</span>
+      
+      <h4>Rodrigo Diaz</h4>
+      <textarea id="txtContenidoPublicacion" class="form-control" rows="3" required runat="server"  placeholder="Que vas a publicar hoy!"></textarea>
+      <br />
+      <asp:Label ID="lblInforArchivo" runat="server" Text=""></asp:Label>
+      <br />
+      <input id='btnPublicar' type='button' value='Publicar' runat="server" onserverclick="PublicarActualizacion" class='btn btn-dark col-lg-1' />
+      <input id='Archivo' class="btn btn-dark col-lg-1" runat="server" type='file' onserverclick="subirarchivo" name='image_post'/>
+      <br />
+      <br />
+      </div>  
+         
+        <!-- Comentario Principal -->
+          <div class="mx-auto w3-card w3-round alert-secondary" id="id='contenedorcomentarios' ">
+          <div class="w3-padding-large alert">
+          <h4><img class="rounded img-fluid" width="50px" height="50px" src="../img/Comentario.jpg"><small>Comentarios Recientes</small></h4>
+          <br />
+          <br />
+              <!-- de aca -->
                             <%
                                 Publicacion p = new Publicacion();
                                 List<Publicacion> listaPublicaciones = p.buscaMuro(u.Id.ToString());
@@ -158,10 +153,10 @@
                                             Response.Write("<h4>" + u.Nombre + "</h4>");
                                             Response.Write("<hr class='w3-clear'>");
                                             Response.Write("<p>" + Publicaciones.Texto + "</p>");
-                                            Response.Write("<button type='button' class='ButtonMP'>Me gusta</button>");
+                                            Response.Write("<button type='button' class='btn btn-dark col-lg-2'>Me gusta</button>");
                                             if (i == 0)
                                             {
-                                                Response.Write("<input id='Comentar1' type='button' value='Comentar' runat='server' class='ButtonMP' data-toggle='collapse' href='#ComentarP" + i + "' role='button' aria-expanded='false' aria-controls='ComentarP' onclick='ComentarPublicacion' />");
+                                                Response.Write("<input id='Comentar1' type='button' value='Comentar' runat='server' class='btn btn-dark col-lg-2' data-toggle='collapse' href='#ComentarP" + i + "' role='button' aria-expanded='false' aria-controls='ComentarP' onclick='ComentarPublicacion' />");
                                                 Response.Write("<div class='collapse alert-warning' id='ComentarP" + i + "'>");
                                                 Response.Write("<div class='card card-body'>");
                                                 List<Comentario> listaComentariosPorPublicacion = cm.listaComentarios(Publicaciones.Idpublicacion);
@@ -172,6 +167,7 @@
                                                         Usuario u2 = new Usuario();
                                                         u2 = u2.buscaUnoID(listaComentariosPorPublicacion[j].Idemisor.ToString());
 
+                                                        Response.Write("<h4><img class='rounded img-fluid' width='50px' height='50px' src='../img/Comentario.jpg'><small>" + "</small></h4>");
                                                         Response.Write("<p>Comentario de " + u2.Nombre + "</p>");
                                                         Response.Write("<span class='w3-right w3-opacity'>" + listaComentariosPorPublicacion[j].Fecha + "</span>");
                                                         Response.Write("<span><span></span><span>" + listaComentariosPorPublicacion[j].Texto + "</span></span>");
@@ -254,23 +250,23 @@
                                 %>
                                 
                             <!-- hasta aca -->
-                                  
-                        
+          <hr class="w3-clear">
+          </div>
+               
 
-                    </div>
-
-                    
-            </div>       
-                    
-                </div>
-            </div>
-        </section>
+  </div>           
+  </div>
+</div>
+</div>
+</header>
+        
+     
 
 
 
 
         <!-- Footer -->
-        <footer class='py-5 bg-dark'>
+        <footer class='py-5' id="mainFooter">
             <div class='container'>
                 <p class='m-0 text-center text-white'>Copyright &copy; Quality Essentials 2018</p>
 

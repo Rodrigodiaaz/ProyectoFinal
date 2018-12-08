@@ -38,25 +38,6 @@
                     <input class="form-control ml-5 lg-5 mr-5 lg-5 mt-lg-3 mb-lg-3" type="search" placeholder="Busqueda" aria-label="Search">
 
 
-                    <ul class="navbar-nav ml-auto">
-
-                        <li class="nav-item">
-                            <a class="nav-link js-scroll-trigger text-white" href="MenuForo.aspx">Foros</a>
-                        </li>
-
-
-                        <li class="nav-item">
-                            <a class="nav-link js-scroll-trigger text-white" href="MenuTesis.aspx">Tesis</a>
-                        </li>
-
-
-                        <li class="nav-item">
-                            <a class="nav-link js-scroll-trigger text-white" href="Perfil.aspx">Perfil</a>
-
-                        </li>
-
-
-                    </ul>
                 </div>
             </div>
         </nav>

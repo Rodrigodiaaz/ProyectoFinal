@@ -63,7 +63,7 @@
 
         <!-- Centro Pagina -->
         <section >
-            <div class="container" >
+            <div class="" >
                 <div class="row">
 
 
@@ -93,8 +93,8 @@
 
 
                         <div>
-                            <div class="EmblemaP"><h1 >Publicaciones</h1></div>
-                            <h5 class="EmblemaP2">Bienvenido + Nombre</h5>
+                            <div ><h1 >Publicaciones</h1></div>
+                            <h5 class="EmblemaP2">&nbsp;&nbsp;&nbsp;&nbsp;</h5>
                             <br />
                             <br />
                             
@@ -103,12 +103,13 @@
                                     <div>
                                         <div>
                                             <div class="textomen w3-padding-large">
-                                            <input id="TextAr" type="text" placeholder="Que vas a publicar Hoy!" class="TextoMenu" />
+                                            <textarea class="form-control" rows="3" required></textarea>
                                                     <br />
                                                     <br />
-                                            </div>
                                             <input id="Button3" type="button" value="Publicar" class="ButtonMP" />
                                             <input id="Archivo" type="file" name="image_post"/>
+                                            </div>
+                                            
                                            
                                                     <br />
                                                     <br />
@@ -120,8 +121,9 @@
                         </div>
 
                         <!-- Comentarios -->
-                        <div class="mx-auto w3-card w3-round w3-white">
-                            <div class="EmblemaP"><h1 >Comentarios</h1></div>
+                        <div class="mx-auto w3-round w3-white">
+                            <div><h1 >Publicaciones Principales</h1></div>
+                            <h5 class="EmblemaP2">&nbsp;&nbsp;&nbsp;&nbsp;</h5>
                             <br />
                             <br />
                             <br />

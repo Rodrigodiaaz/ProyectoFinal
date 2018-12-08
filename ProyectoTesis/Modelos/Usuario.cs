@@ -51,6 +51,7 @@ namespace ProyectoTesis.Modelos
             try
             {
                 string[] nombre = ua.Nombre.Split(' ');
+                
                 MySqlCommand comando = new MySqlCommand();
                 con.abreConexion();
                 comando.CommandText = "INSERT INTO usuario (rut_usuario, primerNombre, segundoNombre, apellidoPaterno, apellidoMaterno, correo, fecha_nacimiento, contrasenia, cargo, tipo_perfil, estado) VALUES('" + ua.Rut + "', '" + nombre[0] + "', '" + nombre[1] + "', '" + nombre[2] + "', '" + nombre[3] + "', '" + ua.Correo + "', '" + ua.Fecha_nacimiento + "', '" + ua.Pass + "', '" + ua.Cargo + "', '" + ua.Tipoperfil + "', " + ua.Estado + ")";

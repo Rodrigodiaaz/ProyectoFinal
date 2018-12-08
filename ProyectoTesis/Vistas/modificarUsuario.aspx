@@ -99,18 +99,18 @@
     </header>
 
 
-
+          </form>
 
   </body>
-    <!-- Footer -->
-    <footer class="py-5 bg-dark">
+  <footer class="py-5 bg-dark">
       <div class="container">
         <p class="m-0 text-center text-white">Copyright &copy; Quality Essentials 2018</p>
 
       </div>
       <!-- /.container -->
     </footer>
-
+    <!-- Footer -->
+    
     <!-- Bootstrap core JavaScript -->
     <script src="/Scripts/jQuery.min.js"></script>
     <script src="/vendor/jquery/jquery.min.js"></script>
@@ -121,6 +121,7 @@
 
     <!-- Custom JavaScript for this theme -->
     <script src="/Scripts/scrolling-nav.js"></script>
-      </form>
+      
 
 </html>
+

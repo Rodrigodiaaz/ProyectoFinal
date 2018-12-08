@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="MenuTesis.aspx.cs" Inherits="ProyectoTesis.Vistas.MenuTesis" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="subirTesis.aspx.cs" Inherits="ProyectoTesis.Vistas.subirTesis" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -65,7 +65,6 @@
         <li class="list-group-item"><a href="home.aspx">Perfil</a></li>
         <li class="list-group-item"><a href="menuforo.aspx">Menu Foros</a></li>
         <li class="list-group-item"><a href="MenuTesis.aspx">Video Conferencia</a></li>
-        <li class="list-group-item"><a href="MenuTesis.aspx">Subir Tesis</a></li>
       </ul>
       <br />
       <br />
@@ -73,78 +72,74 @@
     </div>
 
     <div class="col-lg-6 w3-card">
-      <div class="text-center"><h2>Menu listado de Tesis</h2></div>
+      <div class="text-center"><h2>Subir Tesis</h2></div>
       <h5 class="EmblemaP2">&nbsp;&nbsp;&nbsp;&nbsp;</h5>
+       
+      <div class="text-center"><h2>Formulario de tesis</h2></div>
       <br />
+       <form  method="post" runat="server">
        <table class="table">
-              <thead class="thead-dark">
-                  <tr>
-                    <th scope="col">Numero</th>
-                    <th scope="col">Nombre de Tesis</th>
-                    <th scope="col">Profesor</th>
-                    <th scope="col">Escoger</th>
-                    </tr>
-                </thead>
-                <tbody>
+              <tbody>
+                <tr>
+                  <th scope="row"></th>
+                  <td><asp:Label ID="Label5" runat="server" Text="Autores"></asp:Label></td>
+                  <td>
+                  <asp:TextBox ID="txtAutores" runat="server" class="form-control mx-auto"></asp:TextBox>
+                    
+
+                  </td>
+                </tr>
+
+                <tr>
+                  <th scope="row"></th>
+                  <td><asp:Label ID="Label6" runat="server" Text="Profesor Guia:"></asp:Label></td>
+                  <td><asp:TextBox ID="txtGuia" runat="server" class="form-control mx-auto"></asp:TextBox></td>
+                </tr>
                 
                 <tr>
-                  <th scope="row">1</th>
-                  <td><p>Estudio cualitativo sobre las percepciones</td>
-                  <td>Nombre de Tesis</td>
-                  <td><a href="tesis.aspx"><p>Tesis </p></a></td>
+                  <th scope="row"></th>
+                  <td><asp:Label ID="Label1" runat="server" Text="Descripcion"></asp:Label></td>
+                  <td>
+                      <textarea class="form-control" rows="3" required></textarea>
+                      </td>
                 </tr>
 
                 <tr>
-                  <th scope="row">2</th>
-                  <td></td>
-                  <td></td>
-                  <td></td>
+                  <th scope="row"></th>
+                  <td><asp:Label ID="Label2" runat="server" Text="Comentarios"></asp:Label></td>
+                  <td>
+                      <textarea class="form-control" rows="3" required></textarea>
+                      </td>
                 </tr>
-
-                <tr>
-                  <th scope="row">3</th>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                </tr>
-
-                <tr>
-                  <th scope="row">4</th>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                </tr>
-
-                  
-
-               
-
+                  <tr>
+                  <th scope="row"></th>
+                  <td><asp:FileUpload ID="FileUpload1" runat="server" />
+                  </td>
+                  </tr>
                  
-              </tbody>
-            </table>
-      <hr class="w3-clear" />
-      </div>  
-       <div class="col-lg-3 sidenav w3-card">
-        <blockquote class="blockquote">
-        <p class="mb-0">Soñando</p>
-        <br />
-        <footer class="text-center"><img src='../img/perfil.jpg'' style='width: 150px ' height:'150px' class='rounded-circle'> </footer>
-        </blockquote>
-      <ul class="list-group">
-        <li class="list-group-item">
+                  <tr>
+                  <th scope="row"></th>
+                  <td><input id="SubirT" type="button" value="Subir tesis" class="btn btn-dark col-lg-6 col-md-6 col-sm-6" />
+                  </td>
+                  </tr>
 
-        <p><em>"idea es generar un espacio abierto a la reflexión, discusión, el compartir y construir diversas estrategias y acciones para y desde las Ciencias Sociales. Donde logren converger actores estratégicos como son egresad@s, alumn@s, instituciones y la propia comunidad.
-        Nuestro sentido se plasma en entregar servicios digitales gratuitos, los cuales logren facilitar el constante perfeccionamiento e innovación socio-profesional, y desde allí soñar y construir en conjunto."</em></p></li>
-      </ul>
+              </tbody>
+            </table> 
+        </form>
+        <br /><br /><br /><br /><br /><br />
+      <hr class="w3-clear" />
+        </div>
+    <div class="col-lg-3 sidenav w3-card">
+      
       <br />
       <br />
        
 
     </div> 
+      </div>  
+       
+     </div>      
 
-     </div>        
-
-</div>
 </header>
         
         <!-- Footer -->

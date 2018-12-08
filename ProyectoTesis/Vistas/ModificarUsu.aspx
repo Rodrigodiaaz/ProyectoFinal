@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="MenuTesis.aspx.cs" Inherits="ProyectoTesis.Vistas.MenuTesis" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ModificarUsu.aspx.cs" Inherits="ProyectoTesis.Vistas.ModificarUsu" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -64,8 +64,8 @@
       <ul class="list-group">
         <li class="list-group-item"><a href="home.aspx">Perfil</a></li>
         <li class="list-group-item"><a href="menuforo.aspx">Menu Foros</a></li>
+        <li class="list-group-item"><a href="MenuTesis.aspx">Menu Tesis</a></li>
         <li class="list-group-item"><a href="MenuTesis.aspx">Video Conferencia</a></li>
-        <li class="list-group-item"><a href="MenuTesis.aspx">Subir Tesis</a></li>
       </ul>
       <br />
       <br />
@@ -73,55 +73,92 @@
     </div>
 
     <div class="col-lg-6 w3-card">
-      <div class="text-center"><h2>Menu listado de Tesis</h2></div>
+      <div class="text-center"><h2>Modificar Perfil</h2></div>
       <h5 class="EmblemaP2">&nbsp;&nbsp;&nbsp;&nbsp;</h5>
       <br />
-       <table class="table">
-              <thead class="thead-dark">
-                  <tr>
-                    <th scope="col">Numero</th>
-                    <th scope="col">Nombre de Tesis</th>
-                    <th scope="col">Profesor</th>
-                    <th scope="col">Escoger</th>
-                    </tr>
-                </thead>
-                <tbody>
-                
-                <tr>
-                  <th scope="row">1</th>
-                  <td><p>Estudio cualitativo sobre las percepciones</td>
-                  <td>Nombre de Tesis</td>
-                  <td><a href="tesis.aspx"><p>Tesis </p></a></td>
-                </tr>
+       <div class="panel panel-default">
+        <div class="panel-heading">
+        <h4 class="panel-title">
+        <h3 data-toggle="collapse" href="#ModifiCorreo"><Strong>Modificar Correo</Strong></h3>
+        </h4>
+        <div id="ModifiCorreo" class="panel-collapse collapse">
+        <table class="table-responsive">
+         <tbody>
+            <tr>
+              <td><h4>Correo actual : </h4></td>
+              <td><h4>caca@caca.cl</h4></td>
+            </tr>
+             <tr>
+              <td><h4>Nuevo Correo : </h4></td>
+              <td><div class="col-xs"><input id="Text2" class="form-control" type="text" /></div></td>
+             </tr>
+           <tr>
+            <td><input id="Modificar2" type="button" value="Modificar" class="btn btn-dark col-lg-9 col-md-6 col-sm-6" /></td>
+           </tr>
+          </tbody>
+        </table>
+    </div>
+    </div>
+  </div>
+    <div class="panel-group">
+        <div class="panel panel-default">
+        <div class="panel-heading">
+        <h4 class="panel-title">
+        <h3 data-toggle="collapse" href="#ModifiNombre"><Strong>Modificar Nombre</Strong></h3>
+        </h4>
+        </div>
+        <div id="ModifiNombre" class="panel-collapse collapse">
+        <table class="table-responsive">
+         <tbody>
+            <tr>
+              <td><h4>Nombre actual :</h4></td>
+              <td><h4>Rodrigo Patricio</h4></td>
+            </tr>
+            <tr>
+              <td><h4>Nuevo Nombre :</h4></td>
+              <td><div class="col-xs"><input id="Text1" class="form-control" type="text" /></div></td>
+            </tr>
+           <tr>
+           <td><input id="Modificar1" type="button" value="Modificar" class="btn btn-dark col-lg-8 col-md-6 col-sm-6" /></td>
+           </tr>
+          </tbody>
+        </table>
 
-                <tr>
-                  <th scope="row">2</th>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                </tr>
+    </div>
+  </div>
+        
+    <div class="panel panel-default">
+        <div class="panel-heading">
+        <h4 class="panel-title">
+        <h3 data-toggle="collapse" href="#ModifiContrase"><strong>Modificar Contraseña</strong></h3>
+        </h4>
+        </div>
+        <div id="ModifiContrase" class="panel-collapse collapse">
+        <table class="table-responsive">
+         <tbody>
+            <tr>
+              <td><h4>Ingrese Contraseña antigua :</h4></td>
+              <td><div class="col-xs"><input id="Text3" class="form-control" type="password" /></div></td>
+            </tr>
+            
+             <tr>
+             <td><h4>Ingrese Contraseña Nueva :</h4></td>
+            <td><div class="col-xs"><input id="Text4" class="form-control" type="password" /></div> </td>
+             </tr>
 
-                <tr>
-                  <th scope="row">3</th>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                </tr>
+             <tr>
+             <td><h4>Validar Contraseña Nueva :</h4></td>
+             <td><div class="col-xs"><input id="Text5" class="form-control" type="password" /></div> </td>
+             </tr>
 
-                <tr>
-                  <th scope="row">4</th>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                </tr>
-
-                  
-
-               
-
-                 
-              </tbody>
-            </table>
+             <tr>
+              <td><input id="Modificar3" type="button" value="Modificar" class="btn btn-dark col-lg-6 col-md-6 col-sm-6" /></td>
+           </tr>
+          </tbody>
+        </table>
+    </div>
+  </div>
+</div>
       <hr class="w3-clear" />
       </div>  
        <div class="col-lg-3 sidenav w3-card">
@@ -136,6 +173,8 @@
         <p><em>"idea es generar un espacio abierto a la reflexión, discusión, el compartir y construir diversas estrategias y acciones para y desde las Ciencias Sociales. Donde logren converger actores estratégicos como son egresad@s, alumn@s, instituciones y la propia comunidad.
         Nuestro sentido se plasma en entregar servicios digitales gratuitos, los cuales logren facilitar el constante perfeccionamiento e innovación socio-profesional, y desde allí soñar y construir en conjunto."</em></p></li>
       </ul>
+      <br />
+      <br />
       <br />
       <br />
        

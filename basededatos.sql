@@ -47,6 +47,26 @@ foreign key (idemisor) references usuario(id_usuario)
 );
 
 
+create table topic(
+id_topic int auto_increment primary key,
+id_usuario int,
+titulo varchar(200),
+fecha varchar(30),
+texto varchar(2000),
+foreign key (id_usuario) references usuario(id_usuario)
+);
+
+create table respuesta_topic(
+id_respuesta int auto_increment primary key,
+id_usuario int,
+id_topic int,
+fecha varchar(30),
+texto varchar(2000),
+foreign key (id_usuario) references usuario(id_usuario),
+foreign key (id_topic) references topic(id_topic)
+);
+
+
 
 create table comentario(
 idcomentario int auto_increment primary key,

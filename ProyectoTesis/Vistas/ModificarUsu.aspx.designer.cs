@@ -10,6 +10,6 @@
 namespace ProyectoTesis.Vistas {
     
     
-    public partial class Foro1 {
+    public partial class ModificarUsu {
     }
 }

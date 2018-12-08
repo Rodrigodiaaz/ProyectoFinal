@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Foro1.aspx.cs" Inherits="ProyectoTesis.Vistas.Foro1" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="MenuPrincipal.aspx.cs" Inherits="ProyectoTesis.Vistas.MenuPrincipal" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -18,7 +18,6 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <style>
     .sidenav {
-        background-color: #f1f1f1;
     }
     #mainNav{
       background:  #8B0000;
@@ -46,6 +45,26 @@
 
                     <input class="form-control ml-5 lg-5 mr-5 lg-5 mt-lg-3 mb-lg-3" type="search" placeholder="Busqueda" aria-label="Search">
 
+
+                    <ul class="navbar-nav ml-auto">
+
+                        <li class="nav-item">
+                            <a class="nav-link js-scroll-trigger text-white" href="#Foros">Foros</a>
+                        </li>
+
+
+                        <li class="nav-item">
+                            <a class="nav-link js-scroll-trigger text-white" href="MenuTesis.aspx">Tesis</a>
+                        </li>
+
+
+                        <li class="nav-item">
+                            <a class="nav-link js-scroll-trigger text-white" href="MenuVideo.aspx">Videos</a>
+
+                        </li>
+
+
+                    </ul>
                 </div>
             </div>
         </nav>
@@ -54,50 +73,37 @@
   <div class="row content">
     <div class="col-lg-2 sidenav w3-card">
       <blockquote class="blockquote">
-        <p class="mb-0">Administrador o Usuario</p>
-        <br />
-        <footer class=""> <img class="rounded img-fluid" width="50px" height="50px" src="../img/menu.jpg">Menu Foro </footer>
+        <p class="mb-0">Administrador</p>
+        <footer class="blockquote-footer">Menu Principal <cite title="Source Title"></cite></footer>
         </blockquote>
       <ul class="list-group">
-        <li class="list-group-item"><a href="menuforo.aspx">Volver a Menu</a></li>
-        <li class="list-group-item"><a href="">Crear Foro</a></li>
-      </ul>
-      <br />
-      <blockquote class="blockquote">
-        <p class="mb-0">Otras opciones</p>
-        </blockquote>
-      <ul class="list-group">
-        <li class="list-group-item"><a href="home.aspx">Perfil</a></li>
-        <li class="list-group-item"><a href="MenuTesis.aspx">Menu Tesis</a></li>
-        <li class="list-group-item"><a href="">Menu Conferencia</a></li>
+        <li class="list-group-item"><a href="">Subir Tesi</a>s</li>
+        <li class="list-group-item"><a href="modificarUsuario.aspx">Modificar Usuario</a></li>
+        <li class="list-group-item"><a href="Menu">Crear video Conferencia</a></li>
+        <li class="list-group-item"><a href="#section3">Modificar Tesis</a></li>
       </ul>
       <br>
     </div>
 
     <div class="col-lg-9 w3-card">
-      <div class="text-center"><h2>Foros</h2></div>
+      <h4><Strong>Publicaciones Recientes</Strong></h4>
       <h5 class="EmblemaP2">&nbsp;&nbsp;&nbsp;&nbsp;</h5>
-      <br />
-      
-      <div class="w3-card w3-padding">
-      <h4><img class="rounded img-fluid" width="50px" height="50px" src="../img/topic.jpg">Topic Principal </h4>
+      <hr>
       <span class="w3-right w3-opacity">16 min</span>
-      
       <h4>Rodrigo Diaz</h4>
       <p>pichula is my passion. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
       <br><br>
+      <div ><h3 data-toggle="collapse" href="#ComentarP" role="button" aria-expanded="false" aria-controls="ComentarP" ><Strong>Comentar</Strong></h3></div>
       <br />
-      </div>  
+        
          
         <!-- Comentario Principal -->
-          <div class="mx-auto w3-card w3-round alert-secondary" id="ComentarP">
-          <div class="w3-padding-large alert">
-          <h4><img class="rounded img-fluid" width="50px" height="50px" src="../img/descarga6.jpg"><small>Post Recientes</small></h4>
+          <div class="mx-auto w3-card w3-round  collapse alert-secondary" id="ComentarP">
+          <div class="w3-padding-large alert"><h4><strong>Comentarios</strong></h4>
           <span class="w3-right w3-opacity">10 min</span>
-          <h4>Enzo Castillo</h4>
-          <p>pichula is my passion. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-          <br><br>
-          <br />
+          <span>Pablo Reyes <span>:</span><span>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</span></span>
+              <br />
+              <br />
           <hr class="w3-clear">
           
           <form role="form">
@@ -115,6 +121,7 @@
 </div>
 </div>
 </div>
+
 </header>
         
         <!-- Footer -->

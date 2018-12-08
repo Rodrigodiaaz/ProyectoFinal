@@ -262,19 +262,18 @@
     <Content Include="Vistas\foro.aspx" />
     <Content Include="Vistas\Foro1.aspx" />
     <Content Include="Vistas\home.aspx" />
-    <Content Include="Vistas\home2.aspx" />
     <Content Include="Vistas\index.aspx" />
     <Content Include="Vistas\menuforo.aspx" />
+    <Content Include="Vistas\MenuPrincipal.aspx" />
     <Content Include="Vistas\MenuTesis.aspx" />
+    <Content Include="Vistas\ModificarUsu.aspx" />
     <Content Include="Vistas\modificarUsuario.aspx" />
     <Content Include="Vistas\perfil.aspx" />
     <Content Include="Vistas\registro.aspx" />
+    <Content Include="Vistas\subirTesis.aspx" />
     <Content Include="Vistas\tesis.aspx" />
     <Content Include="Vistas\vervideoconferencia.aspx" />
     <Content Include="Vistas\videoconferencia.aspx" />
-    <Content Include="Vistas\WebForm1.aspx" />
-    <Content Include="Vistas\WebForm2.aspx" />
-    <Content Include="Vistas\WebForm3.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -372,13 +371,6 @@
     <Compile Include="Vistas\home.aspx.designer.cs">
       <DependentUpon>home.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Vistas\home2.aspx.cs">
-      <DependentUpon>home2.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Vistas\home2.aspx.designer.cs">
-      <DependentUpon>home2.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Vistas\index.aspx.cs">
       <DependentUpon>index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -393,12 +385,26 @@
     <Compile Include="Vistas\menuforo.aspx.designer.cs">
       <DependentUpon>menuforo.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Vistas\MenuPrincipal.aspx.cs">
+      <DependentUpon>MenuPrincipal.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vistas\MenuPrincipal.aspx.designer.cs">
+      <DependentUpon>MenuPrincipal.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Vistas\MenuTesis.aspx.cs">
       <DependentUpon>MenuTesis.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Vistas\MenuTesis.aspx.designer.cs">
       <DependentUpon>MenuTesis.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\ModificarUsu.aspx.cs">
+      <DependentUpon>ModificarUsu.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vistas\ModificarUsu.aspx.designer.cs">
+      <DependentUpon>ModificarUsu.aspx</DependentUpon>
     </Compile>
     <Compile Include="Vistas\modificarUsuario.aspx.cs">
       <DependentUpon>modificarUsuario.aspx</DependentUpon>
@@ -421,6 +427,13 @@
     <Compile Include="Vistas\registro.aspx.designer.cs">
       <DependentUpon>registro.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Vistas\subirTesis.aspx.cs">
+      <DependentUpon>subirTesis.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vistas\subirTesis.aspx.designer.cs">
+      <DependentUpon>subirTesis.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Vistas\tesis.aspx.cs">
       <DependentUpon>tesis.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -441,27 +454,6 @@
     </Compile>
     <Compile Include="Vistas\videoconferencia.aspx.designer.cs">
       <DependentUpon>videoconferencia.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Vistas\WebForm1.aspx.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Vistas\WebForm1.aspx.designer.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Vistas\WebForm2.aspx.cs">
-      <DependentUpon>WebForm2.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Vistas\WebForm2.aspx.designer.cs">
-      <DependentUpon>WebForm2.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Vistas\WebForm3.aspx.cs">
-      <DependentUpon>WebForm3.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Vistas\WebForm3.aspx.designer.cs">
-      <DependentUpon>WebForm3.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
