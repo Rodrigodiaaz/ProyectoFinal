@@ -44,13 +44,16 @@
 
 
                 <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <input class='form-control ml-5 lg-5 mr-5 lg-5 mt-lg-3 mb-lg-3' type='search' placeholder='Busqueda' aria-label='Search'>
+          <ul class="navbar-nav ml-auto">
+             
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger text-white" href="index.aspx">Desconectar</a>
+            </li>
 
-
-                    <input class="form-control ml-5 lg-5 mr-5 lg-5 mt-lg-3 mb-lg-3" type="search" placeholder="Busqueda" aria-label="Search">
-
-
-                </div>
-            </div>
+          </ul>
+        
+        </div>
         </nav>
 <header>
  <div class="container-fluid">

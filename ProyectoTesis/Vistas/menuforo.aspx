@@ -33,22 +33,27 @@
 
 <body id="page-top">
      <!-- Navigation -->
-        <nav class="navbar navbar-expand-lg  fixed-top" id="mainNav">
-            <div class="container">
-                <a class="navbar-brand js-scroll-trigger" href="#page-top">Quality Essentials</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <nav class='navbar navbar-expand-lg fixed-top' id='mainNav'>
+            <div class='container'>
+                <a class='navbar-brand js-scroll-trigger' href='#page-top'>Quality Essentials</a>
+                <button class='navbar-toggler' type='button' data-toggle='collapse' data-target='#navbarResponsive' aria-controls='navbarResponsive' aria-expanded='false' aria-label='Toggle navigation'>
 
-                    <span class="navbar-toggler-icon"></span>
+                    <span class='navbar-toggler-icon'></span>
                 </button>
 
 
                 <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <input class='form-control ml-5 lg-5 mr-5 lg-5 mt-lg-3 mb-lg-3' type='search' placeholder='Busqueda' aria-label='Search'>
+          <ul class="navbar-nav ml-auto">
+             
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger text-white" href="index.aspx">Desconectar</a>
+            </li>
 
-
-                    <input class="form-control ml-5 lg-5 mr-5 lg-5 mt-lg-3 mb-lg-3" type="search" placeholder="Busqueda" aria-label="Search">
-
-                </div>
-            </div>
+          </ul>
+        
+        </div>
+      </div>
         </nav>
 <header>
  <div class="container-fluid">

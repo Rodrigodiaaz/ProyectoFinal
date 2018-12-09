@@ -46,14 +46,18 @@
                 </button>
 
 
-                <div class='collapse navbar-collapse' id='navbarResponsive'>
-
-
+                <div class="collapse navbar-collapse" id="navbarResponsive">
                     <input class='form-control ml-5 lg-5 mr-5 lg-5 mt-lg-3 mb-lg-3' type='search' placeholder='Busqueda' aria-label='Search'>
+          <ul class="navbar-nav ml-auto">
+             
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger text-white" href="index.aspx">Desconectar</a>
+            </li>
 
-
-                </div>
-            </div>
+          </ul>
+        
+        </div>
+      </div>
         </nav>
 
 <header>
