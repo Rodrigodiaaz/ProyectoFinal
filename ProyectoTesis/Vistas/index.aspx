@@ -71,7 +71,7 @@
     
     <header class="text-white" id="1">
       <div class="container text-center col-lg-6" id="contenedorLogin">
-        <h1>Bienvenido a RSTSP</h1><br>
+        <h1>Bienvenido a la red social de Humanidades INACAP.</h1><br>
           
           
         <p class="lead">Una Herramienta que potencia tus oportunidades</p>

@@ -89,6 +89,19 @@ idpublicacion int,
 foreign key (idpublicacion) references publicacion(idpublicacion),
 foreign key (idusuario) references usuari(id_usuario)
 );
+
+
+create table videoconferencia(
+id_videoconferencia int auto_increment primary key,
+titulo varchar(400),
+descripcion varchar(1000),
+fecha varchar(100),
+id_usuario int,
+roomId int,
+foreign key (id_usuario) references usuario(id_usuario)
+);
+
+  
 create table notificacion(
 idnotificacion int auto_increment primary key,
 estadado tinyint,
