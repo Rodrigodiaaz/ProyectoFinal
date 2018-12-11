@@ -5,8 +5,6 @@ VisualStudioVersion = 15.0.28010.2048
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProyectoTesis", "ProyectoTesis\ProyectoTesis.csproj", "{DA2F6DFE-AD7E-47B5-9E4B-596F2E23B73E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Progra4p2", "..\Progra4.2 DecimaPrimera Parte\Progra4.2 DecimaPrimera Parte\Progra4.2\Progra4p2.csproj", "{154A6E95-EC23-4CD8-974D-86629FFA35DB}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,10 +15,6 @@ Global
 		{DA2F6DFE-AD7E-47B5-9E4B-596F2E23B73E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DA2F6DFE-AD7E-47B5-9E4B-596F2E23B73E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DA2F6DFE-AD7E-47B5-9E4B-596F2E23B73E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{154A6E95-EC23-4CD8-974D-86629FFA35DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{154A6E95-EC23-4CD8-974D-86629FFA35DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{154A6E95-EC23-4CD8-974D-86629FFA35DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{154A6E95-EC23-4CD8-974D-86629FFA35DB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -16,12 +16,24 @@ namespace ProyectoTesis.Controlador
             string idpost = Request.QueryString["idpost"];
             string texto = Request.QueryString["texto"];
             string idusuario = Request.QueryString["idusuario"];
-
-            ControladorComentario cc = new ControladorComentario();
-            if (cc.InsertarComentario(Convert.ToInt32(idpost), Convert.ToInt32(idusuario), texto, DateTime.Now.ToString() ))
+            int identificador = Convert.ToInt32(Request.QueryString["identificador"]);
+            if (identificador == 0)
             {
-                Response.Redirect("../Vistas/home.aspx");
+                ControladorComentario cc = new ControladorComentario();
+                if (cc.InsertarComentario(Convert.ToInt32(idpost), Convert.ToInt32(idusuario), texto, DateTime.Now.ToString()))
+                {
+                    Response.Redirect("../Vistas/home.aspx");
+                }
             }
+            else
+            {
+                ControladorComentario cc = new ControladorComentario();
+                if (cc.InsertarComentario(Convert.ToInt32(idpost), Convert.ToInt32(idusuario), texto, DateTime.Now.ToString()))
+                {
+                    Response.Redirect("../Vistas/MenuPrincipal.aspx");
+                }
+            }
+            
         }
     }
 }

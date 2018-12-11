@@ -123,7 +123,7 @@
       <span class="w3-right w3-opacity">16 min</span>
       
       <h4>Rodrigo Diaz</h4>
-       <textarea id="txtPublicacion" class="form-control"  runat="server" rows="3" placeholder="Que vas a publicar hoy!"></textarea>
+       <textarea id="txtPublicacion" class="form-control"  runat="server" rows="3" placeholder="Que vas a publicar hoy!" required ></textarea>
       <br />
           <asp:Label ID="lblMensaje" runat="server" Text=""></asp:Label>
       <br />
@@ -157,7 +157,7 @@
                                             Response.Write("<h4>" + u.Nombre + "</h4>");
                                             Response.Write("<hr class='w3-clear'>");
                                             Response.Write("<p>" + Publicaciones.Texto + "</p>");
-                                            Response.Write("<button type='button' class='btn btn-dark col-lg-2'>Me gusta</button>");
+                                            //Response.Write("<button type='button' class='btn btn-dark col-lg-2'>Me gusta</button>");
                                             if (i == 0)
                                             {
                                                 Response.Write("<input id='Comentar1' type='button' value='Comentar' runat='server' class='btn btn-dark col-lg-2' data-toggle='collapse' href='#ComentarP" + i + "' role='button' aria-expanded='false' aria-controls='ComentarP' onclick='ComentarPublicacion' />");
@@ -234,7 +234,7 @@
                                                 }
                                             }
 
-                %> <textarea id="txtTextoComentario<% Response.Write(i); %>" rows="3"></textarea>&nbsp <br /><input type="button" value="responder" onclick="enviaComentario(<%Response.Write(listaPublicaciones[i].Idpublicacion + ", " + i + ", " + u.Id);%>)" class="btn btn-dark " /> 
+                %> <textarea id="txtTextoComentario<% Response.Write(i); %>" rows="3"></textarea>&nbsp <br /><input type="button" value="responder" onclick="enviaComentario(<%Response.Write(listaPublicaciones[i].Idpublicacion + ", " + i + ", " + u.Id +", 0" );%>)" class="btn btn-dark " /> 
                 <%
                                 Response.Write("</div>");
                                 Response.Write("</div>");
@@ -300,8 +300,8 @@
     <!-- Custom JavaScript for this theme -->
     <script src='/Scripts/scrolling-nav.js'></script>
     <script type="text/javascript">
-        function enviaComentario(idpost, idtxtbox, idusuario) {
-            document.location.assign("../Controlador/cComentario.aspx?idpost=" + idpost + "&texto=" + document.getElementById('txtTextoComentario' + idtxtbox).value + "&idusuario=" + idusuario);
+        function enviaComentario(idpost, idtxtbox, idusuario, identificador) {
+            document.location.assign("../Controlador/cComentario.aspx?idpost=" + idpost + "&texto=" + document.getElementById('txtTextoComentario' + idtxtbox).value + "&idusuario=" + idusuario + "&identificador=" + identificador);
            
 
         }

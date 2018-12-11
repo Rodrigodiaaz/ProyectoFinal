@@ -33,6 +33,7 @@
 </head>
 
 <body id="page-top">
+    <form runat="server">
      <!-- Navigation -->
         <nav class='navbar navbar-expand-lg fixed-top' id='mainNav'>
             <div class='container'>
@@ -79,6 +80,7 @@
     <div class="col-lg-6 w3-card">
       <div class="text-center"><h2>Modificar Perfil</h2></div>
       <h5 class="EmblemaP2">&nbsp;&nbsp;&nbsp;&nbsp;</h5>
+        <div class="text-center><asp:Label ID="lblMensaje" runat="server" Text="Label"></asp:Label></div>
       <br />
        <div class="panel panel-default">
         <div class="panel-heading">
@@ -90,14 +92,18 @@
          <tbody>
             <tr>
               <td><h4>Correo actual : </h4></td>
-              <td><h4>caca@caca.cl</h4></td>
+              <td><h4><asp:Label ID="lblCorreoActual" runat="server" Text="Label"></asp:Label></h4></td>
             </tr>
              <tr>
               <td><h4>Nuevo Correo : </h4></td>
-              <td><div class="col-xs"><input id="Text2" class="form-control" type="text" /></div></td>
+              <td><div class="col-xs"><input id="txtCorreoNuevo" class="form-control" runat="server" type="text" /></div></td>
              </tr>
            <tr>
-            <td><input id="Modificar2" type="button" value="Modificar" class="btn btn-dark col-lg-9 col-md-6 col-sm-6" /></td>
+            <td>
+                
+
+            </td>
+               <td><asp:Button ID="btnModificarcorreo" runat="server" Text="Actualizar" class="btn btn-dark col-lg-9 col-md-6 col-sm-6" OnClick="btnModificarcorreo_Click" /></td>
            </tr>
           </tbody>
         </table>
@@ -111,19 +117,26 @@
         <h3 data-toggle="collapse" href="#ModifiNombre"><Strong>Modificar Nombre</Strong></h3>
         </h4>
         </div>
-        <div id="ModifiNombre" class="panel-collapse collapse">
+         <div id="ModifiNombre" class="panel-collapse collapse">
         <table class="table-responsive">
          <tbody>
             <tr>
               <td><h4>Nombre actual :</h4></td>
-              <td><h4>Rodrigo Patricio</h4></td>
+              <td><h4>
+                  <asp:Label ID="lblNombreactual" runat="server" Text="Label"></asp:Label></h4></td>
             </tr>
             <tr>
               <td><h4>Nuevo Nombre :</h4></td>
-              <td><div class="col-xs"><input id="Text1" class="form-control" type="text" /></div></td>
+              <td><div class="col-xs"><input id="txtNombreNuevo" class="form-control" runat="server"  type="text" /></div></td>
             </tr>
            <tr>
-           <td><input id="Modificar1" type="button" value="Modificar" class="btn btn-dark col-lg-8 col-md-6 col-sm-6" /></td>
+           <td>
+               
+
+           </td>
+               <td>
+                   <asp:Button ID="btnCambiarNombre" runat="server" Text="Actualizar" class="btn btn-dark col-lg-8 col-md-6 col-sm-6" OnClick="btnCambiarNombre_Click"/>
+               </td>
            </tr>
           </tbody>
         </table>
@@ -142,21 +155,27 @@
          <tbody>
             <tr>
               <td><h4>Ingrese Contraseña antigua :</h4></td>
-              <td><div class="col-xs"><input id="Text3" class="form-control" type="password" /></div></td>
+              <td><div class="col-xs"><input id="txtOldPass" class="form-control" runat="server"  type="password" /></div></td>
             </tr>
             
              <tr>
              <td><h4>Ingrese Contraseña Nueva :</h4></td>
-            <td><div class="col-xs"><input id="Text4" class="form-control" type="password" /></div> </td>
+            <td><div class="col-xs"><input id="txtNewPass" class="form-control" runat="server"  type="password" /></div> </td>
              </tr>
 
              <tr>
              <td><h4>Validar Contraseña Nueva :</h4></td>
-             <td><div class="col-xs"><input id="Text5" class="form-control" type="password" /></div> </td>
+             <td><div class="col-xs"><input id="txtConfirmaPass" class="form-control" runat="server"  type="password" /></div> </td>
              </tr>
 
              <tr>
-              <td><input id="Modificar3" type="button" value="Modificar" class="btn btn-dark col-lg-6 col-md-6 col-sm-6" /></td>
+              <td>
+                  
+
+              </td>
+                 <td>
+                     <asp:Button ID="btnModificarcontraseña" runat="server" Text="Actualizar" class="btn btn-dark col-lg-6 col-md-6 col-sm-6" OnClick="btnModificarcontraseña_Click" />
+                 </td>
            </tr>
           </tbody>
         </table>
@@ -202,7 +221,7 @@
         
 
     
-
+</form>
 </body>
  <!-- Bootstrap core JavaScript -->
     <script src="/Scripts/jQuery.min.js"></script>

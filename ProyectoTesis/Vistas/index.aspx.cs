@@ -29,7 +29,7 @@ namespace ProyectoTesis.Vistas
                 lblMensaje.Text = cu.loginUsuario(txtId.Text, txtPass.Text);
                 Usuario us = cu.buscarUsuario(txtId.Text);
                 Session["Logeado"] = us;
-                Response.Redirect("home.aspx");
+                Response.Redirect("MenuPrincipal.aspx");
             }
             else
             {

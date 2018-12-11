@@ -188,6 +188,40 @@ namespace ProyectoTesis.Modelos
             }
         }
 
+        public List<Publicacion> BuscaTodas()
+        {
+            Conexion con = Conexion.Instance();
+            List<Publicacion> lista = new List<Publicacion>();
+            try
+            {
+                con.abreConexion();
+                MySqlCommand comando = new MySqlCommand();
+                comando.Connection = con.usaConexion();
+                comando.CommandText = "SELECT * FROM publicacion ORDER BY idpublicacion DESC";
+                MySqlDataReader reader = comando.ExecuteReader();
+                while (reader.Read())
+                {
+                    Publicacion po2 = new Publicacion();
+                    po2.idpublicacion = Convert.ToInt32(reader[0].ToString());
+                    po2.Texto = reader[1].ToString();
+                    po2.idEmisor = reader[2].ToString();
+                    po2.idReceptor = reader[3].ToString();
+                    po2.Estado = Convert.ToInt32(reader[4].ToString());
+                    po2.fecha = reader[5].ToString();
+                    lista.Add(po2);
+                }
+                return lista;
+            }
+            catch
+            {
+                return lista;
+            }
+            finally
+            {
+                con.cierraConexion();
+            }
+        }
+
 
     }
 }

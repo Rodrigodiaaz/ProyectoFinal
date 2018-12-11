@@ -65,8 +65,15 @@ namespace ProyectoTesis.Controlador
             Publicacion p = new Publicacion();
             List<Publicacion> lista = p.buscaMuro(receptor);
             return lista;
-
         }
+
+        public List<Publicacion> ObtenerTodasPublicaciones()
+        {
+            Publicacion p = new Publicacion();
+            List<Publicacion> lista = p.BuscaTodas();
+            return lista;
+        }
+
         public List<Publicacion> obtenerPost()
         {
             return null;

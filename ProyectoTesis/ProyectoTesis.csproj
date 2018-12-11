@@ -259,6 +259,7 @@
     <Content Include="vendor\jquery\jquery.slim.js" />
     <Content Include="vendor\jquery\jquery.slim.min.js" />
     <Content Include="ViewSwitcher.ascx" />
+    <Content Include="Vistas\crearForo.aspx" />
     <Content Include="Vistas\foro.aspx" />
     <Content Include="Vistas\Foro1.aspx" />
     <Content Include="Vistas\home.aspx" />
@@ -274,6 +275,7 @@
     <Content Include="Vistas\tesis.aspx" />
     <Content Include="Vistas\vervideoconferencia.aspx" />
     <Content Include="Vistas\videoconferencia.aspx" />
+    <Content Include="Vistas\WebForm1.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -349,6 +351,13 @@
     </Compile>
     <Compile Include="ViewSwitcher.ascx.designer.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\crearForo.aspx.cs">
+      <DependentUpon>crearForo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vistas\crearForo.aspx.designer.cs">
+      <DependentUpon>crearForo.aspx</DependentUpon>
     </Compile>
     <Compile Include="Vistas\foro.aspx.cs">
       <DependentUpon>foro.aspx</DependentUpon>
@@ -454,6 +463,13 @@
     </Compile>
     <Compile Include="Vistas\videoconferencia.aspx.designer.cs">
       <DependentUpon>videoconferencia.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\WebForm1.aspx.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vistas\WebForm1.aspx.designer.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

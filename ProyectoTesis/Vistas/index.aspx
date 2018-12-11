@@ -80,13 +80,13 @@
           <br>
             <div class=" container col-lg-5">
             <h3>
-                <asp:TextBox ID="txtId" runat="server" placeholder="Correo" class="form-control mx-auto"></asp:TextBox></h3>
+                <asp:TextBox ID="txtId" runat="server" placeholder="Correo" class="form-control mx-auto" required="true"></asp:TextBox></h3>
                     <br>
                     <br>
               </div>
                <div class=" container col-lg-5">
                       <h3>
-                <asp:TextBox ID="txtPass" type="password" runat="server" placeholder="Password" class="form-control mx-auto"></asp:TextBox></h3>
+                <asp:TextBox ID="txtPass" type="password" runat="server" placeholder="Password" class="form-control mx-auto" required="true"></asp:TextBox></h3>
 
                     <br>
                     <br>

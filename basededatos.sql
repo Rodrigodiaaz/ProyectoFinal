@@ -4,7 +4,7 @@ use proyecto;
 delete from post where idemisor='5';
 delete from post where idemisor=1;
 delete from comentario where idemisor=1;
-
+SELECT * FROM publicacion ORDER BY idpublicacion DESC;
 select * from comentario;
 select * from usuario;
 select * from post;
