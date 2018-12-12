@@ -16,7 +16,9 @@ SELECT * FROM publicacion WHERE idreceptor=1 ORDER BY idpublicacion DESC;
 SELECT * FROM topic;
 SELECT * FROM tesis;
 
-select * from topic;
+select * from respuesta_topic;
+
+
 
 SELECT * FROM comentario xampWHERE idpost=1 ORDER BY idcomentario DESC;
 
@@ -71,6 +73,8 @@ texto varchar(2000),
 foreign key (id_usuario) references usuario(id_usuario)
 );
 
+
+SELECT * FROM respuesta_topic WHERE id_topic = '3' ORDER BY id_respuesta DESC;
 create table respuesta_topic(
 id_respuesta int auto_increment primary key,
 id_usuario int,

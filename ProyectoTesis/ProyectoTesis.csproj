@@ -269,6 +269,7 @@
     <Content Include="Vistas\ModificarUsu.aspx" />
     <Content Include="Vistas\modificarUsuario.aspx" />
     <Content Include="Vistas\perfil.aspx" />
+    <Content Include="Vistas\redirectReplica.aspx" />
     <Content Include="Vistas\registro.aspx" />
     <Content Include="Vistas\subirTesis.aspx" />
     <Content Include="Vistas\tesis.aspx" />
@@ -309,6 +310,7 @@
     <Compile Include="Controlador\ControladorComentario.cs" />
     <Compile Include="Controlador\ControladorNotificacion.cs" />
     <Compile Include="Controlador\ControladorPublicacion.cs" />
+    <Compile Include="Controlador\ControladorReplica.cs" />
     <Compile Include="Controlador\ControladorTesis.cs" />
     <Compile Include="Controlador\ControladorTopic.cs" />
     <Compile Include="Controlador\ControladorUsuario.cs" />
@@ -424,6 +426,13 @@
     </Compile>
     <Compile Include="Vistas\perfil.aspx.designer.cs">
       <DependentUpon>perfil.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\redirectReplica.aspx.cs">
+      <DependentUpon>redirectReplica.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vistas\redirectReplica.aspx.designer.cs">
+      <DependentUpon>redirectReplica.aspx</DependentUpon>
     </Compile>
     <Compile Include="Vistas\registro.aspx.cs">
       <DependentUpon>registro.aspx</DependentUpon>

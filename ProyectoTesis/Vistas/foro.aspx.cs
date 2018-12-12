@@ -13,6 +13,7 @@ namespace ProyectoTesis.Vistas
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            Usuario u = (Usuario)Session["logeado"];
             string idtopic = Request.QueryString["idtopic"];
             Response.Write("<!DOCTYPE html>" +
 "<html lang='en'>" +
@@ -119,25 +120,49 @@ namespace ProyectoTesis.Vistas
             }
 
 
-       
-       Response.Write("<!-- Comentario Principal -->"+
-         "<div class='mx-auto w3-card w3-round alert-secondary' id='ComentarP'>"+
-         "<div class='w3-padding-large alert'>"+
-         "<h4><img class='rounded img-fluid' width='50px' height='50px' src='../img/descarga6.jpg'><small>Post Recientes</small></h4>"+
-         "<span class='w3-right w3-opacity'>10 min</span>"+
-         "<h4>Enzo Castillo</h4>"+
-         "<p>pichula is my passion. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>"+
-         "<br><br>"+
-         "<br />"+
-         "<hr class='w3-clear'>"+
-          "</div>" +
-          "<div class='w3-padding-large alert'>" +
+
+            Response.Write("<!-- Comentario Principal -->");
+            ControladorReplica cr = new ControladorReplica();
+            List<Post> listareplicaxtopic = cr.ObtenerPostxTopic(idtopic);
+            if (listareplicaxtopic.Count > 0)
+            {
+                for (int i = 0; i < listareplicaxtopic.Count; i++)
+                {
+                    Usuario us = new Usuario();
+                    Usuario autorReplica = us.buscaUnoID(listareplicaxtopic[i].Idusuario.ToString());
+                    Response.Write("<div class='mx-auto w3-card w3-round alert-secondary' id='ComentarP'>" +
+                                   "<div class='w3-padding-large alert'>" +
+                                   "<h4><img class='rounded img-fluid' width='50px' height='50px' src='../img/descarga6.jpg'><small>Post Recientes</small></h4>" +
+                                   "<span class='w3-right w3-opacity'>" + listareplicaxtopic[i].Fecha + "</span>" +
+                                   "<h4>" + autorReplica.Nombre + "</h4>" +
+                                   "<br/>"+
+                                   "<p>" + listareplicaxtopic[i].Texto + "</p>" +
+                                   "<br>" +
+                                   "<br />" +
+                                   "<hr class='w3-clear'>" +
+                                   "</div>");
+                }
+                
+            }
+            else
+            {
+                Response.Write("<div class='mx-auto w3-card w3-round alert-secondary' id='ComentarP'>" +
+         "<div class='w3-padding-large alert'>" +
+         "<h4><img class='rounded img-fluid' width='50px' height='50px' src='../img/descarga6.jpg'><small>Post Recientes</small></h4>" +
+         "<span class='w3-right w3-opacity'></span>" +
+         "<h4>No hay replicas para esta discusion!.</h4>" +
+         "<br>" +
+         "<br />" +
+         "<hr class='w3-clear'>" +
+          "</div>");
+            }
+          Response.Write("<div class='w3-padding-large alert'>" +
          "<form role='form'>" +
                "<div class='form-group'>"+
-                 "<textarea class='form-control' rows='3' required></textarea>"+
+                 "<textarea id='replica' class='form-control' rows='3' required></textarea>"+
                "</div>"+
                 
-                 "&nbsp;<input id='Comentar1' type='button' value='Publicar' class='btn btn-dark col-lg-2' />"+
+                 "&nbsp;<input id='Comentar1' type='button' value='Publicar' onclick='ReplicaComentario("+idtopic+", "+u.Id+")' class='btn btn-dark col-lg-2' />"+
              "</form>"+
              "</div>" +
 

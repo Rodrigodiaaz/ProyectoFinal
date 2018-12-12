@@ -13,5 +13,11 @@
 
     <!-- Custom JavaScript for this theme -->
     <script src='/Scripts/scrolling-nav.js'></script>
+    <script type="text/javascript">
+        function ReplicaComentario(idTopic, idusuario) {
+            document.location.assign("redirectReplica.aspx?idtopic=" + idTopic + "&texto=" + document.getElementById('replica').value + "&idusuario=" + idusuario);
+        }
+
+    </script>
 
 </html>

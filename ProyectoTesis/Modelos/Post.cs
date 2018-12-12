@@ -155,24 +155,24 @@ namespace ProyectoTesis.Modelos
             }
         }
 
-        public List<Topic> buscaTodosLosTopics()
+        public List<Post> buscaRespuestaporTopic(string idtopic)
         {
             Conexion con = Conexion.Instance();
-            Topic t = null;
-            List<Topic> lista = new List<Topic>();
+            Post t = null;
+            List<Post> lista = new List<Post>();
             try
             {
                 con.abreConexion();
                 MySqlCommand comando = new MySqlCommand();
-                comando.CommandText = "SELECT * FROM topic ORDER BY id_topic DESC";
+                comando.CommandText = "SELECT * FROM respuesta_topic WHERE id_topic = '"+idtopic+"' ORDER BY id_respuesta DESC";
                 comando.Connection = con.usaConexion();
                 MySqlDataReader reader = comando.ExecuteReader();
                 while (reader.Read())
                 {
-                    t = new Topic();
-                    t.Id_topic = Int32.Parse(reader[0].ToString());
-                    t.Id_usuario = Int32.Parse(reader[1].ToString());
-                    t.Titulo = reader[2].ToString();
+                    t = new Post();
+                    t.Idrespuesta = Int32.Parse(reader[0].ToString());
+                    t.Idusuario = Int32.Parse(reader[1].ToString());
+                    t.Idtopic = Int32.Parse(reader[2].ToString());
                     t.Fecha = reader[3].ToString();
                     t.Texto = reader[4].ToString();
                     lista.Add(t);

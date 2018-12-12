@@ -13,7 +13,9 @@ namespace ProyectoTesis.Vistas
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            Response.Write("<html lang='en'>" +
+            if (Session["logeado"] != null)
+            {
+                Response.Write("<html lang='en'>" +
   "<head>" +
    "<style type = 'text/css'></style>" +
     "<meta charset = 'utf-8'>" +
@@ -95,92 +97,98 @@ namespace ProyectoTesis.Vistas
                     "<th scope='col'>Autor</th>" +
                     "<th scope = 'col'> Fecha </th>" +
                     "</tr>" +
-                "</thead>"+
+                "</thead>" +
                 "<tbody>");
-            ControladorTopic ct = new ControladorTopic();
-            List<Topic> allTopics = ct.ObetenerTodosTopics();
-            if (allTopics.Count > 0)
-            {
-                for (int i = 0; i < allTopics.Count; i++)
+                ControladorTopic ct = new ControladorTopic();
+                List<Topic> allTopics = ct.ObetenerTodosTopics();
+                if (allTopics.Count > 0)
                 {
-                    Usuario us = new Usuario();
-                    Usuario autorTopic = us.buscaUnoID(allTopics[i].Id_usuario.ToString());
-                    Response.Write("<tr>" +
-                  "<td><a href='foro.aspx?idtopic="+allTopics[i].Id_topic+"'><p>" + allTopics[i].Titulo+"</p></a></td>" +
-                  "<td><p>"+autorTopic.Nombre+"</p></td>" +
-                  "<td><p>"+allTopics[i].Fecha+"</p></td>" +
-                "</tr>" );
+                    for (int i = 0; i < allTopics.Count; i++)
+                    {
+                        Usuario us = new Usuario();
+                        Usuario autorTopic = us.buscaUnoID(allTopics[i].Id_usuario.ToString());
+                        Response.Write("<tr>" +
+                      "<td><a href='foro.aspx?idtopic=" + allTopics[i].Id_topic + "'><p>" + allTopics[i].Titulo + "</p></a></td>" +
+                      "<td><p>" + autorTopic.Nombre + "</p></td>" +
+                      "<td><p>" + allTopics[i].Fecha + "</p></td>" +
+                    "</tr>");
+                    }
+                    Response.Write("</tbody>" +
+                "</table>" +
+                "<hr class='w3-clear' />" +
+          "</div>" +
+           "<div class='col-lg-3 sidenav w3-card'>" +
+                "<blockquote class='blockquote'>" +
+            "<p class='mb-0'>Soñando</p>" +
+            "<br />" +
+            "<footer class='text-center'><img src = '../img/feñita.jpg'' style='width: 150px ' height:'150px' class='rounded-circle'> </footer>" +
+            "</blockquote>" +
+          "<ul class='list-group'>" +
+            "<li class='list-group-item'>" +
+            "<p><em>'idea es generar un espacio abierto a la reflexión, discusión, el compartir y construir diversas estrategias y acciones para y desde las Ciencias Sociales. Donde logren converger actores estratégicos como son egresad@s, alumn@s, instituciones y la propia comunidad." +
+            "Nuestro sentido se plasma en entregar servicios digitales gratuitos, los cuales logren facilitar el constante perfeccionamiento e innovación socio-profesional, y desde allí soñar y construir en conjunto.'</em></p></li>" +
+          "</ul>" +
+          "<br />" +
+          "<br />" +
+          "<br />" +
+          "<br />" +
+        "</div> " +
+         "</div>     " +
+    "</div>" +
+    "</header>       " +
+            "<!-- Footer -->" +
+            "<footer class='py-lg-5 py-5' id='MainFooter'>" +
+                "<div class='container'>" +
+                    "<p class='m-0 text-center text-white'>Copyright &copy; Quality Essentials 2018</p>" +
+                "</div>" +
+                "<!-- /.container -->" +
+            "</footer>");
                 }
-                Response.Write("</tbody>" +
-            "</table>"+
-            "<hr class='w3-clear' />" +
-      "</div>" +
-       "<div class='col-lg-3 sidenav w3-card'>" +
-            "<blockquote class='blockquote'>" +
-        "<p class='mb-0'>Soñando</p>" +
-        "<br />" +
-        "<footer class='text-center'><img src = '../img/feñita.jpg'' style='width: 150px ' height:'150px' class='rounded-circle'> </footer>" +
-        "</blockquote>" +
-      "<ul class='list-group'>" +
-        "<li class='list-group-item'>" +
-        "<p><em>'idea es generar un espacio abierto a la reflexión, discusión, el compartir y construir diversas estrategias y acciones para y desde las Ciencias Sociales. Donde logren converger actores estratégicos como son egresad@s, alumn@s, instituciones y la propia comunidad." +
-        "Nuestro sentido se plasma en entregar servicios digitales gratuitos, los cuales logren facilitar el constante perfeccionamiento e innovación socio-profesional, y desde allí soñar y construir en conjunto.'</em></p></li>" +
-      "</ul>" +
-      "<br />" +
-      "<br />" +
-      "<br />" +
-      "<br />" +
-    "</div> " +
-     "</div>     " +
-"</div>" +
-"</header>       " +
-        "<!-- Footer -->" +
-        "<footer class='py-lg-5 py-5' id='MainFooter'>" +
-            "<div class='container'>" +
-                "<p class='m-0 text-center text-white'>Copyright &copy; Quality Essentials 2018</p>" +
-            "</div>" +
-            "<!-- /.container -->" +
-        "</footer>");
+                else
+                {
+                    Response.Write("<tbody>" +
+                    "<tr>" +
+                      "<td><a href='#'><p>No hay topics disponibles</p></a></td>" +
+                      "<td><p>-</p></td>" +
+                      "<td><p>-</p></td>" +
+                    "</tr>" +
+                  "</tbody>" +
+                "</table>" +
+          "<hr class='w3-clear' />" +
+          "</div>" +
+           "<div class='col-lg-3 sidenav w3-card'>" +
+                "<blockquote class='blockquote'>" +
+            "<p class='mb-0'>Soñando</p>" +
+            "<br />" +
+            "<footer class='text-center'><img src = '../img/feñita.jpg'' style='width: 150px ' height:'150px' class='rounded-circle'> </footer>" +
+            "</blockquote>" +
+          "<ul class='list-group'>" +
+            "<li class='list-group-item'>" +
+            "<p><em>'idea es generar un espacio abierto a la reflexión, discusión, el compartir y construir diversas estrategias y acciones para y desde las Ciencias Sociales. Donde logren converger actores estratégicos como son egresad@s, alumn@s, instituciones y la propia comunidad." +
+            "Nuestro sentido se plasma en entregar servicios digitales gratuitos, los cuales logren facilitar el constante perfeccionamiento e innovación socio-profesional, y desde allí soñar y construir en conjunto.'</em></p></li>" +
+          "</ul>" +
+          "<br />" +
+          "<br />" +
+          "<br />" +
+          "<br />" +
+        "</div> " +
+         "</div>     " +
+    "</div>" +
+    "</header>       " +
+            "<!-- Footer -->" +
+            "<footer class='py-lg-5 py-5' id='MainFooter'>" +
+                "<div class='container'>" +
+                    "<p class='m-0 text-center text-white'>Copyright &copy; Quality Essentials 2018</p>" +
+                "</div>" +
+                "<!-- /.container -->" +
+            "</footer>");
+                }
             }
             else
             {
-                Response.Write("<tbody>" +
-                "<tr>" +
-                  "<td><a href='#'><p>No hay topics disponibles</p></a></td>" +
-                  "<td><p>-</p></td>" +
-                  "<td><p>-</p></td>" +
-                "</tr>" +
-              "</tbody>" +
-            "</table>" +
-      "<hr class='w3-clear' />" +
-      "</div>" +
-       "<div class='col-lg-3 sidenav w3-card'>" +
-            "<blockquote class='blockquote'>" +
-        "<p class='mb-0'>Soñando</p>" +
-        "<br />" +
-        "<footer class='text-center'><img src = '../img/feñita.jpg'' style='width: 150px ' height:'150px' class='rounded-circle'> </footer>" +
-        "</blockquote>" +
-      "<ul class='list-group'>" +
-        "<li class='list-group-item'>" +
-        "<p><em>'idea es generar un espacio abierto a la reflexión, discusión, el compartir y construir diversas estrategias y acciones para y desde las Ciencias Sociales. Donde logren converger actores estratégicos como son egresad@s, alumn@s, instituciones y la propia comunidad." +
-        "Nuestro sentido se plasma en entregar servicios digitales gratuitos, los cuales logren facilitar el constante perfeccionamiento e innovación socio-profesional, y desde allí soñar y construir en conjunto.'</em></p></li>" +
-      "</ul>" +
-      "<br />" +
-      "<br />" +
-      "<br />" +
-      "<br />" +
-    "</div> " +
-     "</div>     " +
-"</div>" +
-"</header>       " +
-        "<!-- Footer -->" +
-        "<footer class='py-lg-5 py-5' id='MainFooter'>" +
-            "<div class='container'>" +
-                "<p class='m-0 text-center text-white'>Copyright &copy; Quality Essentials 2018</p>" +
-            "</div>" +
-            "<!-- /.container -->" +
-        "</footer>");
+                Response.Redirect("index.aspx");
             }
+            
 
                 
                 
