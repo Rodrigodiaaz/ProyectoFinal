@@ -35,6 +35,14 @@ tipo_perfil varchar(30),
 estado tinyint
 );
 
+create table tesis(
+id_tesis int auto_increment primary key,
+Autor varchar(200),
+descripcion varchar(1000),
+profesor_guia varchar(1000),
+nombre_archivo varchar(1000)
+);
+
 create table publicacion(
 idpublicacion int auto_increment primary key,
 texto varchar(1000),
@@ -79,15 +87,13 @@ foreign key (idemisor) references usuario(id_usuario),
 foreign key (idpublicacion) references publicacion(idpublicacion)
 );
 
-create table archivo_usuario();
-
-create table archivo_publicacion(
+create table archivo(
 idarchivo int auto_increment primary key,
 nombre_archivo varchar(200),
 idusuario int,
 idpublicacion int,
 foreign key (idpublicacion) references publicacion(idpublicacion),
-foreign key (idusuario) references usuari(id_usuario)
+foreign key (idusuario) references usuario(id_usuario)
 );
 
 
@@ -105,8 +111,8 @@ foreign key (id_usuario) references usuario(id_usuario)
 create table notificacion(
 idnotificacion int auto_increment primary key,
 estadado tinyint,
-idpost int,
+idpublicacion int,
 idusuario int,
-foreign key (idpost) references post(idpost),
+foreign key (idpublicacion) references publicacion(idpublicacion),
 foreign key (idusuario) references usuario(id_usuario)
 );
