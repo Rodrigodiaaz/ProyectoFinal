@@ -38,5 +38,13 @@ namespace ProyectoTesis.Controlador
             return lista;
         }
 
+        public Topic ObtenerTopic(string id)
+        {
+            Topic t = new Topic();
+            Topic t2 = null;
+            t2 = t.BuscaTopicId(id);
+            return t2;
+        }
+
     }
 }

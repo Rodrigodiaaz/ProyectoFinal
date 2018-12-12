@@ -6,43 +6,34 @@ using System.Web;
 
 namespace ProyectoTesis.Modelos
 {
-    public class Topic
+    public class Post
     {
-        private int id_topic;
-        private int id_usuario;
-        private string titulo;
+        private int idrespuesta;
+        private int idusuario;
+        private int idtopic;
         private string fecha;
         private string texto;
 
-        public int Id_topic { get => id_topic; set => id_topic = value; }
-        public int Id_usuario { get => id_usuario; set => id_usuario = value; }
-        public string Titulo { get => titulo; set => titulo = value; }
+        public int Idrespuesta { get => idrespuesta; set => idrespuesta = value; }
+        public int Idusuario { get => idusuario; set => idusuario = value; }
+        public int Idtopic { get => idtopic; set => idtopic = value; }
         public string Fecha { get => fecha; set => fecha = value; }
         public string Texto { get => texto; set => texto = value; }
 
-
-        public Topic(int idtopic, int idusuario, string titulo, string fecha, string texto)
-        {
-            this.id_topic = idtopic;
-            this.id_usuario = idusuario;
-            this.titulo = titulo;
-            this.fecha = fecha;
-            this.texto = texto;
-        }
-
-        public Topic()
+        public Post()
         {
 
         }
 
-        public bool InsertaTopic(Topic t)
+
+        public bool InsertaReplica(Post p)
         {
             Conexion con = Conexion.Instance();
             try
             {
                 MySqlCommand comando = new MySqlCommand();
                 con.abreConexion();
-                comando.CommandText = "INSERT INTO topic(id_usuario, titulo, fecha, texto) VALUES("+t.Id_usuario+", '"+t.Titulo+"', '"+t.Fecha+"', '"+t.Texto+"')";
+                comando.CommandText = "INSERT INTO respuesta_topic(id_usuario, id_topic, fecha, texto) VALUES(" + p.Idusuario + ", '" + p.Idtopic + "', '" + p.Fecha + "', '" + p.Texto + "')";
                 comando.Connection = con.usaConexion();
                 if (comando.ExecuteNonQuery() > 0)
                 {

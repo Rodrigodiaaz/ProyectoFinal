@@ -260,8 +260,7 @@
     <Content Include="vendor\jquery\jquery.slim.min.js" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Vistas\crearForo.aspx" />
-    <Content Include="Vistas\foro.aspx" />
-    <Content Include="Vistas\Foro1.aspx" />
+    <Content Include="Vistas\Foro.aspx" />
     <Content Include="Vistas\home.aspx" />
     <Content Include="Vistas\index.aspx" />
     <Content Include="Vistas\menuforo.aspx" />
@@ -328,6 +327,7 @@
     <Compile Include="Modelos\Comentario.cs" />
     <Compile Include="Modelos\Conexion.cs" />
     <Compile Include="Modelos\Notificacion.cs" />
+    <Compile Include="Modelos\Post.cs" />
     <Compile Include="Modelos\Publicacion.cs" />
     <Compile Include="Modelos\Tesis.cs" />
     <Compile Include="Modelos\Topic.cs" />
@@ -362,19 +362,12 @@
     <Compile Include="Vistas\crearForo.aspx.designer.cs">
       <DependentUpon>crearForo.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Vistas\foro.aspx.cs">
-      <DependentUpon>foro.aspx</DependentUpon>
+    <Compile Include="Vistas\Foro.aspx.cs">
+      <DependentUpon>Foro.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Vistas\foro.aspx.designer.cs">
-      <DependentUpon>foro.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Vistas\Foro1.aspx.cs">
-      <DependentUpon>Foro1.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Vistas\Foro1.aspx.designer.cs">
-      <DependentUpon>Foro1.aspx</DependentUpon>
+    <Compile Include="Vistas\Foro.aspx.designer.cs">
+      <DependentUpon>Foro.aspx</DependentUpon>
     </Compile>
     <Compile Include="Vistas\home.aspx.cs">
       <DependentUpon>home.aspx</DependentUpon>

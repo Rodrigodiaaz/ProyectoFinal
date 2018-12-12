@@ -106,7 +106,7 @@ namespace ProyectoTesis.Vistas
                     Usuario us = new Usuario();
                     Usuario autorTopic = us.buscaUnoID(allTopics[i].Id_usuario.ToString());
                     Response.Write("<tr>" +
-                  "<td><a href='#'><p>"+allTopics[i].Titulo+"</p></a></td>" +
+                  "<td><a href='foro.aspx?idtopic="+allTopics[i].Id_topic+"'><p>" + allTopics[i].Titulo+"</p></a></td>" +
                   "<td><p>"+autorTopic.Nombre+"</p></td>" +
                   "<td><p>"+allTopics[i].Fecha+"</p></td>" +
                 "</tr>" );
