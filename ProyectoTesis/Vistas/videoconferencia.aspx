@@ -120,11 +120,8 @@ document.getElementById('open-or-join-room').onclick = function() {
 
 var connection = new RTCMultiConnection();
 
-// by default, socket.io server is assumed to be deployed on your own URL
+// Coneccion a servidor node.js socket.io
 connection.socketURL = 'https://192.168.100.2:9001/';
-
-// comment-out below line if you do not have your own socket.io server
-// connection.socketURL = 'https://rtcmulticonnection.herokuapp.com:443/';
 
 connection.socketMessageEvent = 'video-broadcast-demo';
 

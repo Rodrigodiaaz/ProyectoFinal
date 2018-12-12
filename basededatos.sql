@@ -1,6 +1,8 @@
 create database proyecto;
 use proyecto;
 
+drop database proyecto;
+
 delete from post where idemisor='5';
 delete from post where idemisor=1;
 delete from comentario where idemisor=1;
@@ -10,6 +12,11 @@ select * from usuario;
 select * from post;
 select * from publicacion;
 SELECT * FROM publicacion WHERE idreceptor=1 ORDER BY idpublicacion DESC;
+
+SELECT * FROM topic;
+SELECT * FROM tesis;
+
+select * from topic;
 
 SELECT * FROM comentario xampWHERE idpost=1 ORDER BY idcomentario DESC;
 
@@ -116,3 +123,5 @@ idusuario int,
 foreign key (idpublicacion) references publicacion(idpublicacion),
 foreign key (idusuario) references usuario(id_usuario)
 );
+
+alter table tesis add titulo varchar(500) after nombre_archivo;

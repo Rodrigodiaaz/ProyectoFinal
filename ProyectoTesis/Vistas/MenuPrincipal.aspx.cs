@@ -78,58 +78,80 @@ namespace ProyectoTesis.Vistas
       "<hr>");
                 ControladorPublicacion cp = new ControladorPublicacion();
                 List<Publicacion> listapublicaciones = cp.ObtenerTodasPublicaciones();
-                for (int i = 0; i < 5; i++)
+                if (listapublicaciones.Count > 0)
                 {
-                    Usuario logeado = (Usuario)Session["logeado"];
-                    Usuario us = new Usuario();
-                    Usuario u = us.buscaUnoID(listapublicaciones[i].IdEmisor);
-                    ControladorComentario cm = new ControladorComentario();
-                    List<Comentario> listacomentariosxpublicacion = cm.listaComentarios(listapublicaciones[i].Idpublicacion);
-                    Response.Write("<span class='w3-right w3-opacity'>" + listapublicaciones[i].Fecha + "</span>" +
-                                    "<h4><strong>" + u.Nombre +" " + u.Cargo +"</strong></h4>" +
-                                    "<p>" + listapublicaciones[i].Texto + "</p>" +
-                                    "<br><br>" +
-                                    "<div><h3 data-toggle='collapse' href='#ComentarP" + i + "' role='button' aria-expanded='false' aria-controls='ComentarP" + i + "'><Strong> Comentar </Strong></h3></div>" +
-                                    "<br />" +
-                                    "<!--Comentario Principal -->" +
-                                    "<div class='mx-auto w3-card w3-round  collapse alert-secondary' id='ComentarP" + i + "'>");
-                    for (int j = 0; j < listacomentariosxpublicacion.Count; j++)
+                    for (int i = 0; i < listapublicaciones.Count ; i++)
                     {
-                        Usuario ucomentario = us.buscaUnoID(listacomentariosxpublicacion[j].Idemisor.ToString());
-                        Response.Write("<div class='w3-padding-large alert'><h4><strong>" + ucomentario.Nombre + " Comentó</strong></h4>" +
-                                    "<span class='w3-right w3-opacity'>" + listacomentariosxpublicacion[j].Fecha + "</span>" +
-                                    "<br />" +
-                                    "<span>" + listacomentariosxpublicacion[j].Texto + "</span>" +
-                                    "<br />" +
-                                    "<hr class='w3-clear'>" +
-                                    "</div>");
+                        if (i <= 5)
+                        {
+                            Usuario logeado = (Usuario)Session["logeado"];
+                            Usuario us = new Usuario();
+                            Usuario u = us.buscaUnoID(listapublicaciones[i].IdEmisor);
+                            ControladorComentario cm = new ControladorComentario();
+                            List<Comentario> listacomentariosxpublicacion = cm.listaComentarios(listapublicaciones[i].Idpublicacion);
+                            Response.Write("<span class='w3-right w3-opacity'>" + listapublicaciones[i].Fecha + "</span>" +
+                                            "<h4><strong>" + u.Nombre + " " + u.Cargo + "</strong></h4>" +
+                                            "<p>" + listapublicaciones[i].Texto + "</p>" +
+                                            "<br><br>" +
+                                            "<div><h3 data-toggle='collapse' href='#ComentarP" + i + "' role='button' aria-expanded='false' aria-controls='ComentarP" + i + "'><Strong> Comentar </Strong></h3></div>" +
+                                            "<br />" +
+                                            "<!--Comentario Principal -->" +
+                                            "<div class='mx-auto w3-card w3-round  collapse alert-secondary' id='ComentarP" + i + "'>");
+                            for (int j = 0; j < listacomentariosxpublicacion.Count; j++)
+                            {
+                                Usuario ucomentario = us.buscaUnoID(listacomentariosxpublicacion[j].Idemisor.ToString());
+                                Response.Write("<div class='w3-padding-large alert'><h4><strong>" + ucomentario.Nombre + " Comentó</strong></h4>" +
+                                            "<span class='w3-right w3-opacity'>" + listacomentariosxpublicacion[j].Fecha + "</span>" +
+                                            "<br />" +
+                                            "<span>" + listacomentariosxpublicacion[j].Texto + "</span>" +
+                                            "<br />" +
+                                            "<hr class='w3-clear'>" +
+                                            "</div>");
+
+                            }
+
+                            Response.Write("<form role ='form'>" +
+                            "<div class='form-group'>" +
+                            "<textarea id='txtTextoComentario" + i + "' class='form-control' rows='3' required></textarea>" +
+                            "</div>" /* se cierra div form-control*/ +
+                            "&nbsp;<input type='button' value='responder' onclick='enviaComentario(" + listapublicaciones[i].Idpublicacion + ", " + i + ", " + logeado.Id + ", 1)' class='btn btn-dark col-lg-2' />" +
+                            "</form>" +
+                            "</div>" +
+                            "<hr>"
+                            );
+                        }
 
                     }
 
-                    Response.Write("<form role ='form'>" +
-                    "<div class='form-group'>" +
-                    "<textarea id='txtTextoComentario" + i + "' class='form-control' rows='3' required></textarea>" +
-                    "</div>" /* se cierra div form-control*/ +
-                    "&nbsp;<input type='button' value='responder' onclick='enviaComentario(" + listapublicaciones[i].Idpublicacion + ", " + i + ", " + logeado.Id + ", 1)' class='btn btn-dark col-lg-2' />" +
-                    "</form>" +
-                    "</div>" +
-                    "<hr>"
-                    );
+
+
+                    Response.Write("</div>" +
+              "</div>" +
+              "</div>" +
+              "</header>" +
+                      "<!-- Footer -->" +
+                      "<footer class='py-lg-5 py-5' id='MainFooter'>" +
+                          "<div class='container'>" +
+                              "<p class='m-0 text-center text-white'>Copyright &copy; Quality Essentials 2018</p>" +
+                          "</div>" +
+                          "<!-- /.container -->" +
+                      "</footer>");
                 }
-
-
-
-                Response.Write("</div>" +
-          "</div>" +
-          "</div>" +
-          "</header>" +
-                  "<!-- Footer -->" +
-                  "<footer class='py-lg-5 py-5' id='MainFooter'>" +
-                      "<div class='container'>" +
-                          "<p class='m-0 text-center text-white'>Copyright &copy; Quality Essentials 2018</p>" +
-                      "</div>" +
-                      "<!-- /.container -->" +
-                  "</footer>");
+                else
+                {
+                    Response.Write("<p>No hay publicaciones</p>" +
+                        "</div>" +
+              "</div>" +
+              "</div>" +
+              "</header>" +
+                      "<!-- Footer -->" +
+                      "<footer class='py-lg-5 py-5' id='MainFooter'>" +
+                          "<div class='container'>" +
+                              "<p class='m-0 text-center text-white'>Copyright &copy; Quality Essentials 2018</p>" +
+                          "</div>" +
+                          "<!-- /.container -->" +
+                      "</footer>");
+                }
             }
             else
             {

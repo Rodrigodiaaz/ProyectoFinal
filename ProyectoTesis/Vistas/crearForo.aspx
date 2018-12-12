@@ -80,7 +80,9 @@
       <div class="text-center"><h2>Subir Topic</h2></div>
       <h5 class="EmblemaP2">&nbsp;&nbsp;&nbsp;&nbsp;</h5>
        
-      <div class="text-center"><h2>Formulario</h2></div>
+      <div class="text-center"><h2>Formulario</h2> <br />
+          <asp:Label ID="lblMensaje" runat="server" Text=""></asp:Label>
+      </div>
       <br />
        <form  method="post" runat="server">
        <table class="table">
@@ -89,14 +91,14 @@
                 <tr>
                   <th scope="row"></th>
                   <td><img class="rounded img-fluid" width="50px" height="50px" src="../img/topic.jpg"><asp:Label ID="Label6" runat="server" Text="Titulo del topic: "></asp:Label></td>
-                  <td><asp:TextBox ID="txtGuia" runat="server" class="form-control mx-auto" required></asp:TextBox></td>
+                  <td><asp:TextBox ID="txtTitulo" runat="server" class="form-control mx-auto" required></asp:TextBox></td>
                 </tr>
                 
                 <tr>
                   <th scope="row"></th>
                   <td><asp:Label ID="Label1" runat="server" Text="Descripcion"></asp:Label></td>
                   <td>
-                      <textarea class="form-control" rows="3" required></textarea>
+                      <textarea id="txtTexto" runat="server" class="form-control" rows="3" required></textarea>
                       </td>
                 </tr>
 
@@ -112,7 +114,9 @@
                   <td>
                   </td>
                       <td>
-                          <asp:Button ID="Button1" runat="server" Text="Publicar" class="btn btn-dark col-lg-4 col-md-4 col-sm-4"/></td>
+
+
+                          <asp:Button ID="btnCrearDiscusion" runat="server" Text="Publicar" class="btn btn-dark col-lg-4 col-md-4 col-sm-4" OnClick="btnCrearDiscusion_Click" /></td>
                   </tr>
 
               </tbody>

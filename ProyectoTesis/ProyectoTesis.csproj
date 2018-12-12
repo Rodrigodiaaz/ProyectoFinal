@@ -310,6 +310,8 @@
     <Compile Include="Controlador\ControladorComentario.cs" />
     <Compile Include="Controlador\ControladorNotificacion.cs" />
     <Compile Include="Controlador\ControladorPublicacion.cs" />
+    <Compile Include="Controlador\ControladorTesis.cs" />
+    <Compile Include="Controlador\ControladorTopic.cs" />
     <Compile Include="Controlador\ControladorUsuario.cs" />
     <Compile Include="css\modelos\Conexion.cs" />
     <Compile Include="css\modelos\Usuario.cs" />
@@ -328,6 +330,7 @@
     <Compile Include="Modelos\Notificacion.cs" />
     <Compile Include="Modelos\Publicacion.cs" />
     <Compile Include="Modelos\Tesis.cs" />
+    <Compile Include="Modelos\Topic.cs" />
     <Compile Include="Modelos\Usuario.cs" />
     <Compile Include="Modelos\Videoconferencia.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

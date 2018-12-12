@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.IO;
+using ProyectoTesis.Controlador;
 
 namespace ProyectoTesis.Vistas
 {
@@ -11,7 +13,55 @@ namespace ProyectoTesis.Vistas
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["mensaje"] != null)
+            {
+                lblMensaje.Text = (string)Session["mensaje"];
+            }
 
+        }
+
+        protected void btnSubirTesis_Click(object sender, EventArgs e)
+        {
+            string nombreArchivo; string strFilePath;
+            string carpeta;
+            carpeta = Server.MapPath("../pdf/");
+
+            ControladorPublicacion cp = new ControladorPublicacion();
+
+
+            if (fileTesis.PostedFile.FileName != "")
+            {
+                nombreArchivo = fileTesis.PostedFile.FileName;
+                nombreArchivo = Path.GetFileName(nombreArchivo);
+                if (!Directory.Exists(carpeta))
+                {
+                    Directory.CreateDirectory(carpeta);
+                }
+
+                // Save the uploaded file to the server.
+                strFilePath = carpeta + nombreArchivo;
+
+                if (File.Exists(strFilePath))
+                {
+                    lblMensaje.Text = nombreArchivo + " ya existe!";
+                }
+                else
+                {
+                    ControladorTesis ct = new ControladorTesis();
+                    string mensaje = ct.insertaTesis(txtAutores.Text, txtDescripcion.Value, txtProfeGuia.Text, nombreArchivo, txtTitulo.Text);
+                    if (mensaje.Equals("Tesis subida con exito."))
+                    {
+                        fileTesis.PostedFile.SaveAs(strFilePath);
+                        Session["mensaje"] = mensaje;
+                        Response.Redirect(Request.Url.AbsoluteUri);
+                    }
+                    else
+                    {
+                        lblMensaje.Text = mensaje;
+                    }
+                }
+
+            }
         }
     }
 }

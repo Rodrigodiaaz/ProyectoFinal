@@ -13,6 +13,15 @@ namespace ProyectoTesis.Vistas {
     public partial class crearForo {
         
         /// <summary>
+        /// Control lblMensaje.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblMensaje;
+        
+        /// <summary>
         /// Control Label6.
         /// </summary>
         /// <remarks>
@@ -22,13 +31,13 @@ namespace ProyectoTesis.Vistas {
         protected global::System.Web.UI.WebControls.Label Label6;
         
         /// <summary>
-        /// Control txtGuia.
+        /// Control txtTitulo.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtGuia;
+        protected global::System.Web.UI.WebControls.TextBox txtTitulo;
         
         /// <summary>
         /// Control Label1.
@@ -40,6 +49,15 @@ namespace ProyectoTesis.Vistas {
         protected global::System.Web.UI.WebControls.Label Label1;
         
         /// <summary>
+        /// Control txtTexto.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTextArea txtTexto;
+        
+        /// <summary>
         /// Control FileUpload2.
         /// </summary>
         /// <remarks>
@@ -49,12 +67,12 @@ namespace ProyectoTesis.Vistas {
         protected global::System.Web.UI.WebControls.FileUpload FileUpload2;
         
         /// <summary>
-        /// Control Button1.
+        /// Control btnCrearDiscusion.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button1;
+        protected global::System.Web.UI.WebControls.Button btnCrearDiscusion;
     }
 }

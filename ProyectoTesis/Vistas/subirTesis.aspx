@@ -79,12 +79,24 @@
       <div class="text-center"><h2>Subir Tesis</h2></div>
       <h5 class="EmblemaP2">&nbsp;&nbsp;&nbsp;&nbsp;</h5>
        
-      <div class="text-center"><h2>Formulario de tesis</h2></div>
+      <div class="text-center"><h2>Formulario de tesis</h2><br />
+          <asp:Label ID="lblMensaje" runat="server" Text=""></asp:Label>
+      </div>
       <br />
        <form  method="post" runat="server">
        <table class="table">
               <tbody>
-                <tr>
+               <tr>
+                  <th scope="row"></th>
+                  <td><asp:Label ID="Label20" runat="server" Text="Titulo"></asp:Label></td>
+                  <td>
+                  <asp:TextBox ID="txtTitulo" runat="server" class="form-control mx-auto"></asp:TextBox>
+                    
+
+                  </td>
+                </tr>
+                  
+               <tr>
                   <th scope="row"></th>
                   <td><asp:Label ID="Label5" runat="server" Text="Autores"></asp:Label></td>
                   <td>
@@ -97,34 +109,35 @@
                 <tr>
                   <th scope="row"></th>
                   <td><asp:Label ID="Label6" runat="server" Text="Profesor Guia:"></asp:Label></td>
-                  <td><asp:TextBox ID="txtGuia" runat="server" class="form-control mx-auto"></asp:TextBox></td>
+                  <td><asp:TextBox ID="txtProfeGuia" runat="server" class="form-control mx-auto"></asp:TextBox></td>
                 </tr>
                 
                 <tr>
                   <th scope="row"></th>
                   <td><asp:Label ID="Label1" runat="server" Text="Descripcion"></asp:Label></td>
                   <td>
-                      <textarea class="form-control" rows="3" required></textarea>
+                      <textarea id="txtDescripcion" runat="server" class="form-control" rows="3" required></textarea>
                       </td>
                 </tr>
 
-                <tr>
-                  <th scope="row"></th>
-                  <td><asp:Label ID="Label2" runat="server" Text="Comentarios"></asp:Label></td>
-                  <td>
-                      <textarea class="form-control" rows="3" required></textarea>
-                      </td>
-                </tr>
+
                   <tr>
                   <th scope="row"></th>
-                  <td><asp:FileUpload ID="FileUpload1" runat="server" />
+                  <td>
                   </td>
+                      <td>
+                            <asp:FileUpload ID="fileTesis" runat="server" class="col-lg-10 col-md-6 col-sm-6" />
+                      </td>
                   </tr>
                  
                   <tr>
                   <th scope="row"></th>
-                  <td><input id="SubirT" type="button" value="Subir tesis" class="btn btn-dark col-lg-6 col-md-6 col-sm-6" />
+                  <td>
+                      
                   </td>
+                      <td>
+                          <asp:Button ID="btnSubirTesis" runat="server" Text="Subir" class="btn btn-dark col-lg-4 col-md-4 col-sm-4" OnClick="btnSubirTesis_Click" />
+                      </td>
                   </tr>
 
               </tbody>
@@ -172,3 +185,4 @@
     <script src="/Scripts/scrolling-nav.js"></script>
 
 </html>
+
