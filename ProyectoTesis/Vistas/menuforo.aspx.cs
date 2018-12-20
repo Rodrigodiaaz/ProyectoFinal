@@ -45,7 +45,7 @@ namespace ProyectoTesis.Vistas
      "<!--Navigation-->" +
         "<nav class='navbar navbar-expand-lg fixed-top' id='mainNav'>" +
             "<div class='container'>" +
-                "<a class='navbar-brand js-scroll-trigger' href='#page-top'>Quality Essentials</a>" +
+                "<a class='navbar-brand js-scroll-trigger' href='#page-top'><img class='rounded img - fluid' width='105px' height='85px' src='../img/logo2.jpg'></a>" +
                 "<button class='navbar-toggler' type='button' data-toggle='collapse' data-target='#navbarResponsive' aria-controls='navbarResponsive' aria-expanded='false' aria-label='Toggle navigation'>" +
                     "<span class='navbar-toggler-icon'></span>" +
                 "</button>" +
@@ -64,13 +64,13 @@ namespace ProyectoTesis.Vistas
   "<div class='row content'>" +
     "<div class='col-lg-3 sidenav w3-card'>" +
       "<blockquote class='blockquote'>" +
-        "<p class='mb-0'>Administrador o Usuario</p>" +
+        "<p class='mb-0'>Menu</p>" +
         "<br />" +
         "<footer class=''> <img class='rounded img-fluid' width='50px' height='50px' src='../img/menu.jpg'>Opciones Foro</footer>" +
         "</blockquote>" +
       "<ul class='list-group'>" +
-        "<li class='list-group-item'><a href = 'home.aspx'> Mis Discusiones</a></li>" +
-        "<li class='list-group-item'><a href = 'MenuTesis.aspx'> Crear Discusion</a></li>" +
+        "<li class='list-group-item'><a href = 'home.aspx'> Perfil</a></li>" +
+        "<li class='list-group-item'><a href = 'CrearForo.aspx'> Crear Discusion</a></li>" +
       "</ul>" +
       "<br />" +
       "<br />" +
@@ -79,9 +79,8 @@ namespace ProyectoTesis.Vistas
       "<footer class=''>Otras Opciones</footer>" +
       "</blockquote>" +
       "<ul class='list-group'>" +
-        "<li class='list-group-item'><a href = 'home.aspx'> Perfil </a></li>" +
+       
         "<li class='list-group-item'><a href = 'MenuTesis.aspx'> Menu Tesis</a></li>" +
-        "<li class='list-group-item'><a href = 'MenuTesis.aspx'> Video Conferencia</a></li>" +
       "</ul>" +
      "<br />" +
      "<br />" +
@@ -121,7 +120,7 @@ namespace ProyectoTesis.Vistas
                 "<blockquote class='blockquote'>" +
             "<p class='mb-0'>Soñando</p>" +
             "<br />" +
-            "<footer class='text-center'><img src = '../img/feñita.jpg'' style='width: 150px ' height:'150px' class='rounded-circle'> </footer>" +
+            "<footer class='text-center'><img src = '../img/perfil.jpg'' style='width: 150px ' height:'150px' class='rounded-circle'> </footer>" +
             "</blockquote>" +
           "<ul class='list-group'>" +
             "<li class='list-group-item'>" +

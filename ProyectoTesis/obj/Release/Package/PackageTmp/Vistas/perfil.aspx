@@ -19,8 +19,7 @@
 </head>
 
 <body id="page-top">
-   
-    <form id="form1" runat="server">
+  
 
         <!-- Navigation -->
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
@@ -46,17 +45,12 @@
 
 
                         <li class="nav-item">
-                            <a class="nav-link js-scroll-trigger text-white" href="tesis.aspx">Tesis</a>
+                            <a class="nav-link js-scroll-trigger text-white" href="MenuTesis.aspx">Tesis</a>
                         </li>
 
 
                         <li class="nav-item">
-                            <a class="nav-link js-scroll-trigger text-white" href="#Videos">Videos</a>
-
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link js-scroll-trigger text-white" href="#Perfil">Perfil</a>
+                            <a class="nav-link js-scroll-trigger text-white" href="MenuVideo.aspx">Videos</a>
 
                         </li>
 
@@ -69,7 +63,7 @@
 
         <!-- Centro Pagina -->
         <section >
-            <div class="container" >
+            <div class="" >
                 <div class="row">
 
 
@@ -99,8 +93,8 @@
 
 
                         <div>
-                            <div class="EmblemaP"><h1 >Publicaciones</h1></div>
-                            <h5 class="EmblemaP2">Bienvenido + Nombre</h5>
+                            <div ><h1 >Publicaciones</h1></div>
+                            <h5 class="EmblemaP2">&nbsp;&nbsp;&nbsp;&nbsp;</h5>
                             <br />
                             <br />
                             
@@ -109,12 +103,13 @@
                                     <div>
                                         <div>
                                             <div class="textomen w3-padding-large">
-                                            <input id="TextAr" type="text" placeholder="Que vas a publicar Hoy!" class="TextoMenu" />
+                                            <textarea class="form-control" rows="3" required></textarea>
                                                     <br />
                                                     <br />
-                                            </div>
                                             <input id="Button3" type="button" value="Publicar" class="ButtonMP" />
                                             <input id="Archivo" type="file" name="image_post"/>
+                                            </div>
+                                            
                                            
                                                     <br />
                                                     <br />
@@ -126,8 +121,9 @@
                         </div>
 
                         <!-- Comentarios -->
-                        <div class="mx-auto w3-card w3-round w3-white">
-                            <div class="EmblemaP"><h1 >Comentarios</h1></div>
+                        <div class="mx-auto w3-round w3-white">
+                            <div><h1 >Publicaciones Principales</h1></div>
+                            <h5 class="EmblemaP2">&nbsp;&nbsp;&nbsp;&nbsp;</h5>
                             <br />
                             <br />
                             <br />
@@ -178,7 +174,12 @@
             <!-- /.container -->
         </footer>
 
-        <!-- Bootstrap core JavaScript -->
+        
+
+    
+
+</body>
+<!-- Bootstrap core JavaScript -->
         <script src="js/jQuery.min.js"></script>
         <script src="vendor/jquery/jquery.min.js"></script>
         <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -188,10 +189,5 @@
 
         <!-- Custom JavaScript for this theme -->
         <script src="js/scrolling-nav.js"></script>
-
-    </form>
-
-</body>
-
 </html>
 

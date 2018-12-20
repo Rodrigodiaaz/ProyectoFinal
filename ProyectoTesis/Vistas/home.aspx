@@ -39,7 +39,7 @@
         <!-- Navigation -->
         <nav class='navbar navbar-expand-lg fixed-top' id='mainNav'>
             <div class='container'>
-                <a class='navbar-brand js-scroll-trigger' href='#page-top'>Quality Essentials</a>
+                <a class='navbar-brand js-scroll-trigger' href='#page-top'><img class='rounded img - fluid' width="105px" height="85px" src="../img/logo2.jpg"></a>
                 <button class='navbar-toggler' type='button' data-toggle='collapse' data-target='#navbarResponsive' aria-controls='navbarResponsive' aria-expanded='false' aria-label='Toggle navigation'>
 
                     <span class='navbar-toggler-icon'></span>
@@ -86,10 +86,13 @@
         <p class="mb-0">Otras opciones</p>
         </blockquote>
       <ul class="list-group">
-        <li class="list-group-item"><a href="ModificarUsu.aspx">Modificar Perfil</a></li>
-        <li class="list-group-item"><a href="MenuTesis.aspx">Menu Tesis</a></li>
-        <li class="list-group-item"><a href="Menuforo.aspx">Menu Foro</a></li>
-        <li class="list-group-item"><a href="">Menu Conferencia</a></li>
+        <li class='list-group-item'><a href='home.aspx'>Perfil</a></li>
+        <li class='list-group-item'><a href='menuforo.aspx'>Menu Foros</a></li>
+        <li class='list-group-item'><a href='videoconferencia.aspx'>Video Conferencia</a></li>
+        <li class='list-group-item'><a href='subirTesis.aspx'>Subir Tesis</a></li>
+        <li class='list-group-item'><a href='menutesis.aspx'>Menu Tesis</a></li>
+        <li class='list-group-item'><a href='crearForo.aspx'>Crear Foro</a></li>
+        <li class='list-group-item'><a href='modificarusu.aspx'>Modificar Usuario</a></li>
       </ul>
       <br>
 
@@ -119,16 +122,16 @@
       <br />
       
       <div class="w3-card w3-padding">
-      <h4><img class="rounded img-fluid" width="50px" height="50px" src="../img/welcome.jpg">Bienvenido<asp:Label ID="lblNombre" runat="server" Text="Label"></asp:Label> </h4>
-      <span class="w3-right w3-opacity">16 min</span>
+      <h4><img class="rounded img-fluid" width="50px" height="50px" src="../img/welcome.jpg">Bienvenido : <asp:Label ID="lblNombre" runat="server" Text="Label"></asp:Label> </h4>
+      <span class="w3-right w3-opacity"></span>
       
-      <h4>Rodrigo Diaz</h4>
+      <h4>Actualizacion de estado</h4>
        <textarea id="txtPublicacion" class="form-control"  runat="server" rows="3" placeholder="Que vas a publicar hoy!" required ></textarea>
       <br />
           <asp:Label ID="lblMensaje" runat="server" Text=""></asp:Label>
       <br />
       <input id='btnPublicar' type='button' value='Publicar' runat="server"  onserverclick="PublicarActualizacion" class='btn btn-dark col-lg-1' />
-      <input id='Archivo' class="btn btn-dark col-lg-1" runat="server" type='file' onserverclick="subirarchivo" name='image_post'/>
+      <input id='Archivo' class="btn col-lg-8 col-md-8 col-sm-8" runat="server" type='file' onserverclick="subirarchivo" name='image_post'/>
       <br />
       <br />
       </div>  

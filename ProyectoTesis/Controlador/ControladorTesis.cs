@@ -32,6 +32,20 @@ namespace ProyectoTesis.Controlador
                 }
             }
         }
+        public List<Tesis> ObetenerTodasTesis()
+        {
+            Tesis t = new Tesis();
+            List<Tesis> lista = t.buscaTodos();
+            return lista;
+        }
+
+        public Tesis ObtenerTesis(string id)
+        {
+            Tesis t = new Tesis();
+            Tesis t2 = null;
+            t2 = t.buscaUnatesis(id, id);
+            return t2;
+        }
 
 
     }

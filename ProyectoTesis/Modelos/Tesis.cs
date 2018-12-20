@@ -100,7 +100,7 @@ namespace ProyectoTesis.Modelos
             }
         }
 
-        public Tesis buscaUnatesis(int id, string titulo)
+        public Tesis buscaUnatesis(string id, string titulo)
         {
             Conexion con = Conexion.Instance();
             Tesis t2 = null;
@@ -108,7 +108,7 @@ namespace ProyectoTesis.Modelos
             {
                 con.abreConexion();
                 MySqlCommand comando = new MySqlCommand();
-                comando.CommandText = "SELECT * FROM tesis WHERE id_tesis='" + id + "' OR titulo = '" + titulo + "'";
+                comando.CommandText = "SELECT * FROM tesis WHERE id_tesis='" + id + "' OR titulo = '" + titulo + "' ";
                 comando.Connection = con.usaConexion();
                 MySqlDataReader reader = comando.ExecuteReader();
                 while (reader.Read())
@@ -177,7 +177,7 @@ namespace ProyectoTesis.Modelos
             {
                 con.abreConexion();
                 MySqlCommand comando = new MySqlCommand();
-                comando.CommandText = "SELECT * FROM tesis";
+                comando.CommandText = "SELECT * FROM tesis ORDER BY id_tesis DESC";
                 comando.Connection = con.usaConexion();
                 MySqlDataReader reader = comando.ExecuteReader();
                 while (reader.Read())

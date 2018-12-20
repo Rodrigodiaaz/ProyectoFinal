@@ -36,7 +36,7 @@
      <!-- Navigation -->
         <nav class='navbar navbar-expand-lg fixed-top' id='mainNav'>
             <div class='container'>
-                <img  src="../media/logo.png" width="155" height="120"/>
+                <img class='rounded img - fluid' width="105px" height="85px" src="../img/logo2.jpg">
                 <a class='navbar-brand js-scroll-trigger' href='#page-top'> </a>
                 <button class='navbar-toggler' type='button' data-toggle='collapse' data-target='#navbarResponsive' aria-controls='navbarResponsive' aria-expanded='false' aria-label='Toggle navigation'>
 

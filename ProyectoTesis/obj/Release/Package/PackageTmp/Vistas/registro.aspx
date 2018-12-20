@@ -27,7 +27,7 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
       <div class="container">
-        <a class="navbar-brand js-scroll-trigger" href="#page-top">Quality Essentials</a>
+        <a class="navbar-brand js-scroll-trigger" href="#page-top"><img class='rounded img - fluid' width="105px" height="85px" src="../img/logo2.jpg"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
 
           <span class="navbar-toggler-icon"></span>
@@ -55,6 +55,13 @@
         </div>
       </div>
     </nav>
+      <style>
+
+             header{
+        
+    background: #8B0000;
+    }
+      </style>
 
 <form method="post" runat="server">
     <header class="text-white">
@@ -64,23 +71,48 @@
 
            <h1 >Registro de Cuenta</h1><br>
               <asp:Label ID="lblMensaje" runat="server" Text=""></asp:Label>
-              <br>
+              <div style="text-align: left;display: flex; justify-content: center; align-items: center; ">
+              
+              <table  >
+                  <tr>
+                      <th>Rut</th>
+                      <th><asp:TextBox ID="txtRut" runat="server" placeholder="Rut" class="form-control"></asp:TextBox></th>
+                  </tr>
+                  <tr>
+                      <th>Nombres</th>
+                      <th><asp:TextBox ID="txtNombres" placeholder="Nombres" runat="server" class="form-control"></asp:TextBox></th>
+                  </tr>
+                  <tr>
+                      <th>Apellidos</th>
+                      <th><asp:TextBox ID="txtApellidos" placeholder="Apellidos" runat="server"  class="form-control"></asp:TextBox></th>
+                  </tr>
+                  <tr>
+                      <th>Correo </th>
+                      <th><asp:TextBox ID="txtEmail" placeholder="Correo" runat="server" class="form-control"></asp:TextBox></th>
+                  </tr>
+                  <tr>
+                      <th>Fecha Nacimiento</th>
+                      <th>
+                          <input type="date" id="fecha_nacimiento" runat="server" class="form-control" />
+                      </th>
+                  </tr>
+                  <tr>
+                      <th>Contraseña </th>
+                      <th><asp:TextBox ID="txtPass" type="password" placeholder="Contraseña" runat="server" class="form-control"></asp:TextBox></th>
+                  </tr>
+                  <tr>
+                      <th>Confirme Contraseña </th>
+                      <th><asp:TextBox ID="txtPass2" type="password" placeholder="Confirme Contraseña" runat="server" class="form-control"></asp:TextBox></th>
+                  </tr>
+                  <tr>
+                      <th></th>
+                      <th><br /><asp:Button ID="Button1" runat="server" class="form-control" Text="Registrar" OnClick="Button1_Click" /></th>
+                  </tr>
 
-              <asp:TextBox ID="txtRut" runat="server" placeholder="Rut" class="form-control"></asp:TextBox>
-              <br>
-              <asp:TextBox ID="txtNombre" placeholder="Nombre" runat="server" class="form-control"></asp:TextBox>
-                 
-        <br>
-              <asp:TextBox ID="txtEmail" placeholder="Correo" runat="server" class="form-control"></asp:TextBox>
-                 
-        <br>
+              </table>
+                  </div>
 
-              <asp:TextBox ID="txtPass" type="password" placeholder="Contraseña" runat="server" class="form-control"></asp:TextBox>
-                 
-        <br>
-              <asp:TextBox ID="txtPass2" type="password" placeholder="Repita Contraseña" runat="server" class="form-control"></asp:TextBox>
-              <br>
-              <asp:Button ID="Button1" runat="server" class="form-control" Text="Registrar" OnClick="Button1_Click" />
+                  
            </form>
         </div>
 

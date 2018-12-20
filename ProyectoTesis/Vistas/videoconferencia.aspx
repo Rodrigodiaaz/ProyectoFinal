@@ -71,11 +71,11 @@
 
         
     </form>
-      <script src="https://192.168.100.2:9001/dist/RTCMultiConnection.js"></script>
-    <script src="https://192.168.100.2:9001/node_modules/webrtc-adapter/out/adapter.js"></script>
-    <script src="https://192.168.100.2:9001/socket.io/socket.io.js"></script>
-    <script src="https://192.168.100.2:9001/dev/getHTMLMediaElement.js"></script>
-    <link rel="stylesheet" href="https://192.168.100.2:9001/dev/getHTMLMediaElement.css">
+      <script src="https://10.40.44.53:9001/dist/RTCMultiConnection.js"></script>
+    <script src="https://10.40.44.53:9001/node_modules/webrtc-adapter/out/adapter.js"></script>
+    <script src="https://10.40.44.53:9001/socket.io/socket.io.js"></script>
+    <script src="https://10.40.44.53:9001/dev/getHTMLMediaElement.js"></script>
+    <link rel="stylesheet" href="https://10.40.44.53:9001/dev/getHTMLMediaElement.css">
     <script>
 // ......................................................
 // .......................UI Code........................
@@ -101,8 +101,7 @@ document.getElementById('open-or-join-room').onclick = function() {
     disableInputButtons();
     connection.openOrJoin(document.getElementById('room-id').value, function(isRoomExist, roomid) {
         if (isRoomExist === false && connection.isInitiator === true) {
-            // if room doesn't exist, it means that current user will create the room
-            //showRoomURL(roomid);
+            
         }
 
         if(isRoomExist) {
@@ -121,7 +120,7 @@ document.getElementById('open-or-join-room').onclick = function() {
 var connection = new RTCMultiConnection();
 
 // Coneccion a servidor node.js socket.io
-connection.socketURL = 'https://192.168.100.2:9001/';
+connection.socketURL = 'https://10.40.44.53:9001/';
 
 connection.socketMessageEvent = 'video-broadcast-demo';
 
@@ -214,7 +213,7 @@ connection.onMediaError = function(e) {
 };
 
 // ..................................
-// ALL below scripts are redundant!!!
+// Scripts
 // ..................................
 
 function disableInputButtons() {
@@ -227,7 +226,7 @@ function disableInputButtons() {
 }
 
 // ......................................................
-// ......................Handling Room-ID................
+// ......................Manejo de Room-ID................
 // ......................................................
 
 function showRoomURL(roomid) {

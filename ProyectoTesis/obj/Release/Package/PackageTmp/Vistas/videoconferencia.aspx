@@ -1,10 +1,14 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="videoconferencia.aspx.cs" Inherits="ProyectoTesis.Vistas.videoconferencia" %>
 
 <!DOCTYPE html>
+<html lang="en">
+  <head>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
     <title>RSTSP</title>
 
     <link rel="stylesheet" type="text/css" href="/css/estilos.css">
@@ -14,10 +18,17 @@
 
     <!-- Custom styles for this template -->
     <link href="/css/scrolling-nav.css" rel="stylesheet">
-  
-</head>
-<body>
-     <!-- Navigation -->
+      <style>
+    header{
+        
+    background: #8B0000;
+    }
+
+    </style>
+  </head>
+ <body id="page-top">
+
+    <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
       <div class="container">
         <a class="navbar-brand js-scroll-trigger" href="#page-top">Quality Essentials</a>
@@ -27,33 +38,24 @@
         </button>
 
 
-            <div class="collapse navbar-collapse" id="navbarResponsive">
-              <ul class="navbar-nav ml-auto">
-                 <li class="nav-item">
-                  <a class="nav-link js-scroll-trigger text-white" href="http://portales.inacap.cl/" target="blank">INACAP</a>
-                </li>
-              </ul>
-            </div>
-
-          <div class="collapse navbar-collapse" id="navbarResponsive">
-              <ul class="navbar-nav ml-auto">
-                 <li class="nav-item">
-                  <a class="nav-link js-scroll-trigger text-white" href="foro.aspx" target="blank">Menu Principal</a>
-                </li>
-              </ul>
-            </div>
-
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+             <li class="nav-item">
+              <a class="nav-link js-scroll-trigger text-white" href="index.aspx" target="blank">Desconectar</a>
+            </li>
+          </ul>
+        </div>
       </div>
     </nav>
 
     <form id="form1" runat="server">
      <header class="text-white">
       <div class="container text-center">
-        <h1>Video Conferencia</h1><br>
+        <h1>Video Conferencia</h1><br />
           
         <div>
         <section class="make-center">
-            <input type="text" id="room-id" value="abcdef" autocorrect=off autocapitalize=off size=20>
+            <input type="text" id="room-id" value="abcdef" autocorrect=off autocapitalize=off size=20/>
             <button id="open-room">Crear videoconferencia</button>
             <button id="join-room">entrar</button>
             <button id="open-or-join-room"> test </button>
@@ -61,18 +63,19 @@
     <div id="videos-container" style="margin: 20px 0;"></div>
 
     <div id="room-urls" style="text-align: center;display: none;background: #F1EDED;margin: 15px -10px;border: 1px solid rgb(189, 189, 189);border-left: 0;border-right: 0;"></div>
+        </section>
+        </div>
         </div>
     </header>
-  </section>
 
 
-        </div>
+        
     </form>
-      <script src="https://192.168.100.2:9001/dist/RTCMultiConnection.js"></script>
-    <script src="https://192.168.100.2:9001/node_modules/webrtc-adapter/out/adapter.js"></script>
-    <script src="https://192.168.100.2:9001/socket.io/socket.io.js"></script>
-    <script src="https://192.168.100.2:9001/dev/getHTMLMediaElement.js"></script>
-    <link rel="stylesheet" href="https://192.168.100.2:9001/dev/getHTMLMediaElement.css">
+      <script src="https://10.40.44.53:9001/dist/RTCMultiConnection.js"></script>
+    <script src="https://10.40.44.53:9001/node_modules/webrtc-adapter/out/adapter.js"></script>
+    <script src="https://10.40.44.53:9001/socket.io/socket.io.js"></script>
+    <script src="https://10.40.44.53:9001/dev/getHTMLMediaElement.js"></script>
+    <link rel="stylesheet" href="https://10.40.44.53:9001/dev/getHTMLMediaElement.css">
     <script>
 // ......................................................
 // .......................UI Code........................
@@ -98,8 +101,7 @@ document.getElementById('open-or-join-room').onclick = function() {
     disableInputButtons();
     connection.openOrJoin(document.getElementById('room-id').value, function(isRoomExist, roomid) {
         if (isRoomExist === false && connection.isInitiator === true) {
-            // if room doesn't exist, it means that current user will create the room
-            //showRoomURL(roomid);
+            
         }
 
         if(isRoomExist) {
@@ -117,11 +119,8 @@ document.getElementById('open-or-join-room').onclick = function() {
 
 var connection = new RTCMultiConnection();
 
-// by default, socket.io server is assumed to be deployed on your own URL
-connection.socketURL = 'https://192.168.100.2:9001/';
-
-// comment-out below line if you do not have your own socket.io server
-// connection.socketURL = 'https://rtcmulticonnection.herokuapp.com:443/';
+// Coneccion a servidor node.js socket.io
+connection.socketURL = 'https://10.40.44.53:9001/';
 
 connection.socketMessageEvent = 'video-broadcast-demo';
 
@@ -214,7 +213,7 @@ connection.onMediaError = function(e) {
 };
 
 // ..................................
-// ALL below scripts are redundant!!!
+// Scripts
 // ..................................
 
 function disableInputButtons() {
@@ -227,7 +226,7 @@ function disableInputButtons() {
 }
 
 // ......................................................
-// ......................Handling Room-ID................
+// ......................Manejo de Room-ID................
 // ......................................................
 
 function showRoomURL(roomid) {

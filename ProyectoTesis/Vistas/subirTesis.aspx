@@ -1,5 +1,6 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="subirTesis.aspx.cs" Inherits="ProyectoTesis.Vistas.subirTesis" %>
 
+
 <!DOCTYPE html>
 <html lang="en">
   
@@ -66,9 +67,12 @@
         <footer class=""> <img class="rounded img-fluid" width="50px" height="50px" src="../img/menu.jpg">Menu</footer>
         </blockquote>
       <ul class="list-group">
-        <li class="list-group-item"><a href="home.aspx">Perfil</a></li>
-        <li class="list-group-item"><a href="menuforo.aspx">Menu Foros</a></li>
-        <li class="list-group-item"><a href="MenuTesis.aspx">Video Conferencia</a></li>
+        <li class='list-group-item'><a href='home.aspx'>Perfil</a></li>
+        <li class='list-group-item'><a href='menuforo.aspx'>Menu Foros</a></li>
+        <li class='list-group-item'><a href='videoconferencia.aspx'>Video Conferencia</a></li>
+        <li class='list-group-item'><a href='subirTesis.aspx'>Subir Tesis</a></li>
+        <li class='list-group-item'><a href='menutesis.aspx'>Menu Tesis</a></li>
+        <li class='list-group-item'><a href='crearForo.aspx'>Crear Foro</a></li>
       </ul>
       <br />
       <br />
@@ -167,8 +171,6 @@
             </div>
             <!-- /.container -->
         </footer>
-
-        
 
     
 

@@ -15,6 +15,7 @@ namespace ProyectoTesis.Vistas
         {
             if (Session["logeado"] != null)
             {
+                Usuario log = (Usuario)Session["logeado"];
                 Response.Write("<!DOCTYPE html>" +
 "<html lang='en'>" +
 "<head>" +
@@ -42,7 +43,7 @@ namespace ProyectoTesis.Vistas
 "<body id='page-top'> " +
                 "<nav class='navbar navbar-expand-lg fixed-top' id='mainNav'>" +
             "<div class='container'>" +
-                "<a class='navbar-brand js-scroll-trigger' href='#page-top'>Quality Essentials</a>" +
+                "<a class='navbar-brand js-scroll-trigger' href='#page-top'><img class='rounded img - fluid' width='105px' height='85px' src='../img/logo2.jpg'></a>" +
                 "<button class='navbar-toggler' type='button' data-toggle='collapse' data-target='#navbarResponsive' aria-controls='navbarResponsive' aria-expanded='false' aria-label='Toggle navigation'>" +
                     "<span class='navbar-toggler-icon'></span>" +
                 "</button>" +
@@ -61,16 +62,38 @@ namespace ProyectoTesis.Vistas
     "<div class='row content'>" +
     "<div class='col-lg-2 sidenav w3-card'>" +
       "<blockquote class='blockquote'>" +
-        "<p class='mb-0'>Administrador</p>" +
+        "<p class='mb-0'></p>" +
         "<footer class='blockquote-footer'>Menu Principal<cite title='Source Title'></cite></footer>" +
         "</blockquote>" +
-      "<ul class='list-group'>" +
-        "<li class='list-group-item'><a href =''> Subir Tesis</a></li>" +
-        "<li class='list-group-item'><a href ='ModificarUsu.aspx'> Modificar Usuario</a></li>" +
-        "<li class='list-group-item'><a href ='Menu'> Crear video Conferencia</a></li>" +
-        "<li class='list-group-item'><a href ='#section3'> Modificar Tesis</a></li>" +
-      "</ul>" +
-      "<br>" +
+      "<ul class='list-group'>");
+                if (log.Tipoperfil.Equals("Alumno"))
+                {
+                    Response.Write("<li class='list-group-item'><a href='home.aspx'>Perfil</a></li>" +
+        "<li class='list-group-item'><a href='menuforo.aspx'>Menu Foros</a></li>" +
+        "<li class='list-group-item'><a href='videoconferencia.aspx'>Ver Video Conferencia</a></li>" +
+        "<li class='list-group-item'><a href='menutesis.aspx'>Menu Tesis</a></li>" +
+        "<li class='list-group-item'><a href='crearForo.aspx'>Crear Foro</a></li>" +
+        "<li class='list-group-item'><a href='modificarusu.aspx'>Modificar Usuario</a></li>");
+                }
+                else
+                {
+                    Response.Write("<li class='list-group-item'><a href='home.aspx'>Perfil</a></li>" +
+        "<li class='list-group-item'><a href='menuforo.aspx'>Menu Foros</a></li>" +
+        "<li class='list-group-item'><a href='videoconferencia.aspx'>Video Conferencia</a></li>" +
+        "<li class='list-group-item'><a href='subirTesis.aspx'>Subir Tesis</a></li>" +
+        "<li class='list-group-item'><a href='menutesis.aspx'>Menu Tesis</a></li>" +
+        "<li class='list-group-item'><a href='crearForo.aspx'>Crear Foro</a></li>" +
+        "<li class='list-group-item'><a href='modificarusu.aspx'>Modificar Usuario</a></li>");
+                }
+        
+      Response.Write("</ul>" +
+      "</br>" +
+      "</br>" +
+      "</br>" +
+      "</br>" +
+      "</br>" +
+      "</br>" +
+      "</br>" +
     "</div>" +
     "<div class='col-lg-9 w3-card'>" +
       "<h4><Strong>Publicaciones Recientes</Strong></h4>" +
