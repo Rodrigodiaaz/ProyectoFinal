@@ -68,7 +68,7 @@
         </blockquote>
       <ul class="list-group">
         <li class='list-group-item'><a href='home.aspx'>Perfil</a></li>
-        <li class='list-group-item'><a href='menuforo.aspx'>Menu Foros</a></li>
+        <li class='list-group-item'><a href='temaforo.aspx'>Foros</a></li>
         <li class='list-group-item'><a href='videoconferencia.aspx'>Video Conferencia</a></li>
         <li class='list-group-item'><a href='subirTesis.aspx'>Subir Tesis</a></li>
         <li class='list-group-item'><a href='menutesis.aspx'>Menu Tesis</a></li>
@@ -130,7 +130,7 @@
                   <td>
                   </td>
                       <td>
-                            <asp:FileUpload ID="fileTesis" runat="server" class="col-lg-10 col-md-6 col-sm-6" />
+                            <asp:FileUpload ID="fileTesis" type="file" accept=".pdf" runat="server" class="col-lg-10 col-md-6 col-sm-6" />
                       </td>
                   </tr>
                  
@@ -140,7 +140,7 @@
                       
                   </td>
                       <td>
-                          <asp:Button ID="btnSubirTesis" runat="server" Text="Subir" class="btn btn-dark col-lg-4 col-md-4 col-sm-4" OnClick="btnSubirTesis_Click" />
+                          <asp:Button ID="btnSubirTesis"  runat="server" Text="Subir" class="btn btn-dark col-lg-4 col-md-4 col-sm-4" OnClick="btnSubirTesis_Click" />
                       </td>
                   </tr>
 

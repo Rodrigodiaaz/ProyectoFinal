@@ -87,7 +87,7 @@
         </blockquote>
       <ul class="list-group">
         <li class='list-group-item'><a href='home.aspx'>Perfil</a></li>
-        <li class='list-group-item'><a href='menuforo.aspx'>Menu Foros</a></li>
+        <li class='list-group-item'><a href='temaforo.aspx'>Foros</a></li>
         <li class='list-group-item'><a href='videoconferencia.aspx'>Video Conferencia</a></li>
         <li class='list-group-item'><a href='subirTesis.aspx'>Subir Tesis</a></li>
         <li class='list-group-item'><a href='menutesis.aspx'>Menu Tesis</a></li>

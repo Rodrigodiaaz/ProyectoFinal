@@ -8,7 +8,7 @@ namespace ProyectoTesis.Controlador
 {
     public class ControladorTopic
     {
-        public string publicarTopic(int idusuario, string titulo, string texto)
+        public string publicarTopic(int idusuario, string titulo, string texto, int idtema)
         {
             if (idusuario.Equals("") || titulo.Equals("") || texto.Equals(""))
             {
@@ -21,6 +21,7 @@ namespace ProyectoTesis.Controlador
                 t.Titulo = titulo;
                 t.Texto = texto;
                 t.Fecha = DateTime.Now.ToString();
+                t.Tematopic = idtema;
                 if (t.InsertaTopic(t))
                 {
                     return "Discusión creada con exito.";
@@ -35,6 +36,13 @@ namespace ProyectoTesis.Controlador
         {
             Topic t = new Topic();
             List<Topic> lista = t.buscaTodosLosTopics();
+            return lista;
+        }
+
+        public List<Topic> ObtenerporTema(int tema)
+        {
+            Topic t = new Topic();
+            List<Topic> lista = t.BuscaPorTema(tema);
             return lista;
         }
 

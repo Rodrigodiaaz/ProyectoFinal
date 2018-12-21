@@ -18,9 +18,9 @@ SELECT * FROM tesis;
 
 select * from respuesta_topic;
 
+select * from tema_topic;
 
-
-SELECT * FROM comentario xampWHERE idpost=1 ORDER BY idcomentario DESC;
+SELECT * FROM comentario WHERE idpost=1 ORDER BY idcomentario DESC;
 
 INSERT INTO post (texto,idemisor,idreceptor,tipopost,estado,fecha) VALUES ('esta es una prueba', '1','1','1','1','28-11-2018 1:08:52');
 drop database proyecto;
@@ -52,6 +52,40 @@ profesor_guia varchar(1000),
 nombre_archivo varchar(1000)
 );
 
+create table autor_tesis(
+id_autor int auto_increment primary key,
+nombre varchar(100),
+id_tesis int,
+foreign key (id_tesis) references tesis(id_tesis)
+);
+
+create table tema_tesis(
+id_tema int auto_increment primary key,
+tema varchar(100),
+id_tesis int,
+foreign key (id_tesis) references tesis(id_tesis)
+);
+
+create table topic(
+id_topic int auto_increment primary key,
+id_usuario int,
+titulo varchar(200),
+fecha varchar(30),
+texto varchar(2000),
+idtematopic int,
+foreign key (idtematopic) references tema_topic(id_tema),
+foreign key (id_usuario) references usuario(id_usuario)
+);
+
+
+create table tema_topic(
+id_tema int auto_increment primary key,
+tema varchar(100)
+);
+
+insert into tema_topic(tema) values ('Trabajo Social');
+insert into tema_topic(tema) values ('Psicopedagogía');
+
 create table publicacion(
 idpublicacion int auto_increment primary key,
 texto varchar(1000),
@@ -64,14 +98,6 @@ foreign key (idemisor) references usuario(id_usuario)
 );
 
 
-create table topic(
-id_topic int auto_increment primary key,
-id_usuario int,
-titulo varchar(200),
-fecha varchar(30),
-texto varchar(2000),
-foreign key (id_usuario) references usuario(id_usuario)
-);
 
 
 SELECT * FROM respuesta_topic WHERE id_topic = '3' ORDER BY id_respuesta DESC;

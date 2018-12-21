@@ -58,13 +58,31 @@ namespace ProyectoTesis.Vistas {
         protected global::System.Web.UI.HtmlControls.HtmlTextArea txtTexto;
         
         /// <summary>
-        /// Control FileUpload2.
+        /// Control rdoTsocial.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload FileUpload2;
+        protected global::System.Web.UI.WebControls.RadioButton rdoTsocial;
+        
+        /// <summary>
+        /// Control rdoPsico.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButton rdoPsico;
+        
+        /// <summary>
+        /// Control rdoTraducion.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButton rdoTraducion;
         
         /// <summary>
         /// Control btnCrearDiscusion.

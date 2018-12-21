@@ -28,6 +28,23 @@
     #MainFooter{
         background:  #8B0000;
     }
+        .auto-style1 {
+            width: 228px;
+        }
+        .auto-style2 {
+            height: 59px;
+        }
+        .auto-style3 {
+            width: 228px;
+            height: 59px;
+        }
+        .auto-style4 {
+            height: 110px;
+        }
+        .auto-style5 {
+            width: 228px;
+            height: 110px;
+        }
   </style>
 
 </head>
@@ -90,28 +107,38 @@
                 
                 <tr>
                   <th scope="row"></th>
-                  <td><img class="rounded img-fluid" width="50px" height="50px" src="../img/topic.jpg"><asp:Label ID="Label6" runat="server" Text="Titulo del topic: "></asp:Label></td>
+                  <td class="auto-style1"><img class="rounded img-fluid" width="50px" height="50px" src="../img/topic.jpg"><asp:Label ID="Label6" runat="server" Text="Titulo del topic: "></asp:Label></td>
                   <td><asp:TextBox ID="txtTitulo" runat="server" class="form-control mx-auto" required></asp:TextBox></td>
                 </tr>
                 
                 <tr>
-                  <th scope="row"></th>
-                  <td><asp:Label ID="Label1" runat="server" Text="Descripcion"></asp:Label></td>
-                  <td>
+                  <th scope="row" class="auto-style2"></th>
+                  <td class="auto-style3"><asp:Label ID="Label1" runat="server" Text="Descripcion"></asp:Label></td>
+                  <td class="auto-style2">
                       <textarea id="txtTexto" runat="server" class="form-control" rows="3" required></textarea>
                       </td>
                 </tr>
 
                   <tr>
-                  <th scope="row"></th>
-                  <td>
+                  <th scope="row" class="auto-style4"></th>
+                  <td class="auto-style5">
+                      Area
                   </td>
-                      <td><asp:FileUpload ID="FileUpload2" runat="server" class="col-lg-6 col-md-6 col-sm-6"/></td>
-                  </tr>
-                 
+                      <td class="auto-style4">
+                          <asp:RadioButton GroupName="area" ID="rdoTsocial" Text="Trabajo Social" runat="server"/>
+                          <br />
+                       <asp:RadioButton GroupName="area" ID="rdoPsico" Text="Psicopedagogia" runat="server"/>
+                          <br />
+                                <asp:RadioButton GroupName="area" ID="rdoTraducion" Text="Traduccion" runat="server"/>
+                   
+                      <td class="auto-style4">
+                          <br />
+                          <br />
+                          <br />
+                                   
                   <tr>
                   <th scope="row"></th>
-                  <td>
+                  <td class="auto-style1">
                   </td>
                       <td>
 
@@ -141,10 +168,7 @@
         <!-- Footer -->
         <footer class="py-lg-5 py-5" id="MainFooter">
             <div class="container">
-                <p class="m-0 text-center text-white">Copyright &copy; Quality Essentials 2018</p>
-
-            </div>
-            <!-- /.container -->
+                <p class="m-0 text-center text-white">Copyright &copy; Quality Essentials 20188s 20188            <!-- /.container -->
         </footer>
 
         

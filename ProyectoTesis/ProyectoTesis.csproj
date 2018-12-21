@@ -263,7 +263,7 @@
     <Content Include="Vistas\Foro.aspx" />
     <Content Include="Vistas\home.aspx" />
     <Content Include="Vistas\index.aspx" />
-    <Content Include="Vistas\menuforo.aspx" />
+    <Content Include="Vistas\menuForo.aspx" />
     <Content Include="Vistas\MenuPrincipal.aspx" />
     <Content Include="Vistas\MenuTesis.aspx" />
     <Content Include="Vistas\ModificarUsu.aspx" />
@@ -271,11 +271,12 @@
     <Content Include="Vistas\perfil.aspx" />
     <Content Include="Vistas\redirectReplica.aspx" />
     <Content Include="Vistas\registro.aspx" />
+    <Content Include="Vistas\SeleccionTema.aspx" />
     <Content Include="Vistas\subirTesis.aspx" />
+    <Content Include="Vistas\temaForo.aspx" />
     <Content Include="Vistas\tesis.aspx" />
     <Content Include="Vistas\vervideoconferencia.aspx" />
     <Content Include="Vistas\videoconferencia.aspx" />
-    <Content Include="Vistas\WebForm1.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -331,6 +332,7 @@
     <Compile Include="Modelos\Notificacion.cs" />
     <Compile Include="Modelos\Post.cs" />
     <Compile Include="Modelos\Publicacion.cs" />
+    <Compile Include="Modelos\Tematopic.cs" />
     <Compile Include="Modelos\Tesis.cs" />
     <Compile Include="Modelos\Topic.cs" />
     <Compile Include="Modelos\Usuario.cs" />
@@ -385,12 +387,12 @@
     <Compile Include="Vistas\index.aspx.designer.cs">
       <DependentUpon>index.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Vistas\menuforo.aspx.cs">
-      <DependentUpon>menuforo.aspx</DependentUpon>
+    <Compile Include="Vistas\menuForo.aspx.cs">
+      <DependentUpon>menuForo.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Vistas\menuforo.aspx.designer.cs">
-      <DependentUpon>menuforo.aspx</DependentUpon>
+    <Compile Include="Vistas\menuForo.aspx.designer.cs">
+      <DependentUpon>menuForo.aspx</DependentUpon>
     </Compile>
     <Compile Include="Vistas\MenuPrincipal.aspx.cs">
       <DependentUpon>MenuPrincipal.aspx</DependentUpon>
@@ -441,12 +443,26 @@
     <Compile Include="Vistas\registro.aspx.designer.cs">
       <DependentUpon>registro.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Vistas\SeleccionTema.aspx.cs">
+      <DependentUpon>SeleccionTema.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vistas\SeleccionTema.aspx.designer.cs">
+      <DependentUpon>SeleccionTema.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Vistas\subirTesis.aspx.cs">
       <DependentUpon>subirTesis.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Vistas\subirTesis.aspx.designer.cs">
       <DependentUpon>subirTesis.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\temaForo.aspx.cs">
+      <DependentUpon>temaForo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vistas\temaForo.aspx.designer.cs">
+      <DependentUpon>temaForo.aspx</DependentUpon>
     </Compile>
     <Compile Include="Vistas\tesis.aspx.cs">
       <DependentUpon>tesis.aspx</DependentUpon>
@@ -468,13 +484,6 @@
     </Compile>
     <Compile Include="Vistas\videoconferencia.aspx.designer.cs">
       <DependentUpon>videoconferencia.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Vistas\WebForm1.aspx.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Vistas\WebForm1.aspx.designer.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

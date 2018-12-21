@@ -84,7 +84,7 @@ namespace ProyectoTesis.Vistas
        "</blockquote>" +
      "<ul class='list-group'>" +
        "<li class='list-group-item'><a href='home.aspx'>Perfil</a></li>" +
-        "<li class='list-group-item'><a href='menuforo.aspx'>Menu Foros</a></li>" +
+        "<li class='list-group-item'><a href='temaforo.aspx'>Foros</a></li>" +
         "<li class='list-group-item'><a href='subirTesis.aspx'>Subir Tesis</a></li>" +
         "<li class='list-group-item'><a href='menutesis.aspx'>Menu Tesis</a></li>" +
         "<li class='list-group-item'><a href='crearForo.aspx'>Crear Foro</a></li>" +
@@ -96,10 +96,11 @@ namespace ProyectoTesis.Vistas
 
    "<div class='col-lg-6 w3-card'>" +
      "<div class='text-center'><h2>Tesis</h2></div>" +
-     "<h5 class='EmblemaP2'>&nbsp;&nbsp;&nbsp;&nbsp;</h5>" +
      "<br />" +
-      "<div class='embed-responsive embed-responsive-16by9'>" +
-      "<iframe src='../pdf/" + t.Nombre_archivo + "' style='border:2px solid DarkRed'></iframe>" +
+     "<div style='position: relative;width: 100%'>"+
+      "<div style='width: 100%;background: #8B0000;height: 45px;position: absolute;'>" +
+      "</div>" +
+      "<iframe src='../pdf/" + t.Nombre_archivo + "' style='width: 100%;height: 670px;'></iframe>" +
        "<br /><br /><br /><br /><br /><br />" +
      "<hr class='w3-clear' />" +
        "</div>" +

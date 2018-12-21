@@ -33,15 +33,58 @@ namespace ProyectoTesis.Vistas
         {
             Usuario u = (Usuario)Session["logeado"];
             ControladorTopic ct = new ControladorTopic();
-            string mensaje = ct.publicarTopic(u.Id, txtTitulo.Text, txtTexto.Value);
-            if (mensaje.Equals("Discusión creada con exito."))
+            if (rdoTsocial.Checked == false && rdoPsico.Checked == false && rdoTraducion.Checked == false)
             {
-                Session["mensaje"] = mensaje;
-                Response.Redirect(Request.Url.AbsoluteUri);
+                lblMensaje.Text = "Seleccione un area.";
             }
             else
             {
-               lblMensaje.Text = mensaje;
+                if (rdoTsocial.Checked)
+                {
+                    string mensaje = ct.publicarTopic(u.Id, txtTitulo.Text, txtTexto.Value, 1);
+                    if (mensaje.Equals("Discusión creada con exito."))
+                    {
+                        Session["mensaje"] = mensaje;
+                        Response.Redirect(Request.Url.AbsoluteUri);
+                    }
+                    else
+                    {         
+                 
+                        lblMensaje.Text = mensaje;
+                    }
+                }
+              
+                else 
+                {
+                    if (rdoTraducion.Checked == true)
+                    {
+                        string mensaje = ct.publicarTopic(u.Id, txtTitulo.Text, txtTexto.Value, 3);
+                        if (mensaje.Equals("Discusión creada con exito."))
+                        {
+                            Session["mensaje"] = mensaje;
+                            Response.Redirect(Request.Url.AbsoluteUri);
+                        }
+                        else
+                        {
+                            lblMensaje.Text = mensaje;
+                        }
+                    }
+                    else
+                    {
+                        string mensaje = ct.publicarTopic(u.Id, txtTitulo.Text, txtTexto.Value, 2);
+                        if (mensaje.Equals("Discusión creada con exito."))
+                        {
+                            Session["mensaje"] = mensaje;
+                            Response.Redirect(Request.Url.AbsoluteUri);
+                        }
+                        else
+                        {
+                            lblMensaje.Text = mensaje;
+                        }
+                    }
+
+                    
+                }
             }
         }
     }

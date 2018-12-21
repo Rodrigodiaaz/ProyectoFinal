@@ -13,21 +13,25 @@ namespace ProyectoTesis.Modelos
         private string titulo;
         private string fecha;
         private string texto;
+        private int tematopic;
 
         public int Id_topic { get => id_topic; set => id_topic = value; }
         public int Id_usuario { get => id_usuario; set => id_usuario = value; }
         public string Titulo { get => titulo; set => titulo = value; }
         public string Fecha { get => fecha; set => fecha = value; }
         public string Texto { get => texto; set => texto = value; }
+        public int Tematopic { get => tematopic; set => tematopic = value; }
 
 
-        public Topic(int idtopic, int idusuario, string titulo, string fecha, string texto)
+
+        public Topic(int idtopic, int idusuario, string titulo, string fecha, string texto, int tematopic)
         {
             this.id_topic = idtopic;
             this.id_usuario = idusuario;
             this.titulo = titulo;
             this.fecha = fecha;
             this.texto = texto;
+            this.Tematopic = tematopic;
         }
 
         public Topic()
@@ -42,7 +46,7 @@ namespace ProyectoTesis.Modelos
             {
                 MySqlCommand comando = new MySqlCommand();
                 con.abreConexion();
-                comando.CommandText = "INSERT INTO topic(id_usuario, titulo, fecha, texto) VALUES("+t.Id_usuario+", '"+t.Titulo+"', '"+t.Fecha+"', '"+t.Texto+"')";
+                comando.CommandText = "INSERT INTO topic(id_usuario, titulo, fecha, texto, idtematopic) VALUES(" + t.Id_usuario+", '"+t.Titulo+"', '"+t.Fecha+"', '"+t.Texto+"', "+t.Tematopic+")";
                 comando.Connection = con.usaConexion();
                 if (comando.ExecuteNonQuery() > 0)
                 {
@@ -151,6 +155,40 @@ namespace ProyectoTesis.Modelos
                     t.Titulo = reader[2].ToString();
                     t.Fecha = reader[3].ToString();
                     t.Texto = reader[4].ToString();
+                    t.Tematopic = Int32.Parse(reader[5].ToString());
+                }
+                return t;
+            }
+            catch
+            {
+                return t;
+            }
+            finally
+            {
+                con.cierraConexion();
+            }
+        }
+
+        public Topic BuscaTopicTitulo(string titulo)
+        {
+            Conexion con = Conexion.Instance();
+            Topic t = null;
+            try
+            {
+                con.abreConexion();
+                MySqlCommand comando = new MySqlCommand();
+                comando.CommandText = "SELECT * FROM topic WHERE titulo ='"+ titulo + "'";
+                comando.Connection = con.usaConexion();
+                MySqlDataReader reader = comando.ExecuteReader();
+                while (reader.Read())
+                {
+                    t = new Topic();
+                    t.Id_topic = Int32.Parse(reader[0].ToString());
+                    t.Id_usuario = Int32.Parse(reader[1].ToString());
+                    t.Titulo = reader[2].ToString();
+                    t.Fecha = reader[3].ToString();
+                    t.Texto = reader[4].ToString();
+                    t.Tematopic = Int32.Parse(reader[5].ToString());
                 }
                 return t;
             }
@@ -184,6 +222,77 @@ namespace ProyectoTesis.Modelos
                     t.Titulo = reader[2].ToString();
                     t.Fecha = reader[3].ToString();
                     t.Texto = reader[4].ToString();
+                    t.Tematopic = Int32.Parse(reader[5].ToString());
+                    lista.Add(t);
+                }
+                return lista;
+            }
+            catch
+            {
+                return lista;
+            }
+            finally
+            {
+                con.cierraConexion();
+            }
+        }
+
+        public List<Topic> BuscaPorTema(int tema)
+        {
+            Conexion con = Conexion.Instance();
+            Topic t = null;
+            List<Topic> lista = new List<Topic>();
+            try
+            {
+                con.abreConexion();
+                MySqlCommand comando = new MySqlCommand();
+                comando.CommandText = "SELECT * FROM topic where idtematopic = "+tema+" ORDER BY id_topic DESC";
+                comando.Connection = con.usaConexion();
+                MySqlDataReader reader = comando.ExecuteReader();
+                while (reader.Read())
+                {
+                    t = new Topic();
+                    t.Id_topic = Int32.Parse(reader[0].ToString());
+                    t.Id_usuario = Int32.Parse(reader[1].ToString());
+                    t.Titulo = reader[2].ToString();
+                    t.Fecha = reader[3].ToString();
+                    t.Texto = reader[4].ToString();
+                    t.Tematopic = Int32.Parse(reader[5].ToString());
+                    lista.Add(t);
+                }
+                return lista;
+            }
+            catch
+            {
+                return lista;
+            }
+            finally
+            {
+                con.cierraConexion();
+            }
+        }
+
+        public List<Topic> buscaTodosLosTopics2()
+        {
+            Conexion con = Conexion.Instance();
+            Topic t = null;
+            List<Topic> lista = new List<Topic>();
+            try
+            {
+                con.abreConexion();
+                MySqlCommand comando = new MySqlCommand();
+                comando.CommandText = "SELECT * FROM topic ORDER BY id_topic DESC";
+                comando.Connection = con.usaConexion();
+                MySqlDataReader reader = comando.ExecuteReader();
+                while (reader.Read())
+                {
+                    t = new Topic();
+                    t.Id_topic = Int32.Parse(reader[0].ToString());
+                    t.Id_usuario = Int32.Parse(reader[1].ToString());
+                    t.Titulo = reader[2].ToString();
+                    t.Fecha = reader[3].ToString();
+                    t.Texto = reader[4].ToString();
+                    t.Tematopic = Int32.Parse(reader[5].ToString());
                     lista.Add(t);
                 }
                 return lista;

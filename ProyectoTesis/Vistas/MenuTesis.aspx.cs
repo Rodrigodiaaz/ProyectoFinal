@@ -77,7 +77,7 @@ namespace ProyectoTesis.Vistas
         if (log.Tipoperfil.Equals("Alumno"))
                 {
                     Response.Write("<li class='list-group-item'><a href='home.aspx'>Perfil</a></li>" +
-        "<li class='list-group-item'><a href='menuforo.aspx'>Menu Foros</a></li>" +
+        "<li class='list-group-item'><a href='temaforo.aspx'>Foros</a></li>" +
         "<li class='list-group-item'><a href='videoconferencia.aspx'>Ver Video Conferencia</a></li>" +
         "<li class='list-group-item'><a href='menutesis.aspx'>Menu Tesis</a></li>" +
         "<li class='list-group-item'><a href='crearForo.aspx'>Crear Foro</a></li>" +
