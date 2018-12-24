@@ -117,6 +117,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
     <Content Include="Controlador\cComentario.aspx" />
+    <Content Include="Controlador\cForo.aspx" />
     <Content Include="Controlador\cTesis.aspx" />
     <Content Include="css\bootstrap-theme.css" />
     <Content Include="css\bootstrap-theme.min.css" />
@@ -308,6 +309,13 @@
     </Compile>
     <Compile Include="Controlador\cComentario.aspx.designer.cs">
       <DependentUpon>cComentario.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Controlador\cForo.aspx.cs">
+      <DependentUpon>cForo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controlador\cForo.aspx.designer.cs">
+      <DependentUpon>cForo.aspx</DependentUpon>
     </Compile>
     <Compile Include="Controlador\controladorArchivo.cs" />
     <Compile Include="Controlador\ControladorComentario.cs" />

@@ -8,9 +8,24 @@
     <title></title>
 </head>
 <body>
-    <form id="form1" runat="server">
-        <div>
-        </div>
-    </form>
+  
 </body>
+
+ <!-- Bootstrap core JavaScript -->
+    <script src="/Scripts/jQuery.min.js"></script>
+    <script src="/vendor/jquery/jquery.min.js"></script>
+    <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom JavaScript for this theme -->
+    <script src="/Scripts/scrolling-nav.js"></script>
+
+         <script type="text/javascript">
+             function eliminarTopic(idtopic, tema) {
+                 document.location.assign("../Controlador/cForo.aspx?idtopic=" + idtopic + "&tema=" + tema);
+           }
+          </script>
+
 </html>

@@ -21,8 +21,10 @@ namespace ProyectoTesis.Vistas
                 {
                     if (tema.Equals("t") || tema.Equals("p") || tema.Equals("ts"))
                     {
+
                         if (Session["logeado"] != null)
                         {
+                            Usuario log = (Usuario)Session["logeado"];
                             Response.Write("<html lang='en'>" +
               "<head>" +
                "<style type = 'text/css'></style>" +
@@ -103,6 +105,7 @@ namespace ProyectoTesis.Vistas
                                 "<th scope = 'col'> Nombre </th>" +
                                 "<th scope='col'>Autor</th>" +
                                 "<th scope = 'col'> Fecha </th>" +
+                                "<th scope='col'>Accion</th>" +
                                 "</tr>" +
                             "</thead>" +
                             "<tbody>");
@@ -119,8 +122,15 @@ namespace ProyectoTesis.Vistas
                                         Response.Write("<tr>" +
                                       "<td><a href='foro.aspx?idtopic=" + allTopics[i].Id_topic + "'><p>" + allTopics[i].Titulo + "</p></a></td>" +
                                       "<td><p>" + autorTopic.Nombre + "</p></td>" +
-                                      "<td><p>" + allTopics[i].Fecha + "</p></td>" +
-                                    "</tr>");
+                                      "<td><p>" + allTopics[i].Fecha + "</p></td>");
+
+                                        if (log.Tipoperfil.Equals("1") || log.Id.Equals(autorTopic))
+                                        {
+                                            Response.Write("<td><a href='../Controlador/cForo.aspx?idtopic=" + allTopics[i].Id_topic + "&tema=" + tema + "'>Eliminar</a></td>");
+                                        }
+
+                                        Response.Write("</tr>");
+
                                     }
                                     Response.Write("</tbody>" +
                                 "</table>" +
@@ -160,6 +170,7 @@ namespace ProyectoTesis.Vistas
                                       "<td><a href='#'><p>No hay topics disponibles</p></a></td>" +
                                       "<td><p>-</p></td>" +
                                       "<td><p>-</p></td>" +
+                                      "<td><p>-</p></td>" +
                                     "</tr>" +
                                   "</tbody>" +
                                 "</table>" +
@@ -169,7 +180,7 @@ namespace ProyectoTesis.Vistas
                                 "<blockquote class='blockquote'>" +
                             "<p class='mb-0'>Soñando</p>" +
                             "<br />" +
-                            "<footer class='text-center'><img src = '../img/feñita.jpg'' style='width: 150px ' height:'150px' class='rounded-circle'> </footer>" +
+                            "<footer class='text-center'><img src = '../img/perfil.jpg'' style='width: 150px ' height:'150px' class='rounded-circle'> </footer>" +
                             "</blockquote>" +
                           "<ul class='list-group'>" +
                             "<li class='list-group-item'>" +
@@ -208,11 +219,18 @@ namespace ProyectoTesis.Vistas
                                             Response.Write("<tr>" +
                                           "<td><a href='foro.aspx?idtopic=" + allTopics[i].Id_topic + "'><p>" + allTopics[i].Titulo + "</p></a></td>" +
                                           "<td><p>" + autorTopic.Nombre + "</p></td>" +
-                                          "<td><p>" + allTopics[i].Fecha + "</p></td>" +
-                                        "</tr>");
+                                          "<td><p>" + allTopics[i].Fecha + "</p></td>");
+
+                                            if (log.Tipoperfil.Equals("1") || log.Id.Equals(autorTopic))
+                                            {
+                                                Response.Write("<td><a href='../Controlador/cForo.aspx?idtopic=" + allTopics[i].Id_topic + "&tema=" + tema + "'>Eliminar</a></td>");
+                                            }
+
+                                            Response.Write("</tr>");
+
                                         }
                                         Response.Write("</tbody>" +
-                                    "</table>" +
+                                        "</table>" +
                                     "<hr class='w3-clear' />" +
                               "</div>" +
                                "<div class='col-lg-3 sidenav w3-card'>" +
@@ -249,6 +267,7 @@ namespace ProyectoTesis.Vistas
                                           "<td><a href='#'><p>No hay topics disponibles</p></a></td>" +
                                           "<td><p>-</p></td>" +
                                           "<td><p>-</p></td>" +
+                                           "<td><p>-</p></td>" +
                                         "</tr>" +
                                       "</tbody>" +
                                     "</table>" +
@@ -258,7 +277,7 @@ namespace ProyectoTesis.Vistas
                                     "<blockquote class='blockquote'>" +
                                 "<p class='mb-0'>Soñando</p>" +
                                 "<br />" +
-                                "<footer class='text-center'><img src = '../img/feñita.jpg'' style='width: 150px ' height:'150px' class='rounded-circle'> </footer>" +
+                                "<footer class='text-center'><img src = '../img/perfil.jpg'' style='width: 150px ' height:'150px' class='rounded-circle'> </footer>" +
                                 "</blockquote>" +
                               "<ul class='list-group'>" +
                                 "<li class='list-group-item'>" +
@@ -295,11 +314,18 @@ namespace ProyectoTesis.Vistas
                                             Response.Write("<tr>" +
                                           "<td><a href='foro.aspx?idtopic=" + allTopics[i].Id_topic + "'><p>" + allTopics[i].Titulo + "</p></a></td>" +
                                           "<td><p>" + autorTopic.Nombre + "</p></td>" +
-                                          "<td><p>" + allTopics[i].Fecha + "</p></td>" +
-                                        "</tr>");
+                                          "<td><p>" + allTopics[i].Fecha + "</p></td>");
+
+                                            if (log.Tipoperfil.Equals("1") || log.Id.Equals(autorTopic))
+                                            {
+                                                Response.Write("<td><a href='../Controlador/cForo.aspx?idtopic=" + allTopics[i].Id_topic + "&tema=" + tema + "'>Eliminar</a></td>");
+                                            }
+
+                                            Response.Write("</tr>");
+
                                         }
                                         Response.Write("</tbody>" +
-                                    "</table>" +
+                                        "</table>" +
                                     "<hr class='w3-clear' />" +
                               "</div>" +
                                "<div class='col-lg-3 sidenav w3-card'>" +
@@ -336,6 +362,7 @@ namespace ProyectoTesis.Vistas
                                           "<td><a href='#'><p>No hay topics disponibles</p></a></td>" +
                                           "<td><p>-</p></td>" +
                                           "<td><p>-</p></td>" +
+                                           "<td><p>-</p></td>" +
                                         "</tr>" +
                                       "</tbody>" +
                                     "</table>" +
@@ -345,7 +372,7 @@ namespace ProyectoTesis.Vistas
                                     "<blockquote class='blockquote'>" +
                                 "<p class='mb-0'>Soñando</p>" +
                                 "<br />" +
-                                "<footer class='text-center'><img src = '../img/feñita.jpg'' style='width: 150px ' height:'150px' class='rounded-circle'> </footer>" +
+                                "<footer class='text-center'><img src = '../img/perfil.jpg'' style='width: 150px ' height:'150px' class='rounded-circle'> </footer>" +
                                 "</blockquote>" +
                               "<ul class='list-group'>" +
                                 "<li class='list-group-item'>" +

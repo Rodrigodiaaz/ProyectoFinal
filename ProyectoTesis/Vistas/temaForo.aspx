@@ -66,7 +66,7 @@
         </blockquote>
       <ul class="list-group">
         <li class="list-group-item"><a href="home.aspx">Mis Discusiones</a></li>
-        <li class="list-group-item"><a href="MenuTesis.aspx">Crear Discusion</a></li>
+        <li class="list-group-item"><a href="crearForo.aspx">Crear Discusion</a></li>
       </ul>
       <br />
       <br />
