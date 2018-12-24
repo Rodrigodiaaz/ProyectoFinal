@@ -102,7 +102,7 @@
                   
                <tr>
                   <th scope="row"></th>
-                  <td><asp:Label ID="Label5" runat="server" Text="Autores (separe los autores con una ",")"></asp:Label></td>
+                  <td><asp:Label ID="Label5" runat="server" Text="Autores (separe los autores con una ',')"></asp:Label></td>
                   <td>
                   <asp:TextBox ID="txtAutores" runat="server" class="form-control mx-auto"></asp:TextBox>
                     

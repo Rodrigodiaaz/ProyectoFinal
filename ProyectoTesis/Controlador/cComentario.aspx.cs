@@ -13,26 +13,47 @@ namespace ProyectoTesis.Controlador
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            string idpost = Request.QueryString["idpost"];
-            string texto = Request.QueryString["texto"];
-            string idusuario = Request.QueryString["idusuario"];
-            int identificador = Convert.ToInt32(Request.QueryString["identificador"]);
-            if (identificador == 0)
+            try
             {
-                ControladorComentario cc = new ControladorComentario();
-                if (cc.InsertarComentario(Convert.ToInt32(idpost), Convert.ToInt32(idusuario), texto, DateTime.Now.ToString()))
+                string idpost = Request.QueryString["idpost"];
+                string texto = Request.QueryString["texto"];
+                string idusuario = Request.QueryString["idusuario"];
+                int identificador = Convert.ToInt32(Request.QueryString["identificador"]);
+                int upropietario = Convert.ToInt32(Request.QueryString["upropietario"]);
+                if (identificador == 0)
                 {
-                    Response.Redirect("../Vistas/home.aspx");
+                    ControladorComentario cc = new ControladorComentario();
+                    if (cc.InsertarComentario(Convert.ToInt32(idpost), Convert.ToInt32(idusuario), texto, DateTime.Now.ToString()))
+                    {
+                        Response.Redirect("../Vistas/home.aspx");
+                    }
+                }
+                else
+                {
+                    if (identificador == 1)
+                    {
+                        ControladorComentario cc = new ControladorComentario();
+                        if (cc.InsertarComentario(Convert.ToInt32(idpost), Convert.ToInt32(idusuario), texto, DateTime.Now.ToString()))
+                        {
+                            Response.Redirect("../Vistas/perfil.aspx?id=" + upropietario);
+                        }
+                    }
+                    else
+                    {
+                        ControladorComentario cc = new ControladorComentario();
+                        if (cc.InsertarComentario(Convert.ToInt32(idpost), Convert.ToInt32(idusuario), texto, DateTime.Now.ToString()))
+                        {
+                            Response.Redirect("../Vistas/MenuPrincipal.aspx");
+                        }
+                    }
+
                 }
             }
-            else
+            catch (NullReferenceException)
             {
-                ControladorComentario cc = new ControladorComentario();
-                if (cc.InsertarComentario(Convert.ToInt32(idpost), Convert.ToInt32(idusuario), texto, DateTime.Now.ToString()))
-                {
-                    Response.Redirect("../Vistas/MenuPrincipal.aspx");
-                }
+                Response.Redirect("../Vistas/MenuPrincipal.aspx");
             }
+            
             
         }
     }

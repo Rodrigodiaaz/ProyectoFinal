@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.IO;
 using ProyectoTesis.Controlador;
+using ProyectoTesis.Modelos;
 
 namespace ProyectoTesis.Vistas
 {
@@ -13,10 +14,24 @@ namespace ProyectoTesis.Vistas
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["mensaje"] != null)
+            if (Session["logeado"] != null)
             {
-                lblMensaje.Text = (string)Session["mensaje"];
+                Usuario u = (Usuario)Session["logeado"];
+                if (u.Tipoperfil.Equals("Alumno"))
+                {
+                    Response.Redirect("MenuPrincipal.aspx");
+                }
+
+                if (Session["mensaje"] != null)
+                {
+                    lblMensaje.Text = (string)Session["mensaje"];
+                }
             }
+            else
+            {
+                Response.Redirect("index.aspx");
+            }
+            
 
         }
 
@@ -24,6 +39,7 @@ namespace ProyectoTesis.Vistas
         {
             string nombreArchivo; string strFilePath;
             string carpeta;
+            string extencion;
             carpeta = Server.MapPath("../pdf/");
 
             ControladorPublicacion cp = new ControladorPublicacion();
@@ -33,47 +49,34 @@ namespace ProyectoTesis.Vistas
             {
                 nombreArchivo = fileTesis.PostedFile.FileName;
                 nombreArchivo = Path.GetFileName(nombreArchivo);
-                if (!Directory.Exists(carpeta))
+                extencion = Path.GetExtension(nombreArchivo);
+                if (extencion.ToUpper().Equals(".PDF"))
                 {
-                    Directory.CreateDirectory(carpeta);
-                }
-
-                // Save the uploaded file to the server.
-                strFilePath = carpeta + nombreArchivo;
-
-                if (File.Exists(strFilePath))
-                {
-                    lblMensaje.Text = nombreArchivo + " ya existe!";
-                }
-                else
-                {
-
-                    ControladorTesis ct = new ControladorTesis();
-                    if (rdoTsocial.Checked == false && rdoPsico.Checked == false && rdoTraducion.Checked == false)
+                    if (!Directory.Exists(carpeta))
                     {
-                        lblMensaje.Text = "Seleccione un area.";
+                        Directory.CreateDirectory(carpeta);
+                    }
+
+                    // Save the uploaded file to the server.
+                    strFilePath = carpeta + nombreArchivo;
+
+                    if (File.Exists(strFilePath))
+                    {
+                        lblMensaje.Text = nombreArchivo + " ya existe!";
                     }
                     else
                     {
-                        if (rdoTsocial.Checked)
+
+                        ControladorTesis ct = new ControladorTesis();
+                        if (rdoTsocial.Checked == false && rdoPsico.Checked == false && rdoTraducion.Checked == false)
                         {
-                            string mensaje = ct.insertaTesis(txtAutores.Text, txtDescripcion.Value, txtProfeGuia.Text, nombreArchivo, txtTitulo.Text, 1);
-                            if (mensaje.Equals("Tesis subida con exito."))
-                            {
-                                fileTesis.PostedFile.SaveAs(strFilePath);
-                                Session["mensaje"] = mensaje;
-                                Response.Redirect(Request.Url.AbsoluteUri);
-                            }
-                            else
-                            {
-                                lblMensaje.Text = mensaje;
-                            }
+                            lblMensaje.Text = "Seleccione un area.";
                         }
                         else
                         {
-                            if (rdoPsico.Checked == true)
+                            if (rdoTsocial.Checked)
                             {
-                                string mensaje = ct.insertaTesis(txtAutores.Text, txtDescripcion.Value, txtProfeGuia.Text, nombreArchivo, txtTitulo.Text, 2);
+                                string mensaje = ct.insertaTesis(txtAutores.Text, txtDescripcion.Value, txtProfeGuia.Text, nombreArchivo, txtTitulo.Text, 1);
                                 if (mensaje.Equals("Tesis subida con exito."))
                                 {
                                     fileTesis.PostedFile.SaveAs(strFilePath);
@@ -87,21 +90,43 @@ namespace ProyectoTesis.Vistas
                             }
                             else
                             {
-                                string mensaje = ct.insertaTesis(txtAutores.Text, txtDescripcion.Value, txtProfeGuia.Text, nombreArchivo, txtTitulo.Text, 3);
-                                if (mensaje.Equals("Tesis subida con exito."))
+                                if (rdoPsico.Checked == true)
                                 {
-                                    fileTesis.PostedFile.SaveAs(strFilePath);
-                                    Session["mensaje"] = mensaje;
-                                    Response.Redirect(Request.Url.AbsoluteUri);
+                                    string mensaje = ct.insertaTesis(txtAutores.Text, txtDescripcion.Value, txtProfeGuia.Text, nombreArchivo, txtTitulo.Text, 2);
+                                    if (mensaje.Equals("Tesis subida con exito."))
+                                    {
+                                        fileTesis.PostedFile.SaveAs(strFilePath);
+                                        Session["mensaje"] = mensaje;
+                                        Response.Redirect(Request.Url.AbsoluteUri);
+                                    }
+                                    else
+                                    {
+                                        lblMensaje.Text = mensaje;
+                                    }
                                 }
                                 else
                                 {
-                                    lblMensaje.Text = mensaje;
+                                    string mensaje = ct.insertaTesis(txtAutores.Text, txtDescripcion.Value, txtProfeGuia.Text, nombreArchivo, txtTitulo.Text, 3);
+                                    if (mensaje.Equals("Tesis subida con exito."))
+                                    {
+                                        fileTesis.PostedFile.SaveAs(strFilePath);
+                                        Session["mensaje"] = mensaje;
+                                        Response.Redirect(Request.Url.AbsoluteUri);
+                                    }
+                                    else
+                                    {
+                                        lblMensaje.Text = mensaje;
+                                    }
                                 }
                             }
                         }
                     }
                 }
+                else
+                {
+                    lblMensaje.Text = "El archivo que esta intentando subir no es pdf.";
+                }
+                
             }
         }
     }

@@ -113,7 +113,7 @@ namespace ProyectoTesis.Vistas
                             ControladorComentario cm = new ControladorComentario();
                             List<Comentario> listacomentariosxpublicacion = cm.listaComentarios(listapublicaciones[i].Idpublicacion);
                             Response.Write("<span class='w3-right w3-opacity'>" + listapublicaciones[i].Fecha + "</span>" +
-                                            "<h4><strong>" + u.Nombre + " " + u.Cargo + "</strong></h4>" +
+                                            "<h4><strong> <a href='perfil.aspx?id="+u.Id+ "'> " + u.Nombre + "</a> " + u.Cargo + "</strong></h4>" +
                                             "<p>" + listapublicaciones[i].Texto + "</p>" +
                                             "<br><br>" +
                                             "<div><h3 data-toggle='collapse' href='#ComentarP" + i + "' role='button' aria-expanded='false' aria-controls='ComentarP" + i + "'><Strong> Comentar </Strong></h3></div>" +

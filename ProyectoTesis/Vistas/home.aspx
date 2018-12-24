@@ -1,4 +1,4 @@
-﻿251<%@ Page Language='C#' AutoEventWireup='true' CodeBehind='home.aspx.cs' Inherits='ProyectoTesis.Vistas.home1' %>
+﻿<%@ Page Language='C#' AutoEventWireup='true' CodeBehind='home.aspx.cs' Inherits='ProyectoTesis.Vistas.home1' %>
 <%@ Import Namespace="ProyectoTesis.Modelos" %>
 <%@ Import Namespace="ProyectoTesis.Controlador" %>
 

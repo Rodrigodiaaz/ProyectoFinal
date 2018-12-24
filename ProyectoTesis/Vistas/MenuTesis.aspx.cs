@@ -116,10 +116,14 @@ namespace ProyectoTesis.Vistas
                               "<tr>" +
                                 "<th scope='col'>Nombre de Tesis</th>" +
                                 "<th scope='col'>Profesor</th>" +
-                                "<th scope='col'>Autor</th>" +
-                                "<th scope='col'>Accion</th>" +
-                                // "<th scope='col'>Eliminar</th>" +
-                                "</tr>" +
+                                "<th scope='col'>Autor</th>");
+                        if (log.Tipoperfil.Equals("Administrativo"))
+                        {
+                            Response.Write("<th scope='col'>Accion</th>");
+                        }
+
+                        // "<th scope='col'>Eliminar</th>" +
+                        Response.Write("</tr>" +
                             "</thead>" +
                             "<tbody>");
                         if (tema.Equals("p"))
@@ -138,7 +142,7 @@ namespace ProyectoTesis.Vistas
                                   "<td><a href='tesis.aspx?idtesis=" + alltesis[i].Idtesis + "'><p>" + alltesis[i].Titulo + "</p></a></td>" +
                                   "<td><p>" + alltesis[i].Profesor_guia + "</p></td>" +
                                   "<td><p>" + alltesis[i].Autor + "</p></td>");
-                                    if (log.Tipoperfil.Equals("1"))
+                                    if (log.Tipoperfil.Equals("Administrativo"))
                                     {
                                         Response.Write("<td><a href='../Controlador/cTesis.aspx?idtesis="+alltesis[i].Idtesis+"&tema="+tema+"'>Eliminar tesis</a></td>");
                                     }
@@ -243,7 +247,7 @@ namespace ProyectoTesis.Vistas
                                       "<td><a href='tesis.aspx?idtesis=" + alltesis[i].Idtesis + "'><p>" + alltesis[i].Titulo + "</p></a></td>" +
                                       "<td><p>" + alltesis[i].Profesor_guia + "</p></td>" +
                                       "<td><p>" + alltesis[i].Autor + "</p></td>");
-                                        if (log.Tipoperfil.Equals("1"))
+                                        if (log.Tipoperfil.Equals("Administrativo"))
                                         {
                                             Response.Write("<td><a href='../Controlador/cTesis.aspx?idtesis=" + alltesis[i].Idtesis + "&tema=" + tema + "'>Eliminar tesis</a></td>");
                                         }
@@ -345,7 +349,7 @@ namespace ProyectoTesis.Vistas
                                       "<td><a href='tesis.aspx?idtesis=" + alltesis[i].Idtesis + "'><p>" + alltesis[i].Titulo + "</p></a></td>" +
                                       "<td><p>" + alltesis[i].Profesor_guia + "</p></td>" +
                                       "<td><p>" + alltesis[i].Autor + "</p></td>");
-                                        if (log.Tipoperfil.Equals("1"))
+                                        if (log.Tipoperfil.Equals("Administrativo"))
                                         {
                                             Response.Write("<td><a href='../Controlador/cTesis.aspx?idtesis=" + alltesis[i].Idtesis + "&tema=" + tema + "'>Eliminar tesis</a></td>");
                                         }
