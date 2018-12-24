@@ -71,7 +71,7 @@
         <li class='list-group-item'><a href='temaforo.aspx'>Foros</a></li>
         <li class='list-group-item'><a href='videoconferencia.aspx'>Video Conferencia</a></li>
         <li class='list-group-item'><a href='subirTesis.aspx'>Subir Tesis</a></li>
-        <li class='list-group-item'><a href='menutesis.aspx'>Menu Tesis</a></li>
+        <li class='list-group-item'><a href='temaTesis.aspx'>Menu Tesis</a></li>
         <li class='list-group-item'><a href='crearForo.aspx'>Crear Foro</a></li>
       </ul>
       <br />
@@ -102,7 +102,7 @@
                   
                <tr>
                   <th scope="row"></th>
-                  <td><asp:Label ID="Label5" runat="server" Text="Autores"></asp:Label></td>
+                  <td><asp:Label ID="Label5" runat="server" Text="Autores (separe los autores con una ",")"></asp:Label></td>
                   <td>
                   <asp:TextBox ID="txtAutores" runat="server" class="form-control mx-auto"></asp:TextBox>
                     
@@ -119,11 +119,26 @@
                 <tr>
                   <th scope="row"></th>
                   <td><asp:Label ID="Label1" runat="server" Text="Descripcion"></asp:Label></td>
-                  <td>
+                     <td>
                       <textarea id="txtDescripcion" runat="server" class="form-control" rows="3" required></textarea>
                       </td>
+                  <td>
+                      
                 </tr>
-
+                      <tr>
+                  <th scope="row"></th>
+                  <td><asp:Label ID="Label2" runat="server" Text="Area"></asp:Label></td>
+                            <br />
+                          
+                          <td><asp:RadioButton GroupName="area" ID="rdoTsocial" Text="Trabajo Social" runat="server"/>
+                          <br />
+                          <asp:RadioButton GroupName="area" ID="rdoPsico" Text="Psicopedagogia" runat="server"/>
+                          <br />
+                          <asp:RadioButton GroupName="area" ID="rdoTraducion" Text="Traduccion" runat="server"/>
+                          </td>
+                            <br />
+                 
+                </tr>
 
                   <tr>
                   <th scope="row"></th>
@@ -133,7 +148,7 @@
                             <asp:FileUpload ID="fileTesis" type="file" accept=".pdf" runat="server" class="col-lg-10 col-md-6 col-sm-6" />
                       </td>
                   </tr>
-                 
+               
                   <tr>
                   <th scope="row"></th>
                   <td>

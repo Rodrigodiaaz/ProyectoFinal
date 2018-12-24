@@ -14,6 +14,7 @@ namespace ProyectoTesis.Modelos
         private string profesor_guia;
         private string nombre_archivo;
         private string titulo;
+        private int tematesis;
 
 
 
@@ -23,13 +24,14 @@ namespace ProyectoTesis.Modelos
         public string Nombre_archivo { get => nombre_archivo; set => nombre_archivo = value; }
         public string Titulo { get => titulo; set => titulo = value; }
         public int Idtesis { get => idtesis; set => idtesis = value; }
+        public int Tematesis { get => tematesis; set => tematesis = value; }
 
         public Tesis()
         {
 
         }
 
-        public Tesis(string id, string autor, string descripcion, string profesorguia, string nombre, string titulo)
+        public Tesis(string id, string autor, string descripcion, string profesorguia, string nombre, string titulo, int tematesis)
         {
             this.Idtesis = Int32.Parse(id);
             this.autor = autor;
@@ -37,6 +39,7 @@ namespace ProyectoTesis.Modelos
             this.profesor_guia = profesorguia;
             this.nombre_archivo = nombre;
             this.titulo = titulo;
+            this.Tematesis = tematesis;
         }
 
         public bool InsertaTesis(Tesis t)
@@ -46,7 +49,7 @@ namespace ProyectoTesis.Modelos
             {
                 MySqlCommand comando = new MySqlCommand();
                 con.abreConexion();
-                comando.CommandText = "INSERT INTO tesis(autor,descripcion,profesor_guia,nombre_archivo,titulo) VALUES('" + t.Autor + "', '" + t.Descripcion + "', '" + t.Profesor_guia + "', '" + t.Nombre_archivo + "', '" + t.Titulo + "')";
+                comando.CommandText = "INSERT INTO tesis(autor,descripcion,profesor_guia,nombre_archivo,titulo,idtematesis) VALUES('" + t.Autor + "', '" + t.Descripcion + "', '" + t.Profesor_guia + "', '" + t.Nombre_archivo + "', '" + t.Titulo + "' , " + t.tematesis + ")";
                 comando.Connection = con.usaConexion();
                 if (comando.ExecuteNonQuery() > 0)
                 {
@@ -68,7 +71,33 @@ namespace ProyectoTesis.Modelos
         }
 
 
-
+        public bool EliminarTesis(string id)
+        {
+            Conexion con = Conexion.Instance();
+            try
+            {
+                MySqlCommand comando = new MySqlCommand();
+                con.abreConexion();
+                comando.CommandText = "DELETE from tesis WHERE id_tesis='" + id + "'";
+                comando.Connection = con.usaConexion();
+                if (comando.ExecuteNonQuery() > 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch
+            {
+                return false;
+            }
+            finally
+            {
+                con.cierraConexion();
+            }
+        }
 
 
         public bool ModificaTesis(Tesis t)
@@ -100,6 +129,8 @@ namespace ProyectoTesis.Modelos
             }
         }
 
+
+
         public Tesis buscaUnatesis(string id, string titulo)
         {
             Conexion con = Conexion.Instance();
@@ -120,6 +151,7 @@ namespace ProyectoTesis.Modelos
                     t2.Profesor_guia = reader[3].ToString();
                     t2.Nombre_archivo = reader[4].ToString();
                     t2.Titulo = reader[5].ToString();
+                    t2.tematesis = Int32.Parse(reader[6].ToString());
 
                 }
                 return t2;
@@ -154,6 +186,7 @@ namespace ProyectoTesis.Modelos
                     t2.Profesor_guia = reader[3].ToString();
                     t2.Nombre_archivo = reader[4].ToString();
                     t2.Titulo = reader[5].ToString();
+                    t2.tematesis = Int32.Parse(reader[6].ToString());
 
                 }
                 return t2;
@@ -189,7 +222,79 @@ namespace ProyectoTesis.Modelos
                     t2.Profesor_guia = reader[3].ToString();
                     t2.Nombre_archivo = reader[4].ToString();
                     t2.Titulo = reader[5].ToString();
+                    t2.tematesis = Int32.Parse(reader[6].ToString());
                     lista.Add(t2);
+                }
+                return lista;
+            }
+            catch
+            {
+                return lista;
+            }
+            finally
+            {
+                con.cierraConexion();
+            }
+        }
+
+        public List<Tesis> BuscaPorTema(int tema)
+        {
+            Conexion con = Conexion.Instance();
+            Tesis t = null;
+            List<Tesis> lista = new List<Tesis>();
+            try
+            {
+                con.abreConexion();
+                MySqlCommand comando = new MySqlCommand();
+                comando.CommandText = "SELECT * FROM tesis where idtematesis = " +tema+ " ORDER BY id_tesis DESC";
+                comando.Connection = con.usaConexion();
+                MySqlDataReader reader = comando.ExecuteReader();
+                while (reader.Read())
+                {
+                    t = new Tesis();
+                    t.Idtesis = Int32.Parse(reader[0].ToString());
+                    t.Autor = reader[1].ToString();
+                    t.Descripcion = reader[2].ToString();
+                    t.Profesor_guia= reader[3].ToString();
+                    t.Nombre_archivo = reader[4].ToString();
+                    t.Titulo = reader[6].ToString();
+                    t.tematesis = Int32.Parse(reader[6].ToString());
+                    lista.Add(t);
+                }
+                return lista;
+            }
+            catch
+            {
+                return lista;
+            }
+            finally
+            {
+                con.cierraConexion();
+            }
+        }
+
+        public List<Tesis> buscaTodosLosTesis2()
+        {
+            Conexion con = Conexion.Instance();
+            Tesis t = null;
+            List<Tesis> lista = new List<Tesis>();
+            try
+            {
+                con.abreConexion();
+                MySqlCommand comando = new MySqlCommand();
+                comando.CommandText = "SELECT * FROM tesis ORDER BY id_tesis DESC";
+                comando.Connection = con.usaConexion();
+                MySqlDataReader reader = comando.ExecuteReader();
+                while (reader.Read())
+                {
+                    t = new Tesis();
+                    t.Idtesis = Int32.Parse(reader[0].ToString());
+                    t.Autor = reader[1].ToString();
+                    t.Descripcion = reader[2].ToString();
+                    t.Profesor_guia = reader[3].ToString();
+                    t.Nombre_archivo = reader[4].ToString();
+                    t.tematesis = Int32.Parse(reader[5].ToString());
+                    lista.Add(t);
                 }
                 return lista;
             }

@@ -81,7 +81,7 @@ namespace ProyectoTesis.Vistas
         "<li class='list-group-item'><a href='menuforo.aspx'>Menu Foros</a></li>" +
         "<li class='list-group-item'><a href='videoconferencia.aspx'>Video Conferencia</a></li>" +
         "<li class='list-group-item'><a href='subirTesis.aspx'>Subir Tesis</a></li>" +
-        "<li class='list-group-item'><a href='menutesis.aspx'>Menu Tesis</a></li>" +
+        "<li class='list-group-item'><a href='tematesis.aspx'>Menu Tesis</a></li>" +
         "<li class='list-group-item'><a href='crearForo.aspx'>Crear Foro</a></li>" +
         "<li class='list-group-item'><a href='modificarusu.aspx'>Modificar Usuario</a></li>");
                 }

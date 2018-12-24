@@ -88,7 +88,7 @@ namespace ProyectoTesis.Vistas
                   "</blockquote>" +
                   "<ul class='list-group'>" +
 
-                    "<li class='list-group-item'><a href = 'MenuTesis.aspx'> Menu Tesis</a></li>" +
+                    "<li class='list-group-item'><a href = 'temaTesis.aspx'> Menu Tesis</a></li>" +
                   "</ul>" +
                  "<br />" +
                  "<br />" +

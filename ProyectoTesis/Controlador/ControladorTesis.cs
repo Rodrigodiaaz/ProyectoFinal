@@ -8,7 +8,7 @@ namespace ProyectoTesis.Controlador
 {
     public class ControladorTesis
     {
-        public string insertaTesis(string autor, string descripcion, string profeGuia, string nombreArchivo, string titulo)
+        public string insertaTesis(string autor, string descripcion, string profeGuia, string nombreArchivo, string titulo, int tematesis)
         {
             if (autor.Equals("") || descripcion.Equals("") || profeGuia.Equals("") || nombreArchivo.Equals("") || titulo.Equals(""))
             {
@@ -22,6 +22,8 @@ namespace ProyectoTesis.Controlador
                 t.Profesor_guia = profeGuia;
                 t.Nombre_archivo = nombreArchivo;
                 t.Titulo = titulo;
+                t.Tematesis = tematesis;
+                
                 if (t.InsertaTesis(t))
                 {
                     return "Tesis subida con exito.";
@@ -36,6 +38,13 @@ namespace ProyectoTesis.Controlador
         {
             Tesis t = new Tesis();
             List<Tesis> lista = t.buscaTodos();
+            return lista;
+        }
+
+        public List<Tesis> ObtenerporTema(int tema)
+        {
+            Tesis t = new Tesis();
+            List<Tesis> lista = t.BuscaPorTema(tema);
             return lista;
         }
 

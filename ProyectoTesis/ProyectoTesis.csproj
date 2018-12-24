@@ -117,6 +117,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
     <Content Include="Controlador\cComentario.aspx" />
+    <Content Include="Controlador\cTesis.aspx" />
     <Content Include="css\bootstrap-theme.css" />
     <Content Include="css\bootstrap-theme.min.css" />
     <Content Include="css\bootstrap.css" />
@@ -274,6 +275,7 @@
     <Content Include="Vistas\SeleccionTema.aspx" />
     <Content Include="Vistas\subirTesis.aspx" />
     <Content Include="Vistas\temaForo.aspx" />
+    <Content Include="Vistas\temaTesis.aspx" />
     <Content Include="Vistas\tesis.aspx" />
     <Content Include="Vistas\vervideoconferencia.aspx" />
     <Content Include="Vistas\videoconferencia.aspx" />
@@ -315,6 +317,13 @@
     <Compile Include="Controlador\ControladorTesis.cs" />
     <Compile Include="Controlador\ControladorTopic.cs" />
     <Compile Include="Controlador\ControladorUsuario.cs" />
+    <Compile Include="Controlador\cTesis.aspx.cs">
+      <DependentUpon>cTesis.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controlador\cTesis.aspx.designer.cs">
+      <DependentUpon>cTesis.aspx</DependentUpon>
+    </Compile>
     <Compile Include="css\modelos\Conexion.cs" />
     <Compile Include="css\modelos\Usuario.cs" />
     <Compile Include="Default.aspx.cs">
@@ -463,6 +472,13 @@
     </Compile>
     <Compile Include="Vistas\temaForo.aspx.designer.cs">
       <DependentUpon>temaForo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\temaTesis.aspx.cs">
+      <DependentUpon>temaTesis.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vistas\temaTesis.aspx.designer.cs">
+      <DependentUpon>temaTesis.aspx</DependentUpon>
     </Compile>
     <Compile Include="Vistas\tesis.aspx.cs">
       <DependentUpon>tesis.aspx</DependentUpon>
