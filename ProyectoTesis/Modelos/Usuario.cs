@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using ProyectoTesis.Controlador;
 
 namespace ProyectoTesis.Modelos
 {
@@ -45,16 +46,47 @@ namespace ProyectoTesis.Modelos
         {
         }
 
-        public bool insertaUsuarioAlumno(Usuario ua)
+        public bool insertaUsuarioAlumno(Usuario ua, string nombre, string apellido)
         {
             Conexion con = Conexion.Instance();
             try
             {
-                string[] nombre = ua.Nombre.Split(' ');
+                ControladorUsuario cu = new ControladorUsuario();
+                string nombreMayuscula = cu.NombreMayuscula(nombre);
+                string apellidoMayuscula = cu.NombreMayuscula(apellido);
+
+                string[] nombres = nombreMayuscula.Split(' ');
+                string[] apellidos = apellidoMayuscula.Split(' ');
+                string pnombre;
+                string snombre;
+                string apaterno;
+                string amaterno;
+
+                if (nombres.Length < 2 )
+                {
+                    pnombre = nombres[0];
+                    snombre = "";
+                }
+                else
+                {
+                    pnombre = nombres[0];
+                    snombre = nombres[1];
+                }
+
+                if (apellidos.Length < 2)
+                {
+                    apaterno = apellidos[0];
+                    amaterno = "";
+                }
+                else
+                {
+                    apaterno = apellidos[0];
+                    amaterno = apellidos[1];
+                }
                 
                 MySqlCommand comando = new MySqlCommand();
                 con.abreConexion();
-                comando.CommandText = "INSERT INTO usuario (rut_usuario, primerNombre, segundoNombre, apellidoPaterno, apellidoMaterno, correo, fecha_nacimiento, contrasenia, cargo, tipo_perfil, estado) VALUES('" + ua.Rut + "', '" + nombre[0] + "', '" + nombre[1] + "', '" + nombre[2] + "', '" + nombre[3] + "', '" + ua.Correo + "', '" + ua.Fecha_nacimiento + "', '" + ua.Pass + "', '" + ua.Cargo + "', '" + ua.Tipoperfil + "', " + ua.Estado + ")";
+                comando.CommandText = "INSERT INTO usuario (rut_usuario, primerNombre, segundoNombre, apellidoPaterno, apellidoMaterno, correo, fecha_nacimiento, contrasenia, cargo, tipo_perfil, estado) VALUES('" + ua.Rut + "', '" + pnombre + "', '" + snombre + "', '" + apaterno + "', '" + amaterno + "', '" + ua.Correo + "', '" + ua.Fecha_nacimiento + "', '" + ua.Pass + "', '" + ua.Cargo + "', '" + ua.Tipoperfil + "', " + ua.Estado + ")";
                 comando.Connection = con.usaConexion();
                 if (comando.ExecuteNonQuery() > 0)
                 {

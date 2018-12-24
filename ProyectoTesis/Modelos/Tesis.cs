@@ -307,5 +307,40 @@ namespace ProyectoTesis.Modelos
                 con.cierraConexion();
             }
         }
+
+        public Tesis BuscaPorTitulo(string titulo)
+        {
+            Conexion con = Conexion.Instance();
+            Tesis t2 = null;
+            try
+            {
+                con.abreConexion();
+                MySqlCommand comando = new MySqlCommand();
+                comando.CommandText = "SELECT * FROM tesis WHERE titulo='" + titulo + "'";
+                comando.Connection = con.usaConexion();
+                MySqlDataReader reader = comando.ExecuteReader();
+                while (reader.Read())
+                {
+                    t2 = new Tesis();
+                    t2.Idtesis = Int32.Parse(reader[0].ToString());
+                    t2.Autor = reader[1].ToString();
+                    t2.Descripcion = reader[2].ToString();
+                    t2.Profesor_guia = reader[3].ToString();
+                    t2.Nombre_archivo = reader[4].ToString();
+                    t2.Titulo = reader[5].ToString();
+                    t2.tematesis = Int32.Parse(reader[6].ToString());
+
+                }
+                return t2;
+            }
+            catch
+            {
+                return t2;
+            }
+            finally
+            {
+                con.cierraConexion();
+            }
+        }
     }
 }

@@ -139,7 +139,7 @@ namespace ProyectoTesis.Controlador
                             {
                                 if (u.Pass.Length > 6)
                                 {
-                                    if (u.insertaUsuarioAlumno(u))
+                                    if (u.insertaUsuarioAlumno(u, nombres, apellidos))
                                     {
                                         return "Usuario Registrado correctamente.";
                                     }

@@ -137,11 +137,18 @@ namespace ProyectoTesis.Vistas
                                     Usuario us = new Usuario();
                                     Tesis ts = new Tesis();
                                     Usuario autor = us.buscaUnoID(alltesis[i].Idtesis.ToString());
-
+                                    AutorTesis at = new AutorTesis();
+                                    List<AutorTesis> listaautores= at.BuscaAutorTesis(alltesis[i].Idtesis.ToString());
                                     Response.Write("<tr>" +
                                   "<td><a href='tesis.aspx?idtesis=" + alltesis[i].Idtesis + "'><p>" + alltesis[i].Titulo + "</p></a></td>" +
                                   "<td><p>" + alltesis[i].Profesor_guia + "</p></td>" +
-                                  "<td><p>" + alltesis[i].Autor + "</p></td>");
+                                  "<td><p>");
+                                    for (int j = 0; j < listaautores.Count; j++)
+                                    {
+                                        Response.Write(listaautores[j].Nombre + ", ");
+                                    }
+
+                                    Response.Write("</p></td>");
                                     if (log.Tipoperfil.Equals("Administrativo"))
                                     {
                                         Response.Write("<td><a href='../Controlador/cTesis.aspx?idtesis="+alltesis[i].Idtesis+"&tema="+tema+"'>Eliminar tesis</a></td>");
@@ -243,10 +250,18 @@ namespace ProyectoTesis.Vistas
                                     {
                                         Usuario us = new Usuario();
                                         Usuario autor = us.buscaUnoID(alltesis[i].Idtesis.ToString());
+                                        AutorTesis at = new AutorTesis();
+                                        List<AutorTesis> listaautores = at.BuscaAutorTesis(alltesis[i].Idtesis.ToString());
                                         Response.Write("<tr>" +
                                       "<td><a href='tesis.aspx?idtesis=" + alltesis[i].Idtesis + "'><p>" + alltesis[i].Titulo + "</p></a></td>" +
                                       "<td><p>" + alltesis[i].Profesor_guia + "</p></td>" +
-                                      "<td><p>" + alltesis[i].Autor + "</p></td>");
+                                      "<td><p>");
+                                        for (int j = 0; j < listaautores.Count; j++)
+                                        {
+                                            Response.Write(listaautores[j].Nombre + ", ");
+                                        }
+
+                                        Response.Write("</p></td>");
                                         if (log.Tipoperfil.Equals("Administrativo"))
                                         {
                                             Response.Write("<td><a href='../Controlador/cTesis.aspx?idtesis=" + alltesis[i].Idtesis + "&tema=" + tema + "'>Eliminar tesis</a></td>");
@@ -345,10 +360,18 @@ namespace ProyectoTesis.Vistas
                                     {
                                         Usuario us = new Usuario();
                                         Usuario autor = us.buscaUnoID(alltesis[i].Idtesis.ToString());
+                                        AutorTesis at = new AutorTesis();
+                                        List<AutorTesis> listaautores = at.BuscaAutorTesis(alltesis[i].Idtesis.ToString());
                                         Response.Write("<tr>" +
                                       "<td><a href='tesis.aspx?idtesis=" + alltesis[i].Idtesis + "'><p>" + alltesis[i].Titulo + "</p></a></td>" +
                                       "<td><p>" + alltesis[i].Profesor_guia + "</p></td>" +
-                                      "<td><p>" + alltesis[i].Autor + "</p></td>");
+                                      "<td><p>");
+                                        for (int j = 0; j < listaautores.Count; j++)
+                                        {
+                                            Response.Write(listaautores[j].Nombre + ", ");
+                                        }
+
+                                        Response.Write("</p></td>");
                                         if (log.Tipoperfil.Equals("Administrativo"))
                                         {
                                             Response.Write("<td><a href='../Controlador/cTesis.aspx?idtesis=" + alltesis[i].Idtesis + "&tema=" + tema + "'>Eliminar tesis</a></td>");

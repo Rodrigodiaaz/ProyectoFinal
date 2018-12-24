@@ -16,6 +16,8 @@ namespace ProyectoTesis.Controlador
             }
             else
             {
+                AutorTesis at = null;
+                String[] autores = autor.Split(',');
                 Tesis t = new Tesis();
                 t.Autor = autor;
                 t.Descripcion = descripcion;
@@ -26,7 +28,15 @@ namespace ProyectoTesis.Controlador
                 
                 if (t.InsertaTesis(t))
                 {
-                    return "Tesis subida con exito.";
+                    Tesis t2 = t.BuscaPorTitulo(t.Titulo);
+                    for (int i = 0; i < autores.Length; i++)
+                    {
+                        at = new AutorTesis();
+                        at.Nombre = autores[i];
+                        at.Id_tesis = t2.Idtesis;
+                        at.InsertaAutorTesis(at);
+                    }
+                    return "Tesis subida con exito.";  
                 }
                 else
                 {
@@ -34,6 +44,7 @@ namespace ProyectoTesis.Controlador
                 }
             }
         }
+
         public List<Tesis> ObetenerTodasTesis()
         {
             Tesis t = new Tesis();

@@ -12,7 +12,7 @@ select * from usuario;
 select * from post;
 select * from publicacion;
 SELECT * FROM publicacion WHERE idreceptor=1 ORDER BY idpublicacion DESC;
-
+delete from usuario where id_usuario=1;
 SELECT * FROM topic;
 SELECT * FROM tesis;
 
@@ -28,6 +28,7 @@ drop database proyecto;
 insert into comentario (idpost, idemisor, texto, fecha, estado) values (1,1,'prueba','asd',0);
 insert into comentario (idpost, idemisor, texto, fecha, estado) values (2,1,'prueba','asd',0);
 
+update usuario set tipo_perfil = 'Administrativo' where id_usuario = 2;
 
 create table usuario(
 id_usuario int auto_increment primary key,
@@ -44,12 +45,26 @@ tipo_perfil varchar(30),
 estado tinyint
 );
 
+create table tema_tesis(
+id_tema int auto_increment primary key,
+tema varchar(100)
+);
+
+insert into tema_tesis(tema) values ('Trabajo Social');
+insert into tema_tesis(tema) values ('Psicopedagogía');
+insert into tema_tesis(tema) values ('Traduccion');
+
+INSERT INTO tesis(autor,descripcion,profesor_guia,nombre_archivo,titulo,idtematesis) VALUES('caca','descripcion','peñedra','asdas','titulo',1);
+
 create table tesis(
 id_tesis int auto_increment primary key,
 Autor varchar(200),
 descripcion varchar(1000),
 profesor_guia varchar(1000),
-nombre_archivo varchar(1000)
+nombre_archivo varchar(1000),
+titulo varchar(500),
+idtematesis int,
+foreign key (idtematesis) references tema_tesis(id_tema)
 );
 
 create table autor_tesis(
@@ -59,11 +74,9 @@ id_tesis int,
 foreign key (id_tesis) references tesis(id_tesis)
 );
 
-create table tema_tesis(
+create table tema_topic(
 id_tema int auto_increment primary key,
-tema varchar(100),
-id_tesis int,
-foreign key (id_tesis) references tesis(id_tesis)
+tema varchar(100)
 );
 
 create table topic(
@@ -78,13 +91,11 @@ foreign key (id_usuario) references usuario(id_usuario)
 );
 
 
-create table tema_topic(
-id_tema int auto_increment primary key,
-tema varchar(100)
-);
+
 
 insert into tema_topic(tema) values ('Trabajo Social');
 insert into tema_topic(tema) values ('Psicopedagogía');
+insert into tema_topic(tema) values ('Traduccion');
 
 create table publicacion(
 idpublicacion int auto_increment primary key,
