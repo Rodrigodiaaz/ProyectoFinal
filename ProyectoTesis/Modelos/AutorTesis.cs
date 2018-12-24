@@ -50,6 +50,34 @@ namespace ProyectoTesis.Modelos
             }
         }
 
+        public bool EliminarAutor(string id)
+        {
+            Conexion con = Conexion.Instance();
+            try
+            {
+                MySqlCommand comando = new MySqlCommand();
+                con.abreConexion();
+                comando.CommandText = "DELETE from autor_tesis WHERE id_tesis='" + id + "'";
+                comando.Connection = con.usaConexion();
+                if (comando.ExecuteNonQuery() > 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch
+            {
+                return false;
+            }
+            finally
+            {
+                con.cierraConexion();
+            }
+        }
+
         public List<AutorTesis> BuscaAutorTesis(string id)
         {
             Conexion con = Conexion.Instance();

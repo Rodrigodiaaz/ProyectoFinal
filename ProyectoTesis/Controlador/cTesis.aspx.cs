@@ -23,17 +23,27 @@ namespace ProyectoTesis.Controlador
                 }
                 else
                 {
+                    AutorTesis at = new AutorTesis();
                     Tesis t = new Tesis();
-                    if (t.EliminarTesis(idtesis))
+                    if (at.EliminarAutor(idtesis))
                     {
-                        Session["mensajetesis"] = "Tesis Eliminada con exito";
-                        Response.Redirect("../Vistas/MenuTesis.aspx?tema=" + tema);
+                        if (t.EliminarTesis(idtesis))
+                        {
+                            Session["mensajetesis"] = "Tesis Eliminada con exito";
+                            Response.Redirect("../Vistas/MenuTesis.aspx?tema=" + tema);
+                        }
+                        else
+                        {
+                            Session["mensajetesis"] = "Error al eliminar";
+                            Response.Redirect("../Vistas/MenuTesis.aspx?tema=" + tema);
+                        }
                     }
                     else
                     {
                         Session["mensajetesis"] = "Error al eliminar";
                         Response.Redirect("../Vistas/MenuTesis.aspx?tema=" + tema);
                     }
+                    
                 }
             }
             catch (NullReferenceException)
