@@ -53,6 +53,7 @@ tema varchar(100)
 insert into tema_tesis(tema) values ('Trabajo Social');
 insert into tema_tesis(tema) values ('Psicopedagogía');
 insert into tema_tesis(tema) values ('Traduccion');
+select * from autor_tesis;
 
 INSERT INTO tesis(autor,descripcion,profesor_guia,nombre_archivo,titulo,idtematesis) VALUES('caca','descripcion','peñedra','asdas','titulo',1);
 

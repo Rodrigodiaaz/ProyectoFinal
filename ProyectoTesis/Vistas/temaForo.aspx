@@ -82,6 +82,8 @@
       </ul>
      <br />
      <br />
+     <br />
+     <br />
     </div>
 
     <div class="col-lg-6 w3-card">
@@ -142,6 +144,8 @@
       <br />
       <br />
       <br />
+     <br />
+     <br />
     </div> 
 
      </div>        

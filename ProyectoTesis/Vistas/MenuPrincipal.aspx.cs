@@ -51,7 +51,7 @@ namespace ProyectoTesis.Vistas
                     "<input class='form-control ml-5 lg-5 mr-5 lg-5 mt-lg-3 mb-lg-3' type='search' placeholder='Busqueda' aria-label='Search'>" +
           "<ul class='navbar-nav ml-auto'>" +
             "<li class='nav-item'>" +
-              "<a class='nav-link js-scroll-trigger text-white' href='index.aspx'>Desconectar</a>" +
+              "<a class='nav-link js-scroll-trigger text-white' href='cerrarsesion.aspx'>Desconectar</a>" +
             "</li> " +
           "</ul>" +
         "</div>" +
@@ -87,6 +87,10 @@ namespace ProyectoTesis.Vistas
                 }
         
       Response.Write("</ul>" +
+      "</br>" +
+      "</br>" +
+      "</br>" +
+      "</br>" +
       "</br>" +
       "</br>" +
       "</br>" +

@@ -151,6 +151,10 @@ namespace ProyectoTesis.Vistas
                           "<br />" +
                           "<br />" +
                           "<br />" +
+                          "<br />" +
+                          "<br />" +
+                          "<br />" +
+                          "<br />" +
                         "</div> " +
                          "</div>     " +
                     "</div>" +

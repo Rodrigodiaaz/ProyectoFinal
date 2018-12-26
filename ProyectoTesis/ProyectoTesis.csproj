@@ -261,6 +261,7 @@
     <Content Include="vendor\jquery\jquery.slim.js" />
     <Content Include="vendor\jquery\jquery.slim.min.js" />
     <Content Include="ViewSwitcher.ascx" />
+    <Content Include="Vistas\cerrarsesion.aspx" />
     <Content Include="Vistas\crearForo.aspx" />
     <Content Include="Vistas\Foro.aspx" />
     <Content Include="Vistas\home.aspx" />
@@ -376,6 +377,13 @@
     </Compile>
     <Compile Include="ViewSwitcher.ascx.designer.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\cerrarsesion.aspx.cs">
+      <DependentUpon>cerrarsesion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vistas\cerrarsesion.aspx.designer.cs">
+      <DependentUpon>cerrarsesion.aspx</DependentUpon>
     </Compile>
     <Compile Include="Vistas\crearForo.aspx.cs">
       <DependentUpon>crearForo.aspx</DependentUpon>

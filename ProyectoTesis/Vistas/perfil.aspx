@@ -272,13 +272,7 @@
 </div>
 </div>
 </header>
-        
-     
-
-
-
-
-        <!-- Footer -->
+         <!-- Footer -->
         <footer class='py-5' id="mainFooter">
             <div class='container'>
                 <p class='m-0 text-center text-white'>Copyright &copy; Quality Essentials 2018</p>
@@ -286,10 +280,6 @@
             </div>
             <!-- /.container -->
         </footer>
-
-        
-
-    
 
 </form>
     

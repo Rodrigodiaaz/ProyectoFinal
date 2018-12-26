@@ -47,17 +47,17 @@
 
 
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger text-white" href="#about">Soñando</a>
+              <a class="nav-link js-scroll-trigger text-white" href="#galeria">Galeria</a>
             </li>
 
 
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger text-white" href="#services">Servicios</a>
+              <a class="nav-link js-scroll-trigger text-white" href="#servicioss">Servicios</a>
             </li>
 
 
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger text-white" href="#contact">Galeria</a>
+              <a class="nav-link js-scroll-trigger text-white" href="#soñando">Soñando</a>
 
             </li>
 
@@ -121,7 +121,7 @@
         </div>
 </div>
     </section>
-<section class="jumbotron">
+<section class="jumbotron" id="servicioss">
   <div class="row no-gutters popup-gallery">
           
             <div class="col-lg-4 ">
@@ -152,7 +152,7 @@
 </section>
 
 
-    <div id="about">
+    <div id="soñando">
       <div class="container-fluid ">
         <div class="row no-gutters popup-gallery">
           

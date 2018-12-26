@@ -61,7 +61,7 @@ namespace ProyectoTesis.Vistas
          "<ul class='navbar-nav ml-auto'>" +
 
            "<li class='nav-item'>" +
-             "<a class='nav-link js-scroll-trigger text-white' href='index.aspx'>Desconectar</a>" +
+             "<a class='nav-link js-scroll-trigger text-white' href='cerrarsesion.aspx'>Desconectar</a>" +
            "</li>" +
 
          "</ul>" +
