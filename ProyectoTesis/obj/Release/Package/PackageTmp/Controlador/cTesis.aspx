@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="WebForm1.aspx.cs" Inherits="ProyectoTesis.Vistas.WebForm1" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="cTesis.aspx.cs" Inherits="ProyectoTesis.Controlador.cTesis" %>
 
 <!DOCTYPE html>
 
@@ -8,6 +8,9 @@
     <title></title>
 </head>
 <body>
-    
+    <form id="form1" runat="server">
+        <div>
+        </div>
+    </form>
 </body>
 </html>

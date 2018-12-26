@@ -1,4 +1,4 @@
-﻿251<%@ Page Language='C#' AutoEventWireup='true' CodeBehind='home.aspx.cs' Inherits='ProyectoTesis.Vistas.home1' %>
+﻿<%@ Page Language='C#' AutoEventWireup='true' CodeBehind='home.aspx.cs' Inherits='ProyectoTesis.Vistas.home1' %>
 <%@ Import Namespace="ProyectoTesis.Modelos" %>
 <%@ Import Namespace="ProyectoTesis.Controlador" %>
 
@@ -87,7 +87,7 @@
         </blockquote>
       <ul class="list-group">
         <li class='list-group-item'><a href='home.aspx'>Perfil</a></li>
-        <li class='list-group-item'><a href='menuforo.aspx'>Menu Foros</a></li>
+        <li class='list-group-item'><a href='temaforo.aspx'>Foros</a></li>
         <li class='list-group-item'><a href='videoconferencia.aspx'>Video Conferencia</a></li>
         <li class='list-group-item'><a href='subirTesis.aspx'>Subir Tesis</a></li>
         <li class='list-group-item'><a href='menutesis.aspx'>Menu Tesis</a></li>
@@ -267,13 +267,7 @@
 </div>
 </div>
 </header>
-        
-     
-
-
-
-
-        <!-- Footer -->
+         <!-- Footer -->
         <footer class='py-5' id="mainFooter">
             <div class='container'>
                 <p class='m-0 text-center text-white'>Copyright &copy; Quality Essentials 2018</p>

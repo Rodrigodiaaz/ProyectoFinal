@@ -1,4 +1,5 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="subirTesis.aspx.cs" Inherits="ProyectoTesis.Vistas.subirTesis" %>
+<%@ Import Namespace="ProyectoTesis.Modelos" %>
 
 
 <!DOCTYPE html>
@@ -37,7 +38,7 @@
      <!-- Navigation -->
         <nav class='navbar navbar-expand-lg fixed-top' id='mainNav'>
             <div class='container'>
-                <a class='navbar-brand js-scroll-trigger' href='#page-top'>Quality Essentials</a>
+                <img class='rounded img - fluid' width="105px" height="85px" src="../img/logo2.jpg">
                 <button class='navbar-toggler' type='button' data-toggle='collapse' data-target='#navbarResponsive' aria-controls='navbarResponsive' aria-expanded='false' aria-label='Toggle navigation'>
 
                     <span class='navbar-toggler-icon'></span>
@@ -49,7 +50,7 @@
           <ul class="navbar-nav ml-auto">
              
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger text-white" href="index.aspx">Desconectar</a>
+              <a class="nav-link js-scroll-trigger text-white" href="cerrarsesion.aspx">Desconectar</a>
             </li>
 
           </ul>
@@ -61,19 +62,48 @@
  <div class="container-fluid">
   <div class="row content">
     <div class="col-lg-3 sidenav w3-card">
-      <blockquote class="blockquote">
-        <p class="mb-0">Administrador o Usuario</p>
+      <%
+            Usuario u = (Usuario)Session["logeado"];
+            if (u.Tipoperfil.Equals("Alumno"))
+            {
+                %>
+        <blockquote class="blockquote">
+        <p class="mb-0"></p>
         <br />
-        <footer class=""> <img class="rounded img-fluid" width="50px" height="50px" src="../img/menu.jpg">Menu</footer>
+        <footer class=""> <img class="rounded img-fluid" width="50px" height="50px" src="../img/menu.jpg">Menu Alumno </footer>
         </blockquote>
-      <ul class="list-group">
-        <li class='list-group-item'><a href='home.aspx'>Perfil</a></li>
-        <li class='list-group-item'><a href='temaforo.aspx'>Foros</a></li>
+     <ul class="list-group">
+         <li class='list-group-item'><a href="MenuPrincipal.aspx">Menu Principal</a></li>
+        <li class="list-group-item"><a href="home.aspx">Perfil</a></li>
+        <li class="list-group-item"><a href="temaForo.aspx">Menu Foros</a></li>
+        <li class="list-group-item"><a href="videoconferencia.aspx">Video Conferencia</a></li>
+      </ul>
+        
+        <%
+
+            }
+            else
+            {
+                %>
+        <blockquote class="blockquote">
+        <p class="mb-0"></p>
+        <br />
+        <footer class=""> <img class="rounded img-fluid" width="50px" height="50px" src="../img/menu.jpg">Menu Adminstrador </footer>
+        </blockquote>
+     <ul class="list-group">
+         <li class='list-group-item'><a href='home.aspx'>Perfil</a></li>
+        <li class='list-group-item'><a href='temaforo.aspx'>Menu Foros</a></li>
         <li class='list-group-item'><a href='videoconferencia.aspx'>Video Conferencia</a></li>
         <li class='list-group-item'><a href='subirTesis.aspx'>Subir Tesis</a></li>
-        <li class='list-group-item'><a href='temaTesis.aspx'>Menu Tesis</a></li>
+        <li class='list-group-item'><a href='tematesis.aspx'>Menu Tesis</a></li>
         <li class='list-group-item'><a href='crearForo.aspx'>Crear Foro</a></li>
+        <li class='list-group-item'><a href='modificarusu.aspx'>Modificar Usuario</a></li>
       </ul>
+        
+        <%
+            }
+
+            %>
       <br />
       <br />
     

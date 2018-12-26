@@ -51,7 +51,7 @@
           <ul class="navbar-nav ml-auto">
              
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger text-white" href="index.aspx">Desconectar</a>
+              <a class="nav-link js-scroll-trigger text-white" href="cerrarsesion.aspx">Desconectar</a>
             </li>
 
           </ul>
@@ -86,13 +86,12 @@
         <p class="mb-0">Otras opciones</p>
         </blockquote>
       <ul class="list-group">
-        <li class='list-group-item'><a href='home.aspx'>Perfil</a></li>
-        <li class='list-group-item'><a href='temaforo.aspx'>Foros</a></li>
-        <li class='list-group-item'><a href='videoconferencia.aspx'>Video Conferencia</a></li>
-        <li class='list-group-item'><a href='subirTesis.aspx'>Subir Tesis</a></li>
-        <li class='list-group-item'><a href='menutesis.aspx'>Menu Tesis</a></li>
-        <li class='list-group-item'><a href='crearForo.aspx'>Crear Foro</a></li>
+        <li class='list-group-item'><a href="MenuPrincipal.aspx">Menu Principal</a></li>
         <li class='list-group-item'><a href='modificarusu.aspx'>Modificar Usuario</a></li>
+        <li class='list-group-item'><a href='temaforo.aspx'>Foros</a></li>
+        <li class='list-group-item'><a href='crearForo.aspx'>Crear Foro</a></li>
+        <li class='list-group-item'><a href='videoconferencia.aspx'>Video Conferencia</a></li>
+        <li class='list-group-item'><a href='menutesis.aspx'>Menu Tesis</a></li>
       </ul>
       <br>
 

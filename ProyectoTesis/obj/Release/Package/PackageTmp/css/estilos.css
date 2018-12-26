@@ -47,6 +47,10 @@
     font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
 }
 
+.media-container{
+    width: 478px;
+}
+
 .EmblemaP {
     background-color: #8B0000 !important;
     color: white !important;

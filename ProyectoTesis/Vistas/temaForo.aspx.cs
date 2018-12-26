@@ -11,7 +11,10 @@ namespace ProyectoTesis.Vistas
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Session["logeado"] == null)
+            {
+                Response.Redirect("index.aspx");
+            }
         }
     }
 }

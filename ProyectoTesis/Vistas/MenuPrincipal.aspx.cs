@@ -60,25 +60,30 @@ namespace ProyectoTesis.Vistas
     "<header> " +
     "<div class='container-fluid'>" +
     "<div class='row content'>" +
-    "<div class='col-lg-2 sidenav w3-card'>" +
-      "<blockquote class='blockquote'>" +
-        "<p class='mb-0'></p>" +
-        "<footer class='blockquote-footer'>Menu Principal<cite title='Source Title'></cite></footer>" +
-        "</blockquote>" +
-      "<ul class='list-group'>");
+    "<div class='col-lg-2 sidenav w3-card'>");
                 if (log.Tipoperfil.Equals("Alumno"))
                 {
-                    Response.Write("<li class='list-group-item'><a href='home.aspx'>Perfil</a></li>" +
-        "<li class='list-group-item'><a href='temaforo.aspx'>Foros</a></li>" +
+                    Response.Write("<blockquote class='blockquote'>" +
+        "<p class='mb-0'></p>" +
+        "<footer class='blockquote-footer'>Menu Alumno<cite title='Source Title'></cite></footer>" +
+        "</blockquote>" +
+      "<ul class='list-group'>"+ 
+      "<li class='list-group-item'><a href='home.aspx'>Perfil</a></li>" +
+        "<li class='list-group-item'><a href='temaforo.aspx'>Menu Foros</a></li>" +
         "<li class='list-group-item'><a href='videoconferencia.aspx'>Ver Video Conferencia</a></li>" +
-        "<li class='list-group-item'><a href='menutesis.aspx'>Menu Tesis</a></li>" +
+        "<li class='list-group-item'><a href='tematesis.aspx'>Menu Tesis</a></li>" +
         "<li class='list-group-item'><a href='crearForo.aspx'>Crear Foro</a></li>" +
         "<li class='list-group-item'><a href='modificarusu.aspx'>Modificar Usuario</a></li>");
                 }
                 else
                 {
-                    Response.Write("<li class='list-group-item'><a href='home.aspx'>Perfil</a></li>" +
-        "<li class='list-group-item'><a href='menuforo.aspx'>Menu Foros</a></li>" +
+                    Response.Write("<blockquote class='blockquote'>" +
+        "<p class='mb-0'></p>" +
+        "<footer class='blockquote-footer'>Menu Administrativo<cite title='Source Title'></cite></footer>" +
+        "</blockquote>" +
+      "<ul class='list-group'>" + 
+      "<li class='list-group-item'><a href='home.aspx'>Perfil</a></li>" +
+        "<li class='list-group-item'><a href='temaforo.aspx'>Menu Foros</a></li>" +
         "<li class='list-group-item'><a href='videoconferencia.aspx'>Video Conferencia</a></li>" +
         "<li class='list-group-item'><a href='subirTesis.aspx'>Subir Tesis</a></li>" +
         "<li class='list-group-item'><a href='tematesis.aspx'>Menu Tesis</a></li>" +

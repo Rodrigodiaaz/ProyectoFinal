@@ -18,4 +18,11 @@
     <!-- Custom JavaScript for this theme -->
     <script src="/Scripts/scrolling-nav.js"></script>
 
+<script type="text/javascript">
+    function eliminarTesis(idtesis, tema) {
+        document.location.assign("../Controlador/cTesis.aspx?idtesis=" + idtesis + "&tema=" + tema);
+    }
+
+</script>
+
 </html>

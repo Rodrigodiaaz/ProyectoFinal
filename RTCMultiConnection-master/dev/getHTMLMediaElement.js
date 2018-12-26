@@ -453,7 +453,7 @@ function getAudioElement(mediaElement, config) {
 
     mediaBox.appendChild(mediaElement);
 
-    mediaElementContainer.style.width = '329px';
+    mediaElementContainer.style.width = '500px';
     mediaBox.style.height = '90px';
 
     h2.style.width = mediaElementContainer.style.width;

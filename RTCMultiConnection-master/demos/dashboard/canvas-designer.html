@@ -1,4 +1,4 @@
-﻿<!-- Demo version: 2018.11.16 -->
+﻿<!-- Demo version: 2018.12.11 -->
 
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -21,6 +21,7 @@
   <script src="/node_modules/canvas-designer/dev/webrtc-handler.js"></script>
   <script src="/node_modules/canvas-designer/canvas-designer-widget.js"></script>
   <script src="/demos/js/emojionearea.min.js"></script>
+  <script src="/node_modules/webrtc-screen-capturing/getScreenId.js"></script>
   <!-- <script src="/node_modules/multistreamsmixer/MultiStreamsMixer.js"></script> -->
 
 <style type="text/css">
@@ -53,7 +54,6 @@ input[disabled], button[disabled] {
 </style>
 </head>
 <body>
-
 <style>
 .extra-controls {
     position: absolute;
@@ -115,6 +115,7 @@ input[disabled], button[disabled] {
     border-bottom: 1px solid #121010;
     display: none;
     padding-bottom: 1px;
+    display: none;
 }
 
 hr {
@@ -130,15 +131,35 @@ hr {
     display: none;
 }
 
+#btn-share-screen {
+    width: 25px;
+    vertical-align: middle;
+    cursor: pointer;
+    display: none;
+}
+
 .checkmark {
     display:none;
     width: 15px;
     vertical-align: middle;
 }
+
+#screen-viewer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999999999999;
+    display: none;
+}
 </style>
 
 <article>
+
 <div id="widget-container" style="position: fixed;bottom: 0;right: 0;left: 20%;height: 100%;border: 1px solid black; border-top:0; border-bottom: 0;"></div>
+<video id="screen-viewer" controls playsinline autoplay></video>
+
 <div style="width: 20%; height: 100%; position: absolute;left:0;">
     <video id="main-video" controls playsinline autoplay></video>
     <div id="other-videos"></div>
@@ -156,7 +177,10 @@ hr {
         <textarea id="txt-chat-message"></textarea>
         <button class="btn btn-primary" id="btn-chat-message" disabled>Send</button>
         <img id="btn-attach-file" src="https://webrtcweb.com/attach-file.png" title="Attach a File">
+        <img id="btn-share-screen" src="https://webrtcweb.com/share-screen.png" title="Share Your Screen">
     </div>
+
+    <canvas id="temp-stream-canvas" style="display: none;"></canvas>
 </div>
 </article>
 
@@ -187,7 +211,7 @@ connection.publicRoomIdentifier = params.publicRoomIdentifier;
 connection.socketMessageEvent = 'canvas-dashboard-demo';
 
 // keep room opened even if owner leaves
-connection.autoCloseEntireSession = false;
+connection.autoCloseEntireSession = true;
 
 // https://www.rtcmulticonnection.org/docs/maxParticipantsAllowed/
 connection.maxParticipantsAllowed = 1000;
@@ -273,6 +297,7 @@ connection.onopen = function(event) {
 
     document.getElementById('btn-chat-message').disabled = false;
     document.getElementById('btn-attach-file').style.display = 'inline-block';
+    document.getElementById('btn-share-screen').style.display = 'inline-block';
 };
 
 connection.onclose = connection.onerror = connection.onleave = function(event) {
@@ -280,6 +305,24 @@ connection.onclose = connection.onerror = connection.onleave = function(event) {
 };
 
 connection.onmessage = function(event) {
+    if(event.data.showMainVideo) {
+        // $('#main-video').show();
+        $('#screen-viewer').css({
+            top: $('#widget-container').offset().top,
+            left: $('#widget-container').offset().left,
+            width: $('#widget-container').width(),
+            height: $('#widget-container').height()
+        });
+        $('#screen-viewer').show();
+        return;
+    }
+
+    if(event.data.hideMainVideo) {
+        // $('#main-video').hide();
+        $('#screen-viewer').hide();
+        return;
+    }
+
     if(event.data.typing === true) {
         $('#key-press').show().find('span').html(event.extra.userFullName + ' is typing');
         return;
@@ -313,44 +356,21 @@ connection.onmessage = function(event) {
 
 // extra code
 
-function beforeOpenRoom(callback) {
-    // capture canvas-2d stream
-    // and share in realtime using RTCPeerConnection.addStream
-    // requires: dev/webrtc-handler.js
-    designer.captureStream(function(stream) {
-        stream.isScreen = true;
-        stream.streamid = stream.id;
-        stream.type = 'local';
-
-        /*
-        var video = document.createElement('video');
-        video.muted = true;
-        video.srcObject = stream;
-        video.play();
-        */
-
-        connection.attachStreams.push(stream);
-        connection.onstream({
-            stream: stream,
-            type: 'local',
-            streamid: stream.id,
-            // mediaElement: video
-        });
-
-        callback();
-    });
-}
-
 connection.onstream = function(event) {
-    if (event.stream.isScreen) {
+    if (event.stream.isScreen && !event.stream.canvasStream) {
+        $('#screen-viewer').get(0).srcObject = event.stream;
+        $('#screen-viewer').hide();
+    }
+    else if (event.extra.roomOwner === true) {
         var video = document.getElementById('main-video');
         video.setAttribute('data-streamid', event.streamid);
-        video.style.display = 'block';
+        // video.style.display = 'none';
         if(event.type === 'local') {
             video.muted = true;
             video.volume = 0;
         }
         video.srcObject = event.stream;
+        $('#main-video').show();
     } else {
         event.mediaElement.controls = false;
 
@@ -584,35 +604,21 @@ function updateLabel(progress, label) {
     label.innerHTML = position + '%';
 }
 
-/*
-// to enable only camera
-function beforeOpenRoom(callback) {
-    navigator.mediaDevices.getUserMedia({ audio: true, video: true }).then(function(stream) {
-        connection.dontCaptureUserMedia = true;
-        
-        stream.isScreen = true;
-        stream.streamid = stream.id;
-        stream.type = 'local';
-
-        connection.attachStreams.push(stream);
-        connection.onstream({
-            stream: stream,
-            type: 'local',
-            streamid: stream.id
-        });
-
-        callback();
-    });
+if(!!params.password) {
+    connection.password = params.password;
 }
-*/
 
 designer.appendTo(document.getElementById('widget-container'), function() {
-    if(!!params.password) {
-        connection.password = params.password;
-    }
-
     if (params.open === true || params.open === 'true') {
-        beforeOpenRoom(function() {
+            var tempStreamCanvas = document.getElementById('temp-stream-canvas');
+            var tempStream = tempStreamCanvas.captureStream();
+            tempStream.isScreen = true;
+            tempStream.streamid = tempStream.id;
+            tempStream.type = 'local';
+            connection.attachStreams.push(tempStream);
+            window.tempStream = tempStream;
+
+            connection.extra.roomOwner = true;
             connection.open(params.sessionid, function(isRoomOpened, roomid, error) {
                 if (error) {
                     if (error === connection.errors.ROOM_NOT_AVAILABLE) {
@@ -626,7 +632,6 @@ designer.appendTo(document.getElementById('widget-container'), function() {
                     location.reload();
                 });
             });
-        });
     } else {
         connection.join(params.sessionid, function(isRoomJoined, roomid, error) {
             if (error) {
@@ -659,6 +664,135 @@ designer.appendTo(document.getElementById('widget-container'), function() {
             });
         });
     }
+});
+
+function addStreamStopListener(stream, callback) {
+    stream.addEventListener('ended', function() {
+        callback();
+        callback = function() {};
+    }, false);
+
+    stream.addEventListener('inactive', function() {
+        callback();
+        callback = function() {};
+    }, false);
+
+    stream.getTracks().forEach(function(track) {
+        track.addEventListener('ended', function() {
+            callback();
+            callback = function() {};
+        }, false);
+
+        track.addEventListener('inactive', function() {
+            callback();
+            callback = function() {};
+        }, false);
+    });
+}
+
+function replaceTrack(videoTrack, screenTrackId) {
+    if (!videoTrack) return;
+    if (videoTrack.readyState === 'ended') {
+        alert('Can not replace an "ended" track. track.readyState: ' + videoTrack.readyState);
+        return;
+    }
+    connection.getAllParticipants().forEach(function(pid) {
+        var peer = connection.peers[pid].peer;
+        if (!peer.getSenders) return;
+        var trackToReplace = videoTrack;
+        peer.getSenders().forEach(function(sender) {
+            if (!sender || !sender.track) return;
+            if(screenTrackId) {
+                if(trackToReplace && sender.track.id === screenTrackId) {
+                    sender.replaceTrack(trackToReplace);
+                    trackToReplace = null;
+                }
+                return;
+            }
+
+            if(sender.track.id !== tempStream.getTracks()[0].id) return;
+            if (sender.track.kind === 'video' && trackToReplace) {
+                sender.replaceTrack(trackToReplace);
+                trackToReplace = null;
+            }
+        });
+    });
+}
+
+function replaceScreenTrack(stream) {
+    stream.isScreen = true;
+    stream.streamid = stream.id;
+    stream.type = 'local';
+
+    // connection.attachStreams.push(stream);
+    connection.onstream({
+        stream: stream,
+        type: 'local',
+        streamid: stream.id,
+        // mediaElement: video
+    });
+
+    var screenTrackId = stream.getTracks()[0].id;
+    addStreamStopListener(stream, function() {
+        connection.send({
+            hideMainVideo: true
+        });
+
+        // $('#main-video').hide();
+        $('#screen-viewer').hide();
+        $('#btn-share-screen').show();
+        replaceTrack(tempStream.getTracks()[0], screenTrackId);
+    });
+
+    stream.getTracks().forEach(function(track) {
+        if(track.kind === 'video' && track.readyState === 'live') {
+            replaceTrack(track);
+        }
+    });
+
+    connection.send({
+        showMainVideo: true
+    });
+
+    // $('#main-video').show();
+    $('#screen-viewer').css({
+            top: $('#widget-container').offset().top,
+            left: $('#widget-container').offset().left,
+            width: $('#widget-container').width(),
+            height: $('#widget-container').height()
+        });
+    $('#screen-viewer').show();
+}
+
+$('#btn-share-screen').click(function() {
+    if(!window.tempStream) {
+        alert('Screen sharing is not enabled.');
+        return;
+    }
+
+    $('#btn-share-screen').hide();
+
+    getScreenId(function (error, sourceId, screen_constraints) {
+        if(navigator.userAgent.indexOf('Edge') !== -1 && (!!navigator.msSaveOrOpenBlob || !!navigator.msSaveBlob)) {
+            navigator.getDisplayMedia(screen_constraints).then(stream => {
+                replaceScreenTrack(stream);
+            }, error => {
+                alert('Please make sure to use Edge 17 or higher.');
+            });
+            return;
+        }
+
+        if(error == 'not-installed') {
+          alert('Please install Chrome extension.');
+          return;
+        }
+
+        navigator.mediaDevices.getUserMedia(screen_constraints).then(function (stream) {
+            replaceScreenTrack(stream);
+        }).catch(function (error) {
+          alert('Failed to capture your screen. Please check Chrome console logs for further information.');
+        });
+    });
 });
 </script>
 </body>

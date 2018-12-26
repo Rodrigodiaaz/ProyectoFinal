@@ -52,51 +52,56 @@ namespace ProyectoTesis.Vistas
            "</head>" +
 
            "<body id='page-top'>" +
-               "<!-- Navigation -->" +
-                  "<nav class='navbar navbar-expand-lg  fixed-top' id='mainNav'>" +
-                      "<div class='container'>" +
-                          "<p class='navbar-brand js-scroll-trigger' href='#page-top'><img class='rounded img - fluid' width='105px' height='85px' src='../img/logo2.jpg'></p>" +
-                          "<button class='navbar-toggler' type='button' data-toggle='collapse' data-target='#navbarResponsive' aria-controls='navbarResponsive' aria-expanded='false' aria-label='Toggle navigation'>" +
-
-                              "<span class='navbar-toggler-icon'></span>" +
-                          "</button>" +
-
-
-                          "<div class='collapse navbar-collapse' id='navbarResponsive'>" +
-
-
-                              "<input class='form-control ml-5 lg-5 mr-5 lg-5 mt-lg-3 mb-lg-3' type='search' placeholder='Busqueda' aria-label='Search'>" +
-                          "</div>" +
-                      "</div>" +
-                  "</nav>" +
+               "<!--Navigation-->" +
+                    "<nav class='navbar navbar-expand-lg fixed-top' id='mainNav'>" +
+                        "<div class='container'>" +
+                            "<a class='navbar-brand js-scroll-trigger' href='#page-top'><img class='rounded img - fluid' width='105px' height='85px' src='../img/logo2.jpg'></a>" +
+                            "<button class='navbar-toggler' type='button' data-toggle='collapse' data-target='#navbarResponsive' aria-controls='navbarResponsive' aria-expanded='false' aria-label='Toggle navigation'>" +
+                                "<span class='navbar-toggler-icon'></span>" +
+                            "</button>" +
+                            "<div class='collapse navbar-collapse' id='navbarResponsive'>" +
+                                "<input class='form-control ml-5 lg-5 mr-5 lg-5 mt-lg-3 mb-lg-3' type='search' placeholder='Busqueda' aria-label='Search'>" +
+                      "<ul class='navbar-nav ml-auto'>" +
+                        "<li class='nav-item'>" +
+                          "<a class='nav-link js-scroll-trigger text-white' href='cerrarsesion.aspx'>Desconectar</a>" +
+                        "</li>" +
+                      "</ul>" +
+                    "</div>" +
+                  "</div>" +
+                    "</nav>" +
            "<header>" +
            "<div class='container-fluid'>" +
             "<div class='row content'>" +
-              "<div class='col-lg-3 sidenav w3-card'>" +
-                "<blockquote class='blockquote'>" +
-                  "<p class='mb-0'>Administrador o Usuario</p>" +
-                  "<br />" +
-                  "<footer class=''> <img class='rounded img-fluid' width='50px' height='50px' src='../img/menu.jpg'>Menu</footer>" +
-                  "</blockquote>" +
-                "<ul class='list-group'>");
+              "<div class='col-lg-3 sidenav w3-card'>");
                         if (log.Tipoperfil.Equals("Alumno"))
                         {
-                            Response.Write("<li class='list-group-item'><a href='home.aspx'>Perfil</a></li>" +
-                "<li class='list-group-item'><a href='temaforo.aspx'>Foros</a></li>" +
-                "<li class='list-group-item'><a href='videoconferencia.aspx'>Ver Video Conferencia</a></li>" +
+                            Response.Write("<blockquote class='blockquote'>" +
+                  "<p class='mb-0'></p>" +
+                  "<br />" +
+                  "<footer class=''> <img class='rounded img-fluid' width='50px' height='50px' src='../img/menu.jpg'>Menu Alumno</footer>" +
+                  "</blockquote>" +
+                "<ul class='list-group'>"+ 
+                "<li class='list-group-item'><a href='MenuPrincipal.aspx'>Menu Principal</a></li>" +
+                "<li class='list-group-item'><a href='home.aspx'>Perfil</a></li>" +
                 "<li class='list-group-item'><a href='tematesis.aspx'>Menu Tesis</a></li>" +
-                "<li class='list-group-item'><a href='crearForo.aspx'>Crear Foro</a></li>" +
-                "<li class='list-group-item'><a href='modificarusu.aspx'>Modificar Usuario</a></li>");
+                "<li class='list-group-item'><a href='temaForo.aspx'>Menu Foro</a></li>" +
+                "<li class='list-group-item'><a href='videoconferencia.aspx'>Video Conferencia</a></li>");
+                            
                         }
                         else
                         {
-                            Response.Write("<li class='list-group-item'><a href='home.aspx'>Perfil</a></li>" +
-                "<li class='list-group-item'><a href='menuforo.aspx'>Menu Foros</a></li>" +
-                "<li class='list-group-item'><a href='videoconferencia.aspx'>Video Conferencia</a></li>" +
-                "<li class='list-group-item'><a href='subirTesis.aspx'>Subir Tesis</a></li>" +
-                "<li class='list-group-item'><a href='menutesis.aspx'>Menu Tesis</a></li>" +
-                "<li class='list-group-item'><a href='crearForo.aspx'>Crear Foro</a></li>" +
-                "<li class='list-group-item'><a href='modificarusu.aspx'>Modificar Usuario</a></li>");
+                            Response.Write("<blockquote class='blockquote'>" +
+                  "<p class='mb-0'></p>" +
+                  "<br />" +
+                  "<footer class=''> <img class='rounded img-fluid' width='50px' height='50px' src='../img/menu.jpg'>Menu Administrador</footer>" +
+                  "</blockquote>" +
+                "<ul class='list-group'>" +
+                "<li class='list-group-item'><a href='MenuPrincipal.aspx'>Menu Principal</a></li>" +
+                "<li class='list-group-item'><a href='home.aspx'>Perfil</a></li>" +
+                "<li class='list-group-item'><a href='tematesis.aspx'>Menu Tesis</a></li>" +
+                "<li class='list-group-item'><a href='SubirTesis.aspx'>Subir Tesis</a></li>" +
+                "<li class='list-group-item'><a href='temaForo.aspx'>Menu Foro</a></li>" +
+                "<li class='list-group-item'><a href='videoconferencia.aspx'>Video Conferencia</a></li>");
                         }
                         Response.Write("</ul>" +
                   "<br />" +
@@ -117,6 +122,7 @@ namespace ProyectoTesis.Vistas
                                 "<th scope='col'>Nombre de Tesis</th>" +
                                 "<th scope='col'>Profesor</th>" +
                                 "<th scope='col'>Autor</th>");
+
                         if (log.Tipoperfil.Equals("Administrativo"))
                         {
                             Response.Write("<th scope='col'>Accion</th>");
@@ -140,7 +146,7 @@ namespace ProyectoTesis.Vistas
                                     AutorTesis at = new AutorTesis();
                                     List<AutorTesis> listaautores= at.BuscaAutorTesis(alltesis[i].Idtesis.ToString());
                                     Response.Write("<tr>" +
-                                  "<td><a href='tesis.aspx?idtesis=" + alltesis[i].Idtesis + "'><p>" + alltesis[i].Titulo + "</p></a></td>" +
+                                  "<td><a href='tesis.aspx?idtesis=" + alltesis[i].Idtesis + "'>"+ alltesis[i].Titulo + "</a></td>" +
                                   "<td><p>" + alltesis[i].Profesor_guia + "</p></td>" +
                                   "<td><p>");
                                     for (int j = 0; j < listaautores.Count; j++)
@@ -253,7 +259,7 @@ namespace ProyectoTesis.Vistas
                                         AutorTesis at = new AutorTesis();
                                         List<AutorTesis> listaautores = at.BuscaAutorTesis(alltesis[i].Idtesis.ToString());
                                         Response.Write("<tr>" +
-                                      "<td><a href='tesis.aspx?idtesis=" + alltesis[i].Idtesis + "'><p>" + alltesis[i].Titulo + "</p></a></td>" +
+                                      "<td><a href='tesis.aspx?idtesis=" + alltesis[i].Idtesis + "'>" + alltesis[i].Titulo + "</a></td>" +
                                       "<td><p>" + alltesis[i].Profesor_guia + "</p></td>" +
                                       "<td><p>");
                                         for (int j = 0; j < listaautores.Count; j++)
@@ -363,7 +369,7 @@ namespace ProyectoTesis.Vistas
                                         AutorTesis at = new AutorTesis();
                                         List<AutorTesis> listaautores = at.BuscaAutorTesis(alltesis[i].Idtesis.ToString());
                                         Response.Write("<tr>" +
-                                      "<td><a href='tesis.aspx?idtesis=" + alltesis[i].Idtesis + "'><p>" + alltesis[i].Titulo + "</p></a></td>" +
+                                      "<td><a href='tesis.aspx?idtesis=" + alltesis[i].Idtesis + "'>" + alltesis[i].Titulo + "</a></td>" +
                                       "<td><p>" + alltesis[i].Profesor_guia + "</p></td>" +
                                       "<td><p>");
                                         for (int j = 0; j < listaautores.Count; j++)

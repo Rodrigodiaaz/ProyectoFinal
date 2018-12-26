@@ -1,4 +1,5 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ModificarUsu.aspx.cs" Inherits="ProyectoTesis.Vistas.ModificarUsu" %>
+<%@ Import Namespace="ProyectoTesis.Modelos" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -49,7 +50,7 @@
           <ul class="navbar-nav ml-auto">
              
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger text-white" href="index.aspx">Desconectar</a>
+              <a class="nav-link js-scroll-trigger text-white" href="cerrarsesion.aspx">Desconectar</a>
             </li>
 
           </ul>
@@ -61,17 +62,48 @@
  <div class="container-fluid">
   <div class="row content">
     <div class="col-lg-3 sidenav w3-card">
-      <blockquote class="blockquote">
-        <p class="mb-0">Administrador o Usuario</p>
+      <%
+            Usuario u = (Usuario)Session["logeado"];
+            if (u.Tipoperfil.Equals("Alumno"))
+            {
+                %>
+        <blockquote class="blockquote">
+        <p class="mb-0"></p>
         <br />
-        <footer class=""> <img class="rounded img-fluid" width="50px" height="50px" src="../img/menu.jpg">Menu</footer>
+        <footer class=""> <img class="rounded img-fluid" width="50px" height="50px" src="../img/menu.jpg">Menu Alumno </footer>
         </blockquote>
-      <ul class="list-group">
+     <ul class="list-group">
+         <li class='list-group-item'><a href="MenuPrincipal.aspx">Menu Principal</a></li>
         <li class="list-group-item"><a href="home.aspx">Perfil</a></li>
-        <li class="list-group-item"><a href="menuforo.aspx">Menu Foros</a></li>
-        <li class="list-group-item"><a href="temaTesis.aspx">Menu Tesis</a></li>
-        <li class="list-group-item"><a href="temaTesis.aspx">Video Conferencia</a></li>
+        <li class="list-group-item"><a href="temaForo.aspx">Menu Foros</a></li>
+        <li class="list-group-item"><a href="videoconferencia.aspx">Video Conferencia</a></li>
       </ul>
+        
+        <%
+
+            }
+            else
+            {
+                %>
+        <blockquote class="blockquote">
+        <p class="mb-0"></p>
+        <br />
+        <footer class=""> <img class="rounded img-fluid" width="50px" height="50px" src="../img/menu.jpg">Menu Adminstrador </footer>
+        </blockquote>
+     <ul class="list-group">
+         <li class='list-group-item'><a href='home.aspx'>Perfil</a></li>
+        <li class='list-group-item'><a href='temaforo.aspx'>Menu Foros</a></li>
+        <li class='list-group-item'><a href='videoconferencia.aspx'>Video Conferencia</a></li>
+        <li class='list-group-item'><a href='subirTesis.aspx'>Subir Tesis</a></li>
+        <li class='list-group-item'><a href='tematesis.aspx'>Menu Tesis</a></li>
+        <li class='list-group-item'><a href='crearForo.aspx'>Crear Foro</a></li>
+        <li class='list-group-item'><a href='modificarusu.aspx'>Modificar Usuario</a></li>
+      </ul>
+        
+        <%
+            }
+
+            %>
       <br />
       <br />
     
@@ -80,7 +112,7 @@
     <div class="col-lg-6 w3-card">
       <div class="text-center"><h2>Modificar Perfil</h2></div>
       <h5 class="EmblemaP2">&nbsp;&nbsp;&nbsp;&nbsp;</h5>
-        <div class="text-center><asp:Label ID="lblMensaje" runat="server" Text="Label"></asp:Label></div>
+        <div class="text-center><asp:Label ID="lblMensaje" runat="server" Text=""></asp:Label></div>
       <br />
        <div class="panel panel-default">
         <div class="panel-heading">

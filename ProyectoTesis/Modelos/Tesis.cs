@@ -240,7 +240,7 @@ namespace ProyectoTesis.Modelos
         public List<Tesis> BuscaPorTema(int tema)
         {
             Conexion con = Conexion.Instance();
-            Tesis t = null;
+            Tesis t2 = null;
             List<Tesis> lista = new List<Tesis>();
             try
             {
@@ -251,15 +251,15 @@ namespace ProyectoTesis.Modelos
                 MySqlDataReader reader = comando.ExecuteReader();
                 while (reader.Read())
                 {
-                    t = new Tesis();
-                    t.Idtesis = Int32.Parse(reader[0].ToString());
-                    t.Autor = reader[1].ToString();
-                    t.Descripcion = reader[2].ToString();
-                    t.Profesor_guia= reader[3].ToString();
-                    t.Nombre_archivo = reader[4].ToString();
-                    t.Titulo = reader[6].ToString();
-                    t.tematesis = Int32.Parse(reader[6].ToString());
-                    lista.Add(t);
+                    t2 = new Tesis();
+                    t2.Idtesis = Int32.Parse(reader[0].ToString());
+                    t2.Autor = reader[1].ToString();
+                    t2.Descripcion = reader[2].ToString();
+                    t2.Profesor_guia = reader[3].ToString();
+                    t2.Nombre_archivo = reader[4].ToString();
+                    t2.Titulo = reader[5].ToString();
+                    t2.tematesis = Int32.Parse(reader[6].ToString());
+                    lista.Add(t2);
                 }
                 return lista;
             }
@@ -276,7 +276,7 @@ namespace ProyectoTesis.Modelos
         public List<Tesis> buscaTodosLosTesis2()
         {
             Conexion con = Conexion.Instance();
-            Tesis t = null;
+            Tesis t2 = null;
             List<Tesis> lista = new List<Tesis>();
             try
             {
@@ -287,14 +287,15 @@ namespace ProyectoTesis.Modelos
                 MySqlDataReader reader = comando.ExecuteReader();
                 while (reader.Read())
                 {
-                    t = new Tesis();
-                    t.Idtesis = Int32.Parse(reader[0].ToString());
-                    t.Autor = reader[1].ToString();
-                    t.Descripcion = reader[2].ToString();
-                    t.Profesor_guia = reader[3].ToString();
-                    t.Nombre_archivo = reader[4].ToString();
-                    t.tematesis = Int32.Parse(reader[5].ToString());
-                    lista.Add(t);
+                    t2 = new Tesis();
+                    t2.Idtesis = Int32.Parse(reader[0].ToString());
+                    t2.Autor = reader[1].ToString();
+                    t2.Descripcion = reader[2].ToString();
+                    t2.Profesor_guia = reader[3].ToString();
+                    t2.Nombre_archivo = reader[4].ToString();
+                    t2.Titulo = reader[5].ToString();
+                    t2.tematesis = Int32.Parse(reader[6].ToString());
+                    lista.Add(t2);
                 }
                 return lista;
             }
