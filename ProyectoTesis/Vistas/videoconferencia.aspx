@@ -11,7 +11,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>RSTSP</title>
+    <title>Humanidades INACAP</title>
 
     <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="/css/scrolling-nav.css" rel="stylesheet">

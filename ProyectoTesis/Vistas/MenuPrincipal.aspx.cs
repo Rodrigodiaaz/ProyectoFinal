@@ -25,6 +25,7 @@ namespace ProyectoTesis.Vistas
     "<meta name='author' content=''>" +
     "<link href='/vendor/bootstrap/css/bootstrap.min.css' rel='stylesheet'>" +
     "<link href='/css/scrolling-nav.css' rel='stylesheet'>" +
+    "<title>Humanidades INACAP</title>" +
     "<link href='../css/estilos.css' rel='stylesheet' />" +
     "<link rel='stylesheet' type='text/css' href='../css/w3.css'>" +
     "<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>" +

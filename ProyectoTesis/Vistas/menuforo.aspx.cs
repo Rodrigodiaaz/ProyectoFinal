@@ -34,7 +34,7 @@ namespace ProyectoTesis.Vistas
                     "<meta name = 'viewport' content = 'width=device-width, initial-scale=1, shrink-to-fit=no'>" +
                     "<meta name = 'description' content = ''>" +
                     "<meta name = 'author' content = ''>" +
-                    "<title> RSTSP </title>" +
+                    "<title> Humanidades INACAP </title>" +
                     "<link href = '/vendor/bootstrap/css/bootstrap.min.css' rel = 'stylesheet'>" +
                     "<link href = '/css/scrolling-nav.css' rel = 'stylesheet'>" +
                     "<link href = '../css/estilos.css' rel = 'stylesheet' />" +
